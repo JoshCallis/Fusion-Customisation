@@ -52,4 +52,4 @@ The pure logic is tested offline. Python tests stub the `adsk` module; the windo
 
 ## Notes
 
-This is a working snapshot of a personal setup, not a packaged product. Paths point at the folders it was developed in (e.g. `~/Code/Scripts/fusion_ui/`), and some features expect companion tools from the same system, such as the trackpad navigation in [trackpad-gestures](https://github.com/JoshCallis/trackpad-gestures). Requires Autodesk Fusion on macOS.
+This is a working snapshot of a personal setup, not a packaged product. Paths point at the folders it was developed in (e.g. `~/Code/Scripts/fusion_ui/`), and some features expect companion tools from the same system, such as the trackpad navigation in [trackpad-gestures](https://github.com/JoshCallis/Magic-Trackpad-Customisation). Requires Autodesk Fusion on macOS.
