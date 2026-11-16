@@ -1,0 +1,12 @@
+{
+	"autodeskProduct":	"Fusion",
+	"type":	"addin",
+	"author":	"",
+	"description":	{
+		"":	"Rectangular Pattern, with the value window as its dialog: one direction by default (Two opens a second), cycled by the Cycle Direction key. A feature cut into one face goes along that face's own axes (Absolute for the component's X, Y, Z), directions that would miss the body are dropped; bodies go along X, Y, Z; inside a sketch it makes a sketch pattern constraint. Quantity and distance as expressions, made in the patterned things' component."
+	},
+	"version":	"",
+	"runOnStartup":	true,
+	"supportedOS":	"mac",
+	"editEnabled":	true
+}

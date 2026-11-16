@@ -1,0 +1,13 @@
+{
+    "autodeskProduct": "Fusion360",
+    "type": "addin",
+    "id": "Sketch Mode Bridge",
+    "author": "",
+    "description": {
+        "": "Fires BTT triggers fusion_sketch_enter / fusion_sketch_exit when entering or leaving sketch edit mode."
+    },
+    "version": "1.0.0",
+    "runOnStartup": true,
+    "supportedOS": "mac",
+    "editEnabled": true
+}

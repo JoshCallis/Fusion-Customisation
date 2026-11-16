@@ -1,0 +1,11 @@
+{
+    "autodeskProduct": "Fusion",
+    "type": "addin",
+    "id": "FusionShortcuts",
+    "author": "",
+    "description": {
+        "": "Keyboard shortcut browser and editor. Serves the command catalog and recently-run commands to a WKWebView window (FusionShortcuts.app) and writes bindings back through Fusion's HotKey text commands."
+    },
+    "version": "1.0.0",
+    "runOnStartup": true
+}

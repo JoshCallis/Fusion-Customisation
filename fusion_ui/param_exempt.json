@@ -1,0 +1,22 @@
+{
+  "_comment": [
+    "Words exempt from the structured parameter-naming convention (param_naming.json).",
+    "Typed alone as the feature in the Dimension Value name stepper, one of these adds",
+    "a 'None' choice to the type step: the parameter is then named just the word",
+    "('Width') — no owner, no type — and so lands at the top level of the Parameters",
+    "window (it doesn't parse, so it isn't filed under any component's group).",
+    "Matched case-insensitively; the spelling here is the one used. Edited from",
+    "Control Room > Fusion > Exempt Names (remap/server.py /param_exempt/set)."
+  ],
+  "words": [
+    "Top",
+    "Bottom",
+    "Left",
+    "Right",
+    "Front",
+    "Back",
+    "Width",
+    "Height",
+    "Depth"
+  ]
+}

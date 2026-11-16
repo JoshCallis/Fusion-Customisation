@@ -1,0 +1,12 @@
+{
+	"autodeskProduct":	"Fusion",
+	"type":	"addin",
+	"author":	"",
+	"description":	{
+		"":	"Cycle the sketch you are editing through everything shown, construction lines hidden, and dimensions and constraints hidden too; plus a toggle for projected geometry."
+	},
+	"version":	"",
+	"runOnStartup":	true,
+	"supportedOS":	"mac",
+	"editEnabled":	true
+}

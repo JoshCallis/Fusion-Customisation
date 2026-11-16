@@ -1,0 +1,10 @@
+{
+  "autodeskProduct": "Fusion",
+  "type": "addin",
+  "id": "joshcallis_appearance_toggle",
+  "author": "Josh",
+  "description": { "": "Toggle a light/dark viewport appearance (Dark Sky <-> Tranquility Blue), optionally following the macOS system appearance." },
+  "supportedOS": "mac",
+  "editEnabled": true,
+  "runOnStartup": true
+}

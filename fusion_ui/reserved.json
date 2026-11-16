@@ -1,0 +1,50 @@
+{
+  "_comment": [
+    "Chords Fusion's own 'Change Keyboard Shortcut' prompt refuses to hold, keyed by",
+    "the canonical modifier set (fusion.MOD_ORDER order, joined with '+', '' = none).",
+    "A value is either a list of bare keys that are reserved with that exact modifier",
+    "set, or {'except': [...]} meaning EVERY key is reserved except the ones listed.",
+    "Compiled by fusion.py::reserved() against fusion.split()'s canonical form, so a",
+    "chord is looked up by its exact modifier set — ctrl+shift (one finger) and",
+    "shift+alt (space) are touched only where this table names that exact set.",
+    "",
+    "Source: measured by hand against Fusion's prompt, 2026-09-16. There may be more;",
+    "add them here as they turn up.",
+    "",
+    "'surrogate_mods' is the pool a reserved chord is rewritten into when remapd needs",
+    "somewhere for Fusion to actually hold it — cmd+alt first, then with one more",
+    "modifier at a time, until a slot fusion_set finds free. Never ctrl+shift+cmd or",
+    "ctrl+alt+shift+cmd: those are four and five fingers (fusion.FINGER_MODS, 2026-10-16).",
+    "",
+    "'stand_ins' is for a key the prompt will not hold under ANY modifier set — its",
+    "hint asks for an alphanumeric key, and Space never lands (2026-09-24). A reserved",
+    "chord on one of these keys gets its surrogate on a stand-in letter instead, tried",
+    "in order with the same surrogate_mods pool.",
+    "",
+    "'surrogate_avoid' is never a surrogate: chords macOS or Fusion's menu bar answers",
+    "before the prompt sees them. The anchor step TYPES the surrogate into Fusion, so",
+    "cmd+w's first pick, alt+cmd+w (Close All), closed windows (2026-10-12)."
+  ],
+  "surrogate_avoid": [
+    "alt+cmd+w", "alt+cmd+h", "alt+cmd+m", "alt+cmd+q", "alt+cmd+d", "alt+cmd+escape",
+    "alt+cmd+space", "alt+cmd+8", "alt+cmd+-", "alt+cmd+=",
+    "alt+shift+cmd+q", "alt+shift+cmd+escape", "alt+shift+cmd+w",
+    "ctrl+alt+cmd+8", "ctrl+alt+cmd+,", "ctrl+alt+cmd+.", "ctrl+alt+cmd+q"
+  ],
+  "reserved": {
+    "": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "s", "space", "return"],
+    "shift": ["h"],
+    "cmd": ["q", "w", "s", "z", "x", "c", "v", "n", "m", ",", "o"],
+    "ctrl": { "except": ["v", "b", "h", "m", ",", "u", "y", "t"] },
+    "alt": { "except": ["v", "b", "h", "m", ",", "u", "y", "t"] }
+  },
+  "surrogate_mods": [
+    ["cmd", "alt"],
+    ["cmd", "alt", "shift"],
+    ["cmd", "alt", "ctrl"]
+  ],
+  "stand_ins": {
+    "space": ["j", "k", "u", "y"],
+    "return": ["p", "l", "i", "o"]
+  }
+}

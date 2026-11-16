@@ -1,0 +1,11 @@
+{
+    "autodeskProduct": "Fusion",
+    "type": "addin",
+    "id": "SketchDirections",
+    "author": "",
+    "description": {
+        "": "Makes joined sketch curves all run the same way, so a sheet-metal flange built on them is one continuous flange instead of breaking where two curves meet. Unify (whole sketch or the chains through the selection) and Flip (just the selected curves)."
+    },
+    "version": "1.0.0",
+    "runOnStartup": true
+}

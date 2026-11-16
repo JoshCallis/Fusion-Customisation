@@ -1,0 +1,13 @@
+{
+	"autodeskProduct":	"Fusion",
+	"type":	"addin",
+	"id":	"JoshWorkspaceToggle",
+	"author":	"Josh",
+	"description":	{
+		"":	"Toggle Design/Render workspaces; in Render: mirror Design's commands for search, force shaded-with-edges, and keep the Rendering Gallery palette closed."
+	},
+	"version":	"1.0.0",
+	"runOnStartup":	true,
+	"supportedOS":	"mac",
+	"editEnabled":	true
+}

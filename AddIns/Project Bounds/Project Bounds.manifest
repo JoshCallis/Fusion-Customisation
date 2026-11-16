@@ -1,0 +1,12 @@
+{
+	"autodeskProduct":	"Fusion",
+	"type":	"addin",
+	"author":	"",
+	"description":	{
+		"":	"Project the edited sketch's component origin and bounds rectangle into it — the same thing Auto-Project Origin gives every new sketch, for a sketch that does not have them yet."
+	},
+	"version":	"",
+	"runOnStartup":	true,
+	"supportedOS":	"mac",
+	"editEnabled":	true
+}

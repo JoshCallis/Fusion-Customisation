@@ -1,0 +1,11 @@
+{
+    "autodeskProduct": "Fusion",
+    "type": "addin",
+    "id": "SketchClipboard",
+    "author": "",
+    "description": {
+        "": "One hotkey: copies the selected sketch (or selected sketch geometry), and pastes it into another component with constraints, dimensions, world position and origin link intact."
+    },
+    "version": "1.0.0",
+    "runOnStartup": true
+}

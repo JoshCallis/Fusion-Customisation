@@ -1,0 +1,12 @@
+{
+	"autodeskProduct":	"Fusion",
+	"type":	"addin",
+	"author":	"",
+	"description":	{
+		"":	"The model's section in the sketch you are drawing, as fixed construction curves; whatever you tie to them becomes dimensions to the bounds in the same parameters. Bring In, Offset, Tie, Gap Limits, Move, and placing a sketch by picks."
+	},
+	"version":	"",
+	"runOnStartup":	true,
+	"supportedOS":	"mac",
+	"editEnabled":	true
+}

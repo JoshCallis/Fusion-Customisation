@@ -1,0 +1,13 @@
+{
+	"autodeskProduct":	"Fusion",
+	"type":	"addin",
+	"id":	"JoshGlowSettings",
+	"author":	"Josh",
+	"description":	{
+		"":	"Glow Settings: a palette of live sliders for the Browser's suspend-mode edge glow (bin/fusion_glow.m) — writes config/fusion_glow.json, with a preview toggle."
+	},
+	"version":	"1.0.0",
+	"runOnStartup":	true,
+	"supportedOS":	"mac",
+	"editEnabled":	true
+}

@@ -1,0 +1,259 @@
+  /* Shared palette, typography, list metrics (--row-h, --sep, --twirl-*), the
+     twirl arrow and the scrollbar all come from /theme.css. Only Parameter-
+     specific rules live here. The --name-col column width is set below at runtime. */
+
+  /* Nothing is text-selectable except an input you're actively editing. Read-only
+     inputs (the labels/expressions when not editing) can't be drag-highlighted. */
+  input[readonly] { -webkit-user-select: none; user-select: none; }
+  input:not([readonly]), textarea { -webkit-user-select: text; user-select: text; }
+
+  /* Modal action buttons reuse these. */
+  .btn {
+    font: inherit; font-size: 12px; cursor: pointer;
+    background: var(--group-hdr); color: var(--text);
+    border: 1px solid var(--border2); border-radius: var(--radius);
+    padding: 3px 9px; transition: background .1s;
+  }
+  .btn:hover { background: var(--border); }
+  .btn-accent { background: var(--accent-dim); border-color: var(--accent); color: #cfe2f5; }
+  .btn-accent:hover { background: var(--accent); color: #fff; }
+
+  /* ── Nested edit stack breadcrumb ────────────────────────────────────────── */
+  #edit-breadcrumb {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 4px;
+    padding: 5px 10px; font-size: 11px; color: var(--text-faint);
+    background: var(--group-hdr); border-bottom: var(--sep);
+  }
+  #edit-breadcrumb.hide { display: none; }
+  #edit-breadcrumb .crumb {
+    cursor: pointer; color: var(--text-dim); border-radius: 3px; padding: 1px 4px;
+  }
+  #edit-breadcrumb .crumb:hover { background: var(--border); color: var(--text); }
+  #edit-breadcrumb .crumb.current { color: var(--text); cursor: default; }
+  #edit-breadcrumb .crumb.current:hover { background: none; }
+  #edit-breadcrumb .sep { color: var(--text-faint); }
+
+  /* ── Column resize divider ───────────────────────────────────────────────── */
+  /* Overlays the highest list item at the Name/Expression boundary (no strip of
+     its own), so it takes up no vertical space. */
+  #col-divider {
+    position: absolute; top: 4px; height: 24px; left: var(--name-col);
+    width: 13px; transform: translateX(-50%);
+    cursor: col-resize; z-index: 7;
+  }
+  #col-divider::after {
+    content: ''; position: absolute; left: 50%; top: 3px; bottom: 3px; width: 1px;
+    background: var(--border2);
+  }
+  /* Only tint while actually dragging — not on hover. */
+  #col-divider.dragging::after { background: var(--accent); }
+
+  /* ── Main scroll area ────────────────────────────────────────────────────── */
+  /* A flex column so #groups-root fills the leftover height — clicking the empty
+     space beneath the list then lands on it and clears the selection. */
+  #main { padding: 0 0 40px; overflow-y: auto; flex: 1;
+    display: flex; flex-direction: column; position: relative; }
+  html, body { display: flex; flex-direction: column; }
+  body > #main { min-height: 0; }
+  #groups-root { position: relative; flex: 1; }
+
+  /* ── Group header ────────────────────────────────────────────────────────── */
+  .group-header {
+    display: flex; align-items: center; gap: 4px;
+    padding: 5px 12px 5px 8px;
+    background: var(--bg);
+    border-top: none;            /* single separator (match Browser's fainter look) */
+    border-bottom: var(--sep);
+    cursor: default;
+  }
+  .group-header.selected { background: var(--sel); }
+
+  /* Drop-into target: shade the whole group (header + its contents), not a border. */
+  .group.drop-inside { background: rgba(91,151,207,.10); }
+  .group.drop-inside > .group-header { background: rgba(91,151,207,.18); }
+
+  .group-name {
+    font: inherit; font-size: 13px; font-weight: 400; color: var(--text);
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .group-name-input {
+    font: inherit; font-size: 13px; color: var(--text);
+    background: var(--focus-bg); border: none; border-radius: 2px;
+    outline: none; padding: 0 3px; min-width: 60px;
+  }
+
+  /* ── Parameter row ───────────────────────────────────────────────────────── */
+  /* Two columns; the whole row is the drag surface (default cursor, no grab
+     hand). Inputs are sized to their text, leaving the rest of each cell as
+     empty drag/select area. */
+  .param-row {
+    display: grid;
+    grid-template-columns: var(--name-col) 1fr;
+    align-items: center;
+    border-bottom: var(--sep);
+    min-height: var(--row-h);
+    cursor: default;
+  }
+  .param-row.selected { background: var(--sel); }
+  .param-row.drag-source { opacity: .4; }
+
+  .col-name, .col-expr { overflow: hidden; }
+
+  .col-name input, .col-expr input {
+    max-width: 100%; font: inherit; font-size: 12px; color: var(--text);
+    background: transparent; border: none; padding: 5px 6px; outline: none;
+    cursor: default;
+  }
+  .col-name input { font-style: italic; }   /* only the name is italic, not the expression */
+  /* Read-only until double-clicked: no caret, default cursor (acts like a label). */
+  .col-name input:read-only, .col-expr input:read-only { caret-color: transparent; }
+  .col-name input:not(:read-only), .col-expr input:not(:read-only) { cursor: text; }
+  /* Draft (placeholder) parameter fields show a faint "[ ]" until filled in. */
+  .col-name input::placeholder, .col-expr input::placeholder { color: var(--text-faint); opacity: 1; }
+  .param-row.draft .col-name input { font-style: italic; }
+  /* "(empty)" placeholder under an expanded empty group. */
+  .empty-row {
+    color: var(--text-faint); font-style: italic; font-size: 12px;
+    padding-top: 5px; padding-bottom: 5px; border-bottom: var(--sep);
+    min-height: var(--row-h); display: flex; align-items: center; cursor: default;
+  }
+  .col-name input:focus:not(:read-only),
+  .col-expr input:focus:not(:read-only) { background: var(--focus-bg); border-radius: 2px; }
+
+  /* ── Drag insertion line (Photoshop-style) ───────────────────────────────── */
+  #drop-line {
+    position: absolute; height: 2px; background: var(--drop-line);
+    border-radius: 1px; display: none; pointer-events: none; z-index: 50;
+    box-shadow: 0 0 4px var(--drop-line);
+  }
+
+  /* ── Autocomplete popup ──────────────────────────────────────────────────── */
+  /* max-height / top / left are set at runtime by acRender(), which flips the
+     popup above the field when there isn't room below it (the Params pane is only
+     a third of the dock's height, so "below" is often off-screen). */
+  #ac {
+    /* Above every panel that can hold an expression field — the big editor (150)
+       and the Add-parameter modal (200) — or the suggestions hide behind them. */
+    position: fixed; display: none; z-index: 300;
+    background: #141414; border: 1px solid var(--border2); border-radius: var(--radius);
+    box-shadow: 0 4px 14px rgba(0,0,0,.6); overflow-x: hidden; overflow-y: auto;
+  }
+  .ac-item {
+    padding: 4px 10px; font: inherit; font-size: 12px;
+    color: var(--text-dim); cursor: pointer; white-space: nowrap;
+  }
+  /* The part of the name that matched what you typed. */
+  .ac-item b { color: var(--accent); font-weight: 600; }
+  .ac-item.sel { background: var(--accent-dim); color: #cfe2f5; }
+  .ac-item.sel b { color: #fff; }
+  .ac-item:hover { background: var(--border); }
+
+  /* ── Add-parameter modal ─────────────────────────────────────────────────── */
+  #modal-bg {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(0,0,0,.6); display: flex; align-items: center; justify-content: center;
+  }
+  #modal {
+    background: var(--surface); border: 1px solid var(--border2); border-radius: 8px;
+    padding: 18px 18px 14px; width: 320px; box-shadow: 0 10px 40px rgba(0,0,0,.7);
+  }
+  #modal h2 { font-size: 14px; font-weight: 600; margin-bottom: 14px; color: var(--text); }
+  #modal label {
+    display: block; font-size: 11px; color: var(--text-dim);
+    margin-bottom: 10px;
+  }
+  #modal input, #modal select {
+    display: block; width: 100%; margin-top: 3px; font: inherit; font-size: 13px;
+    background: var(--bg); color: var(--text);
+    border: 1px solid var(--border2); border-radius: var(--radius);
+    padding: 5px 8px; outline: none;
+  }
+  #modal input:focus { border-color: var(--accent); }
+  /* Flat dropdown: strip the native glossy/reflective chrome and the blue focus
+     ring, and draw our own caret. The open popup's item highlight is native (and
+     fine) — this only restyles the closed control. */
+  #modal select {
+    -webkit-appearance: none; appearance: none;
+    background-color: var(--bg);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%236a6a6a'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 9px center;
+    padding-right: 26px;
+  }
+  #modal select:focus { border-color: var(--border2); outline: none; }
+  #modal-err { color: var(--err); font-size: 11px; min-height: 14px; margin: 2px 0 8px; }
+  .modal-btns { display: flex; justify-content: flex-end; gap: 8px; }
+  .unit-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .unit-row span { font-size: 11px; color: var(--text-dim); }
+  #m-unit-btn { min-width: 44px; }
+
+  /* ── Settings (hotkeys) dialog ───────────────────────────────────────────── */
+  #settings-bg {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(0,0,0,.6); display: flex; align-items: center; justify-content: center;
+  }
+  #settings {
+    background: var(--surface); border: 1px solid var(--border2); border-radius: 8px;
+    padding: 18px 18px 14px; width: 380px; max-height: 80vh; overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0,0,0,.7);
+  }
+  #settings h2 { font-size: 14px; font-weight: 600; margin-bottom: 12px; color: var(--text); }
+  .set-sec { font-size: 11px; color: var(--text-faint); margin: 12px 0 4px; }
+  .set-row { display: flex; align-items: center; justify-content: space-between;
+             gap: 10px; padding: 4px 0; border-bottom: var(--sep); }
+  .set-label { font-size: 12px; color: var(--text); }
+  .set-keys { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
+  .key { font-size: 11px; border-radius: 4px; padding: 1px 6px; white-space: nowrap;
+         display: inline-flex; align-items: center; gap: 3px; }
+  .key.def  { background: var(--bg); color: var(--text-dim); border: 1px solid var(--border2); }
+  .key.cust { background: var(--accent-dim); color: #cfe2f5; border: 1px solid var(--accent); }
+  .key.adding { background: var(--bg); color: var(--accent); border: 1px dashed var(--accent); }
+  .key .x { cursor: pointer; opacity: .7; font-size: 12px; }
+  .key .x:hover { opacity: 1; }
+  .addk { cursor: pointer; color: var(--text-dim); border: 1px solid var(--border2);
+          border-radius: 4px; width: 16px; height: 16px; line-height: 14px; text-align: center;
+          font-size: 13px; }
+  .addk:hover { color: var(--text); border-color: var(--accent); }
+
+  /* ── Big expression editor ───────────────────────────────────────────────── */
+  /* Fills the window rather than floating over it: the pane is only a few hundred
+     pixels wide, so a centred dialog would leave less room to type than the row
+     it replaced. The list stays mounted underneath and is covered, not rebuilt. */
+  #bigedit-bg {
+    position: fixed; inset: 0; z-index: 150;
+    background: var(--bg); display: flex; flex-direction: column;
+  }
+  #bigedit { display: flex; flex-direction: column; flex: 1; min-height: 0; padding: 8px 10px 6px; }
+  #bigedit-hdr {
+    display: flex; align-items: baseline; gap: 6px;
+    padding: 0 2px 6px; border-bottom: var(--sep); margin-bottom: 6px;
+  }
+  #bigedit-hdr .be-name { font-size: 12px; font-style: italic; color: var(--text); }
+  #bigedit-hdr .be-unit { font-size: 11px; color: var(--text-faint); }
+  #be-text {
+    flex: 1; min-height: 0; resize: none;
+    font: inherit; font-size: 12px; line-height: 1.5; color: var(--text);
+    background: var(--focus-bg); border: 1px solid var(--border2); border-radius: var(--radius);
+    padding: 6px 8px; outline: none; white-space: pre-wrap; overflow-wrap: break-word;
+  }
+  #be-text:focus { border-color: var(--accent); }
+  #bigedit-hint {
+    font-size: 10px; color: var(--text-faint); padding: 5px 2px 0; text-align: center;
+  }
+  #bigedit-hint b { color: var(--text-dim); font-weight: 600; }
+
+  /* Marks a row whose expression carries stored line breaks — the same glyph as the
+     key that opens it, so it also reads as "Enter goes straight to the big box". */
+  .ml-mark { font-size: 10px; color: var(--text-faint); margin-left: 1px; vertical-align: 1px; }
+
+  /* ── Offline banner ──────────────────────────────────────────────────────── */
+  #offline {
+    display: none; text-align: center; padding: 40px 20px;
+    color: var(--text-dim); font-size: 13px; line-height: 1.8;
+  }
+  #offline.show { display: block; }
+  #offline code { color: var(--accent); font-size: 12px; }
+
+  /* Scrollbar comes from the shared .fscroll class (see #main in the body). */
+
+  /* Extra Dark / Extra Light (theme.css): the one dark-grey fill here goes black. */
+  :root:is([data-xdark], [data-xlight]) #ac { background: #000; }

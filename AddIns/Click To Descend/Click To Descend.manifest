@@ -1,0 +1,13 @@
+{
+    "autodeskProduct": "Fusion",
+    "type": "addin",
+    "id": "ClickToDescend",
+    "author": "",
+    "description": {
+        "": "Single-click viewport geometry to descend into its component (no selection left). Shift-click adds to selection; Cmd-click selects just that one without descending. Logs events to /tmp/click_to_descend.log."
+    },
+    "version": "0.1.0",
+    "runOnStartup": false,
+    "supportedOS": "windows|mac",
+    "editEnabled": true
+}

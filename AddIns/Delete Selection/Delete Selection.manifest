@@ -1,0 +1,11 @@
+{
+    "autodeskProduct": "Fusion",
+    "type": "addin",
+    "id": "DeleteSelection",
+    "author": "",
+    "description": {
+        "": "Deletes whatever is currently selected, exactly as the Delete key does. Exists so Cmd+D can be bound to a delete without disturbing Fusion's own Delete/Backspace bindings."
+    },
+    "version": "1.0.0",
+    "runOnStartup": true
+}

@@ -1,0 +1,29 @@
+{
+  "comment": "State for running server.py standalone (styling) and for test/cases.js. Root is active; Drawer and its child Shelf are sub-components; Lid is another.",
+  "doc_id": "fixture",
+  "activeRef": "ROOT",
+  "activeName": "Cabinet",
+  "locked": true,
+  "comps": {
+    "ROOT":  {"name": "Cabinet", "path": [], "occTok": ""},
+    "DRW":   {"name": "Drawer",  "path": ["DRW"], "occTok": "occ-drw"},
+    "SHELF": {"name": "Shelf",   "path": ["DRW", "SHELF"], "occTok": "occ-shelf"},
+    "LID":   {"name": "Lid",     "path": ["LID"], "occTok": "occ-lid"}
+  },
+  "rows": [
+    {"key": "ROOT|Base Sketch", "tok": "t1", "name": "Base Sketch", "type": "adsk::fusion::Sketch", "compRef": "ROOT", "health": "", "msg": "", "suppressed": false, "past": false},
+    {"key": "ROOT|Body", "tok": "t2", "name": "Body", "type": "adsk::fusion::ExtrudeFeature", "compRef": "ROOT", "health": "", "msg": "", "suppressed": false, "past": false},
+    {"key": "DRW|Drawer:1", "tok": "t3", "name": "Drawer:1", "type": "adsk::fusion::Occurrence", "compRef": "DRW", "health": "", "msg": "", "suppressed": false, "past": false},
+    {"key": "DRW|Front Sketch", "tok": "t4", "name": "Front Sketch", "type": "adsk::fusion::Sketch", "compRef": "DRW", "health": "", "msg": "", "suppressed": false, "past": false},
+    {"key": "ROOT|Top Fillet", "tok": "t5", "name": "Top Fillet", "type": "adsk::fusion::FilletFeature", "compRef": "ROOT", "health": "warning", "msg": "The fillet could not be applied to one edge.", "suppressed": false, "past": false},
+    {"key": "DRW|Front", "tok": "t6", "name": "Front", "type": "adsk::fusion::ExtrudeFeature", "compRef": "DRW", "health": "", "msg": "", "suppressed": false, "past": false},
+    {"key": "SHELF|Shelf:1", "tok": "t7", "name": "Shelf:1", "type": "adsk::fusion::Occurrence", "compRef": "SHELF", "health": "", "msg": "", "suppressed": false, "past": false},
+    {"key": "SHELF|Shelf Board", "tok": "t8", "name": "Shelf Board", "type": "adsk::fusion::ExtrudeFeature", "compRef": "SHELF", "health": "error", "msg": "Profile is missing — the sketch it was built on changed.", "suppressed": false, "past": false},
+    {"key": "LID|Lid:1", "tok": "t9", "name": "Lid:1", "type": "adsk::fusion::Occurrence", "compRef": "LID", "health": "", "msg": "", "suppressed": false, "past": false},
+    {"key": "ROOT|Offset Plane", "tok": "t10", "name": "Offset Plane", "type": "adsk::fusion::ConstructionPlane", "compRef": "ROOT", "health": "", "msg": "", "suppressed": false, "past": false},
+    {"key": "ROOT|Handle Hole", "tok": "t11", "name": "Handle Hole", "type": "adsk::fusion::HoleFeature", "compRef": "ROOT", "health": "", "msg": "", "suppressed": true, "past": false},
+    {"key": "DRW|Pull Chamfer", "tok": "t12", "name": "Pull Chamfer", "type": "adsk::fusion::ChamferFeature", "compRef": "DRW", "health": "", "msg": "", "suppressed": false, "past": false},
+    {"key": "ROOT|Mirror", "tok": "t13", "name": "Mirror", "type": "adsk::fusion::MirrorFeature", "compRef": "ROOT", "health": "", "msg": "", "suppressed": false, "past": false},
+    {"key": "ROOT|Mystery", "tok": "t14", "name": "Mystery", "type": "adsk::fusion::SomethingNew", "compRef": "ROOT", "health": "", "msg": "", "suppressed": false, "past": false}
+  ]
+}

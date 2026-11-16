@@ -1,0 +1,12 @@
+{
+	"autodeskProduct":	"Fusion",
+	"type":	"addin",
+	"author":	"",
+	"description":	{
+		"":	"Development only: runs ~/.fusion_probe/in.py on Fusion's main thread whenever it changes, and writes what it printed to out.txt. For finding things out about a live Fusion from outside it."
+	},
+	"version":	"",
+	"runOnStartup":	false,
+	"supportedOS":	"mac",
+	"editEnabled":	true
+}

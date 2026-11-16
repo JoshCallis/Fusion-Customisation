@@ -1,0 +1,85 @@
+{
+  "_comment": [
+    "The DOMAIN vocabulary for keyboard shortcuts. Shared by hotkeys.py (add-ins) and",
+    "hotkeys.js (the companion windows), exactly as variables.json is for parameter",
+    "names and theme.css is for the look.",
+    "",
+    "A domain is not a hand-declared list of 'these two things never happen together'.",
+    "It is a conjunction of AXIS constraints, and mutual exclusivity is then DERIVED:",
+    "",
+    "    two actions can share a key  <=>  some axis where both constrain the value",
+    "                                      and their allowed values do not overlap",
+    "",
+    "So {sketch: in} and {sketch: out} are exclusive (axis 'sketch', disjoint), and",
+    "{command: extrude} and {sketch: in} are exclusive too (an extrude cannot be",
+    "running while you are inside a sketch, because 'command' is 'none' there). An",
+    "action that constrains nothing is 'always' and excludes nothing, so it can never",
+    "share a key. That single rule is what lets the Shortcuts window say yes or no to",
+    "a double-up, and EXPLAIN which axis makes it safe.",
+    "",
+    "When two claimants both match at press time (they overlap rather than exclude),",
+    "the MORE SPECIFIC one wins - more constrained axes - then higher 'priority',",
+    "then the one bound most recently. So a general fallback and a narrow special",
+    "case can share a key deliberately.",
+    "",
+    "Adding an axis: add it here, implement its sampler in hotkeys.py::_sample and",
+    "mirror it in hotkeys.js. Nothing else needs to know."
+  ],
+
+  "axes": {
+    "workspace": {
+      "desc": "Which Fusion workspace is active. Fusion already disambiguates its OWN shared keys this way; we model it so our actions can join in.",
+      "values": ["design", "render", "drawing", "cam", "sim", "generative", "electronics", "animation", "other"],
+      "sample": "ui.activeWorkspace.id, folded to the names above"
+    },
+
+    "sketch": {
+      "desc": "Whether a sketch is open for editing. The single most useful axis: the sketch environment and the modelling environment are never both live.",
+      "values": ["in", "out"],
+      "sample": "SketchStop.isEnabled, plus the settling stamp - see the sketch-edit-settling-window note"
+    },
+
+    "env": {
+      "desc": "DERIVED, not sampled independently: sketch / viewport / dialog, the environments a shortcut's 'Applies in' boxes split between. 'dialog' is ANY of our feature dialogs (Extrude, Mirror, Rectangular Pattern, Combine, Scale... - every command a shared action has a provider for, hotkeys.py::feature_commands, the same set remapd's 'feature' stamp means), never one per command: what a key does INSIDE a dialog is the dialog's own business, said by providing a shared action (Mirror's plane is its Cycle Direction). Otherwise sketch=in gives 'sketch'; anything else gives 'viewport'. Older rows still say `sketch`/`command` instead - `implied_by` is what lets exclusive() compare an env-scoped action against one of those without either side being rewritten. Each entry maps an older constraint to the env values it allows: a value NOT listed here constrains nothing about env. sketch:in allows 'dialog' because Rectangular Pattern runs inside a sketch.",
+      "values": ["sketch", "viewport", "dialog"],
+      "sample": "command is one of our dialogs -> dialog; elif sketch=in -> sketch; else -> viewport",
+      "implied_by": {
+        "sketch:in": ["sketch", "dialog"],
+        "sketch:out": ["viewport", "dialog"],
+        "command:extrude": ["dialog"],
+        "command:mirror": ["dialog"],
+        "command:none": ["sketch", "viewport"]
+      }
+    },
+
+    "command": {
+      "desc": "Which Fusion command owns the screen right now, by command id, or 'none' when the app is idle. This is the axis that makes a key mean something INSIDE a command dialog - cycling the extrude operation, say - and nothing outside it.",
+      "values": ["none", "<any command id>"],
+      "aliases": {
+        "extrude": ["SmartExtrudeCmd", "Extrude", "FusionExtrudeEditCommand", "CustomExtrudeCmd"],
+        "mirror": ["SmartMirrorCmd"],
+        "dimension": ["SketchDimension", "SmartDimensionCmd", "SketchEditDimensionCmdDef"],
+        "constraint": ["ConstraintHorizontalVertical", "ConstraintCoincident"],
+        "nav": ["OrbitCommand", "FreeOrbitCommand", "ConstrainedOrbitCommand",
+                "PowerAxisOrbitCommand", "TrackballOrbitCommand",
+                "ResetOrbitCenterCommand", "SetOrbitCenterCommand",
+                "PanCommand", "ZoomCommand", "ZoomWindowCommand", "ZoomWindowViewCommand",
+                "FitCommand", "ZoomFitCommandGroup", "LookAtCommand", "HomeCommand",
+                "FusionDrawingZoomCmd", "FusionDrawingFitCmd"]
+      },
+      "sample": "ui.activeCommand, with the idle/selection/nav commands folded to 'none'"
+    },
+
+    "focus": {
+      "desc": "Which surface has the keystroke: Fusion's viewport, or one of the companion windows. Lets the same key do the window thing when the window is up and the viewport thing otherwise, without either side hard-coding a letter.",
+      "values": ["viewport", "browser", "params", "value", "shortcuts"],
+      "sample": "/tmp/fusion_focus, refreshed by whichever companion window holds key focus; stale or missing means viewport"
+    },
+
+    "selection": {
+      "desc": "What kind of thing is selected. Coarse on purpose - a key that means one thing with a dimension selected and another with a body selected is a real domain, but finer distinctions belong inside the action, not in the keymap.",
+      "values": ["none", "component", "body", "face", "edge", "vertex", "sketch", "sketchcurve", "dimension", "parameter", "other"],
+      "sample": "the objectType of the first entity in ui.activeSelections"
+    }
+  }
+}

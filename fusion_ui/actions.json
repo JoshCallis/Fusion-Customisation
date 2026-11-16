@@ -1,0 +1,239 @@
+{
+  "comment": [
+    "Shared action manifest for the Fusion companion windows.",
+    "",
+    "One entry = one action that must work whichever surface has focus. The id is a",
+    "real Fusion command id: the Browser add-in creates a CommandDefinition for it, so",
+    "it is bindable in Fusion's own keymap and shows up in the Shortcuts window like",
+    "any other add-in. There is no second keymap.",
+    "",
+    "  home 'browser'  the behaviour lives in the window's JS. Pressed in the viewport,",
+    "                  Fusion vetoes the command and forwards it to the window.",
+    "  home 'fusion'   the behaviour lives in Fusion. Pressed in the window, the page",
+    "                  forwards the id to Fusion (this already works for every Fusion",
+    "                  command, bound or not - such actions only need an entry here if",
+    "                  they also want window-side handling).",
+    "  home 'dual'     both sides implement the same intent natively, each in its own",
+    "                  terms. The id is an EXISTING Fusion command that already carries",
+    "                  the binding, so no definition is created for it and nothing is",
+    "                  forwarded - the window simply recognises the id in the keymap and",
+    "                  runs its own handler instead of relaying the key.",
+    "",
+    "Adding an action: add an entry here, implement it under the same id in",
+    "index.html's ACTION_IMPL, reload the add-in, bind the key once in Shortcuts."
+  ],
+  "actions": [
+    {
+      "id": "BrowserNavDownCmd",
+      "name": "Browser: Move Selection Down",
+      "desc": "Move the browser's cursor down one row and select it, from the viewport or the dock.",
+      "home": "browser"
+    },
+    {
+      "id": "BrowserNavUpCmd",
+      "name": "Browser: Move Selection Up",
+      "desc": "Move the browser's cursor up one row and select it, from the viewport or the dock.",
+      "home": "browser"
+    },
+    {
+      "id": "BrowserNavDown2Cmd",
+      "name": "Browser: Move Selection Down Twice",
+      "desc": "Move Selection Down, run twice: two rows down.",
+      "home": "browser"
+    },
+    {
+      "id": "BrowserNavUp2Cmd",
+      "name": "Browser: Move Selection Up Twice",
+      "desc": "Move Selection Up, run twice: two rows up.",
+      "home": "browser"
+    },
+    {
+      "id": "BrowserNavBottomCmd",
+      "name": "Browser: Jump To Section Bottom",
+      "desc": "Jump the browser's cursor to the last row of its section (a run of one kind - components, sketches, parameters - inside the current level) and select it. Already there: the next section's last row, then up a level; past the very end it wraps to the first row. Bound to Space + C.",
+      "home": "browser"
+    },
+    {
+      "id": "BrowserGoInDeepCmd",
+      "name": "Browser: Go In Deep",
+      "desc": "Go In, and keep going while the level entered holds a single row: components are entered, groups opened. Stops at the first level with two or more rows - a component's page with its top row picked, a group left open and picked. Bound to Space + F.",
+      "home": "browser"
+    },
+    {
+      "id": "BrowserNavTopCmd",
+      "name": "Browser: Jump To Section Top",
+      "desc": "Jump the browser's cursor to the first row of its section and select it. Already there: the previous section's first row, then up a level; past the start it wraps to the last top-level row. Bound to Space + R.",
+      "home": "browser"
+    },
+    {
+      "id": "ActivateAndIsolateCmd",
+      "name": "Go into",
+      "desc": "Viewport: activate and isolate the selection. Browser: activate the component under the cursor, enter the sketch under the cursor, or open the group under it.",
+      "home": "dual"
+    },
+    {
+      "id": "GoToParentComponentCmd",
+      "name": "Come back out",
+      "desc": "Viewport: activate the parent component. Browser: collapse the row under the cursor, else step out a level (and exit a sketch being edited).",
+      "home": "dual"
+    },
+    {
+      "id": "deselectAllCmd",
+      "name": "Deselect everything",
+      "desc": "Clear the selection - the browser's highlight and cursor AND the viewport selection. Forwarded, because only the window can clear its own cursor; Fusion clearing its selection cannot.",
+      "home": "browser"
+    },
+    {
+      "id": "BrowserRenameSelectionCmd",
+      "name": "Browser: Rename Selection",
+      "desc": "Rename the current thing: the viewport selection in Fusion, the cursor row in the browser.",
+      "home": "browser"
+    },
+    {
+      "id": "BrowserToggleVisSelectionCmd",
+      "name": "Browser: Toggle Visibility",
+      "desc": "Toggle visibility of the current thing: the viewport selection in Fusion, the selected rows in the browser. On timeline feature rows (or a feature group) it suppresses / unsuppresses them instead.",
+      "home": "browser"
+    },
+    {
+      "id": "DeleteSelectionCmd",
+      "name": "Delete Selection",
+      "desc": "Delete the current thing. The browser handles folders and parameters its own way and deletes everything else through Fusion.",
+      "home": "dual"
+    },
+    {
+      "id": "BrowserGoInCmd",
+      "name": "Browser: Go In",
+      "desc": "Go into the browser's current row - activate a component, enter a sketch, descend into a body's owner, open a group. Falls back to the viewport selection, then to the top row. With a sketch DIMENSION selected it instead opens the Dimension Value dialog (that add-in claims the key in that one case; Browser declines to forward it).",
+      "home": "browser"
+    },
+    {
+      "id": "BrowserEditCmd",
+      "name": "Browser: Edit",
+      "desc": "Edit the feature behind a face / edge picked in the viewport, in two presses like Go In (the first selects the feature behind it, its sketch and the edges it made; the second edits that feature). With no viewport pick, a timeline feature row opens its edit dialog and a sketch row is entered; a group, folder, component or parameter does nothing. Bound to Space: Fusion's prompt won't hold it, so it goes through a reserved surrogate that fires only while Fusion is idle.",
+      "home": "browser"
+    },
+    {
+      "id": "BrowserGoOutCmd",
+      "name": "Browser: Go Out",
+      "desc": "Come back out: collapse the browser's current row, else step up a level (and exit a sketch being edited).",
+      "home": "browser"
+    },
+    {
+      "id": "BrowserNewFolderCmd",
+      "name": "Browser: New Folder",
+      "desc": "Create a virtual folder in the browser. No Fusion counterpart - folders are a window-only overlay - so this is forwarded from the viewport.",
+      "home": "browser"
+    },
+    {
+      "id": "BrowserNewParamGroupCmd",
+      "name": "Browser: New Parameter Group",
+      "desc": "Create a parameter group in the browser - a virtual folder that holds only parameters. Window-only, so forwarded from the viewport.",
+      "home": "browser"
+    },
+    {
+      "id": "BrowserSettingsCmd",
+      "name": "Browser: Settings",
+      "desc": "Open the browser window's settings panel. Window-only, so forwarded from the viewport.",
+      "home": "browser"
+    },
+    {
+      "id": "BrowserToggleIgnoredCmd",
+      "name": "Browser: Show / Hide Ignored Folders",
+      "desc": "Toggle the ignored-folders switch (Ignored Folders on the row menu's view tail). Window-only, so forwarded from the viewport.",
+      "home": "browser"
+    },
+    {
+      "id": "BrowserToggleBoundsCmd",
+      "name": "Browser: Show / Hide Bounds Folders",
+      "desc": "Toggle the bounds-folders switch (Bounds Folders on the row menu's view tail). Window-only, so forwarded from the viewport.",
+      "home": "browser"
+    },
+    {
+      "id": "BrowserFileAllBoundsCmd",
+      "name": "Browser: File Sketches",
+      "desc": "Sweep the document for bounds sketches/parameters not yet in their component's Bounds folder, and every other loose sketch not in a folder of its component, and file them — the others into the component's Sketches folder, made if missing (File Sketches on the row menu's view tail). Window-only, so forwarded from the viewport.",
+      "home": "browser"
+    },
+    {
+      "id": "BrowserSortPhasesCmd",
+      "name": "Browser: Sort Timeline into Phases",
+      "desc": "Move every timeline item to the end of its phase (AddIns/Phases.py: create components, arrange, sketches, independent, dependent, post-dependent, duplication) — Sort Timeline into Phases on the row menu's view tail. Done by the Timeline add-in; forwarded from the viewport.",
+      "home": "browser"
+    },
+    {
+      "id": "BrowserToggleMastersCmd",
+      "name": "Browser: Show / Hide Master Sketches",
+      "desc": "Toggle the masters switch (Master Sketches on the row menu's view tail) — real bulb visibility for every master sketch (Masters.set_visible), plus the Masters folder row. Window-only, so forwarded from the viewport.",
+      "home": "browser"
+    },
+    {
+      "id": "BrowserToggleSketchGroupsCmd",
+      "name": "Browser: Show / Hide Sketches",
+      "desc": "Toggle the Sketches switch (on the row menu's view tail) — off drops every sketch, grouped or loose, and every sketch folder with its contents, from the tree. Display only: the sketches' visibility is untouched. Window-only, so forwarded from the viewport.",
+      "home": "browser"
+    },
+    {
+      "id": "BrowserToggleOriginsCmd",
+      "name": "Browser: Show / Hide Origins",
+      "desc": "Toggle the origins switch (Origins on the row menu's view tail). Window-only, so forwarded from the viewport.",
+      "home": "browser"
+    },
+    {
+      "id": "BrowserToggleAppearancesCmd",
+      "name": "Browser: Show / Hide Appearances",
+      "desc": "Toggle the appearances palette at the top of the Browser (Appearances on the row menu's view tail). Drag a swatch onto a body, a Bodies group or folder (subgroups included) or a component to give every body in it that appearance. Window-only, so forwarded from the viewport.",
+      "home": "browser"
+    },
+    {
+      "id": "BrowserSuspendNavCmd",
+      "name": "Browser: Toggle Suspend Mode",
+      "desc": "Browse without touching Fusion's viewport, selection, visibility or active sketch at all while it's on. Window-only, so forwarded from the viewport.",
+      "home": "browser"
+    },
+    {
+      "id": "BrowserJumpToCursorCmd",
+      "name": "Browser: Jump To Cursor",
+      "desc": "Suspend mode's escape hatch: run the cursor/selection's ordinary Enter action once (jump the viewport, enter its sketch, select its body) without leaving suspend mode. Window-only, so forwarded from the viewport.",
+      "home": "browser"
+    },
+    {
+      "id": "BrowserSwapNativeCmd",
+      "name": "Browser: Swap With Fusion's",
+      "desc": "Show the dock and hide Fusion's Browser, or the other way round - one browser on screen, never both. From timeline mode it drops back to browser mode and lands on Fusion's. Lives in the add-in.",
+      "home": "fusion"
+    },
+    {
+      "id": "JumpToRecentSketchCmd",
+      "name": "Sketch: Edit Previous",
+      "desc": "Open the most recently edited sketch other than the one open now (the last one edited, if none is open). Lives in the add-in.",
+      "home": "fusion"
+    },
+    {
+      "id": "EscapeOrDeselectCmd",
+      "name": "Escape / Deselect",
+      "desc": "Esc whenever there is something to escape - a command or its dialog, a sketch tool, a Browser rename, menu or cut. Otherwise Deselect everything (viewport and Browser, as Deselect everything does). Lives in the add-in; the Browser page escapes its own things first.",
+      "home": "fusion",
+      "when": {}
+    },
+    {
+      "id": "SuperEscapeCmd",
+      "name": "Super Escape",
+      "desc": "Escape everything open at once - the running command and its dialog (dropdowns and all), the Value window's whole dialog, the dock's rename/menus/cut - however many Escapes that would take. Nothing open: nothing happens. Lives in the add-in; pressed in a dock page, that page escapes its own things first.",
+      "home": "fusion",
+      "when": {}
+    },
+    {
+      "id": "DockTimelineToggleCmd",
+      "name": "Dock: Timeline / Browser",
+      "desc": "Swap the left dock between the component Browser and the vertical timeline. Turning the timeline on hides Fusion's own bar and locks the active component until it is turned off; from Fusion's own Browser it swaps back to the dock first. Lives in the Timeline add-in; both panels' menus end with it too.",
+      "home": "fusion"
+    },
+    {
+      "id": "TimelineTracePickCmd",
+      "name": "Timeline: Select Feature Behind Pick",
+      "desc": "With a face, edge or body picked, select the latest timeline feature that made it (with a sketch or its curves picked, the earliest feature made from that sketch), with its sketch and the edges it made (and later mirrors' copies of them) in the viewport. In the Browser the feature's own rows are picked (under bodies opened with F), never the sketch's, and nothing is opened to them. Press again to edit that feature. Lives in the Timeline add-in.",
+      "home": "fusion"
+    }
+  ]
+}

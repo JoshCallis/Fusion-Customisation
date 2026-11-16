@@ -1,0 +1,13 @@
+{
+	"autodeskProduct":	"Fusion",
+	"type":	"addin",
+	"id":	"JoshHideSketchPalette",
+	"author":	"Josh",
+	"description":	{
+		"":	"Moves the Sketch Palette (grid/snap/slice options) off-screen whenever a sketch is opened for edit. Toggle from the ADD-INS panel."
+	},
+	"version":	"1.0.0",
+	"runOnStartup":	true,
+	"supportedOS":	"mac|windows",
+	"editEnabled":	true
+}

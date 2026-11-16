@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Fusion Value</title>
+<link rel="stylesheet" href="/theme.css">
+<script src="/appearance.js"></script>
+<script src="/fit_popups.js"></script>
+<link rel="stylesheet" href="/index.css">
+<link rel="stylesheet" href="/search.css">
+
+<div id="panel" class="fpanel">
+  <div id="head">
+    <span class="dtitle" id="dtitle"></span>
+    <span id="driven" class="none">driven</span>
+  </div>
+  <div class="field" id="fvalue">
+    <textarea id="value" rows="1" spellcheck="false" autocomplete="off"
+              placeholder="Value"></textarea>
+    <span id="copy" title="Copy the expression">Copy</span>
+    <!-- Make a parameter from the selected chips (⇧/⌘-click) or held bubble. Only
+         shown while there is such a selection — see index.js, "Make a parameter". -->
+    <span id="mkparam" title="Make a parameter from the selection">Make parameter</span>
+  </div>
+  <!-- Flexible (Section.py § Flex): whether Section: Move may change this value, and
+       within what. A sketch dimension or a parameter only. Flexible with a limit and NO
+       value, on a dimension between two section references, is a gap limit instead —
+       see index.js, "Flexible". -->
+  <div class="field hide" id="fflex">
+    <span class="aopt on" id="flexon" title="Move may change this, within the limits">Flexible</span>
+    <input id="flexmin" type="text" spellcheck="false" autocomplete="off" placeholder="At least">
+    <input id="flexmax" type="text" spellcheck="false" autocomplete="off" placeholder="At most">
+  </div>
+  <!-- The plane box only: what to call the sketch. Fusion's own "Sketch7" says nothing
+       about where the sketch is, and the line above is exactly what it is for — so the
+       name is asked for here rather than typed into the Browser afterwards. Optional:
+       left empty, Fusion's own name stands. NO data-joinwords, unlike #pname: a sketch
+       name is a sentence and keeps its spaces (see capitalise.js). -->
+  <div class="field hide" id="fsname">
+    <input id="sname" type="text" spellcheck="false" autocomplete="off"
+           placeholder="Name">
+  </div>
+  <div class="field" id="fname">
+    <!-- A parameter name is CamelCase and never has a space in it — data-joinwords
+         (capitalise.js) turns the space that asks for a capital into the capital,
+         spent rather than left behind, so "my param" becomes "MyParam" as you type. -->
+    <input id="pname" type="text" spellcheck="false" autocomplete="off"
+           data-joinwords="1" placeholder="Name">
+    <span id="sinfo"></span>
+    <span id="preview"></span>
+    <!-- The plane box only: copy another plane-box sketch's line + angle into this
+         one rather than sharing the plane object. Hidden unless the session found at
+         least one other such sketch in this component (see index.js, sessionSketches
+         / "Same plane as"). -->
+    <span id="same" title="Use the plane of another sketch in this component">Same as&hellip;</span>
+    <!-- The plane box only: which of a viewport pick's suggested lines is in the box,
+         ⌥↑/⌥↓ or the arrows to step (index.js, "Picked from the viewport"). -->
+    <span id="pickcycle" class="hide" title="⌥↑ / ⌥↓ for the other lines this pick fits"></span>
+  </div>
+  <!-- The name stepper: parent, feature levels, then type, then anchor/axis — the
+       guided creation flow from fusion_ui/param_naming.js, Rhino-command-flow style.
+       Shown in place of the Name row while a 'param'/'dim' session is building a NEW
+       name, or an 'editparam' session opened on a name that already parses. ONE
+       element: a title saying which step this is, the name so far (the crumb), and the
+       step's keyed menu — which steps aside for #pname (moved in here by index.js)
+       only while a "type your own" choice (Space) is being typed. See index.js, "The
+       name stepper". -->
+  <div class="field hide" id="fsteps">
+    <div id="steptitle"><span id="steplabel"></span><span id="steperr"></span></div>
+    <div id="stepcrumb"></div>
+    <div id="stepchoices"></div>
+  </div>
+  <!-- The plane box only. An optional angle turns the plane about a line in it; the
+       three chips reverse it, quarter-turn it and pick the pivot axis without changing
+       what was typed. See planes.py, "ANGLED PLANES". -->
+  <div class="field hide" id="fangle">
+    <input id="angle" type="text" spellcheck="false" autocomplete="off"
+           placeholder="Angle">
+    <span id="angleopts">
+      <span class="aopt" id="aflip" title="Reverse the angle">Reverse</span>
+      <span class="aopt" id="a90" title="Add a quarter turn">+90°</span>
+      <span class="aopt" id="apivot" title="Turn about the other axis"></span>
+      <span class="aopt" id="aplanes" title="Show this component's construction planes while placing this sketch">Show Plane</span>
+    </span>
+  </div>
+  <div id="err"></div>
+</div>
+
+<!-- The New Component panel. Same window, same theme, same autocomplete — the bounds
+     fields hold expressions like "Width", so they want exactly the completion the
+     value box already has. Rows are built from a spec in script rather than written
+     out, because there are three near-identical axis blocks. -->
+<div id="cpanel" class="fpanel hide">
+  <div id="chead"><span class="dtitle" id="cdtitle"></span></div>
+  <div id="crows"></div>
+  <div id="cerr"></div>
+</div>
+<!-- The Extrude panel. A live Fusion command is running behind this one, drawing the
+     real preview in the viewport, so unlike the other two this panel is not composing
+     something to hand over at the end: every edit goes straight back and the operation
+     comes straight back. -->
+<div id="xpanel" class="fpanel hide">
+  <div id="xhead"><span class="dtitle" id="xdtitle"></span></div>
+  <div id="xrows"></div>
+  <!-- Flexible, as on a dimension: only when the distance is ONE user parameter (the
+       range is kept on the parameter, which is what Section Move reads). -->
+  <div class="field hide" id="xflex">
+    <span class="aopt on" id="xflexon" title="Move may change this, within the limits">Flexible</span>
+    <input id="xflexmin" type="text" spellcheck="false" autocomplete="off" placeholder="At least">
+    <input id="xflexmax" type="text" spellcheck="false" autocomplete="off" placeholder="At most">
+  </div>
+  <div id="xadvhead"><span class="twirl collapsed">&#9662;</span><span>Advanced</span></div>
+  <div id="xadv" class="hide"></div>
+  <div id="xerr"></div>
+</div>
+<!-- The Mirror panel. The Extrude arrangement — a live command behind it, every choice
+     posted straight back — with no text field at all: every row is a choice. See
+     index.js, "The Mirror panel". -->
+<div id="rpanel" class="fpanel" style="display: none">
+  <div id="rhead"><span class="dtitle" id="rdtitle"></span></div>
+  <div id="rrows"></div>
+  <div id="radvhead"><span class="twirl collapsed">&#9662;</span><span>Advanced</span></div>
+  <div id="radv" class="hide"></div>
+  <div id="rerr"></div>
+</div>
+<!-- The feature panel. The Mirror arrangement again, for every add-in built on
+     AddIns/Feature Panel.py (Rectangular Pattern, Combine, Scale): its rows arrive as
+     data with the session and are built here. See index.js, "The feature panel". -->
+<div id="opanel" class="fpanel" style="display: none">
+  <div id="ohead"><span class="dtitle" id="odtitle"></span></div>
+  <div id="orows"></div>
+  <div id="oadvhead"><span class="twirl collapsed">&#9662;</span><span>Advanced</span></div>
+  <div id="oadv" class="hide"></div>
+  <div id="oerr"></div>
+</div>
+<!-- "Make a parameter from this": the value box's selection as a new parameter's
+     expression, and a name for it. Swapped in over #panel and back again — the value
+     box's session carries on underneath, and gets the new name in place of the
+     selection once Fusion has made it. See index.js, "Make a parameter". -->
+<div id="mpanel" class="fpanel" style="display: none">
+  <!-- Empty, like #head: what the panel is for is already said by the expression sitting
+       in it, and a caption over two rows is a label on a label. It stays because it is
+       the drag handle — every other part of the panel swallows the press. -->
+  <div id="mhead"><span class="dtitle" id="mdtitle"></span></div>
+  <div class="field" id="fmexpr"><div id="mexpr"></div></div>
+  <!-- "Edit parameter" from a chip's menu: the parameter's expression, editable, in
+       place of the read-only span above. -->
+  <div class="field hide" id="fmedit">
+    <input id="medit" type="text" spellcheck="false" autocomplete="off" placeholder="Expression">
+  </div>
+  <div class="field" id="fmname">
+    <input id="mname" type="text" spellcheck="false" autocomplete="off"
+           data-joinwords="1" placeholder="Name (required)">
+  </div>
+  <div id="merr"></div>
+  <!-- The two ways out, said once where you can click them. Esc and Enter still do the
+       same two things — these are the buttons for the same keys, not a second path. -->
+  <div class="foot" id="mfoot">
+    <span class="fbtn" id="mback">Back</span>
+    <span class="fbtn primary" id="msave">Save</span>
+  </div>
+</div>
+<!-- The command-search palette: Fusion's own "find a command" box (native S), broadened
+     to list our own add-in commands and registry actions alongside Fusion's, and to
+     match a word anywhere in the name rather than only its start. Opened by the
+     Shortcuts add-in's CommandSearchCmd, which has taken bare S over from Fusion's own
+     search command (see Shortcuts.py, _adopt_native_search_key). The catalog comes
+     straight from fusion_shortcuts' own server (port 8733) rather than a copy kept
+     here — see index.js, "Command search". -->
+<div id="spanel" class="fpanel hide">
+  <div class="field" id="fsearch">
+    <input id="squery" type="text" spellcheck="false" autocomplete="off"
+           placeholder="Search commands">
+  </div>
+  <div id="sresults"></div>
+  <!-- Right-click a row for its shortcut and where it shows in search. Replaces
+       #sresults in place rather than floating — see index.js, "The per-row sheet".
+       Built entirely from script, the same way #crows is. -->
+  <div id="ssheet" class="hide"></div>
+</div>
+<!-- The versions panel (mode 'versions') — AddIns/Versions. The open documents, each
+     closable, then the active document's last 20 versions, any of them openable; or,
+     with `confirm` set, just a question (Save on an old version: save as latest?).
+     Built from script — see index.js, "The versions panel". -->
+<div id="vpanel" class="fpanel" style="display: none">
+  <div id="vhead"><span class="dtitle" id="vdtitle"></span></div>
+  <div id="vconfirm" class="hide"></div>
+  <div id="vbody"></div>
+  <div id="verr"></div>
+</div>
+<div id="ac" class="hide"></div>
+<!-- The value box's own right-click menu. chips.js refuses WebKit's (a text field's
+     menu has nothing to say about a row of objects) and calls back here to put this up
+     — see index.js, "The chip menu". Built from script, like #ssheet. -->
+<div id="chipmenu" class="hide"></div>
+<!-- The "Same as..." picker: other plane-box sketches in this component, angled ones
+     first. Same box language as #ac (see index.css), triggered by #same. -->
+<div id="pick" class="hide"></div>
+
+<!-- The situational variable engine, served from fusion_ui by this window's server so
+     there is one vocabulary and one implementation of the rules. The add-ins run the
+     .py twin of exactly this file. If it fails to load the page still works: every
+     Naming call below is behind vocabReady, and the list falls back to plain names. -->
+<script src="/naming.js"></script>
+<!-- The structured feature/type/anchor naming convention — a separate, newer
+     convention from naming.js's situational tags, used only by the name stepper. Same
+     load-guard pattern: every ParamNaming call is behind paramNamingReady, so a missing
+     file costs the stepper and leaves the plain Name field. -->
+<script src="/param_naming.js"></script>
+<!-- The plane arithmetic for the sketch box, the twin of the planes.py the add-in runs.
+     Same reason as naming.js: one set of rules, so what the brackets do here and what
+     goes into the plane cannot drift apart. -->
+<script src="/planes.js"></script>
+<!-- Every word starts with a capital. One delegated listener, so fields built later —
+     the New Component rows — are covered without wiring each one up. -->
+<script src="/capitalise.js"></script>
+<!-- Expressions typed as ITEMS: a parameter name that exists stops being letters and
+     becomes one object — deleted whole, stepped over whole, dragged whole. Shared, so
+     the Params and Browser windows can be given the same fields later. Everything here
+     is guarded behind `typeof Chips`, so a missing file costs the chips and leaves an
+     ordinary text box. -->
+<script src="/chips.js"></script>
+<!-- A dictated paste ("half the depth plus ten") read into an expression over the real
+     parameter names. Guarded behind `typeof SpokenExpr`. -->
+<script src="/spoken_expr.js"></script>
+<script src="/search.js"></script>
+<!-- The hand / Saturn glyphs the search rows draw a Space or finger binding with —
+     glyphs only: this page's own text is never rewritten (no page scan). -->
+<script>window.FINGERS_GLYPHS_ONLY = true;</script>
+<script src="/fingers.js"></script>
+
+<script src="/index.js"></script>
+<!-- Claude asks: what the pointer is over (ask/ask.js, served by the bridge) -->
+<script src="http://127.0.0.1:8760/ask.js" async></script>

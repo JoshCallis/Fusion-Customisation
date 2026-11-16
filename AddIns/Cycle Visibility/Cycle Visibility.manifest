@@ -1,0 +1,11 @@
+{
+    "autodeskProduct": "Fusion",
+    "type": "addin",
+    "id": "CycleVisibility",
+    "author": "",
+    "description": {
+        "": "Cycles the active component's transient visibility: sketches + bodies → sketches only → bodies only."
+    },
+    "version": "1.0.0",
+    "runOnStartup": true
+}

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<!-- Glow Settings palette — see Glow Settings.py. Every control posts `set` (with the
+     mode tab's appearance) to the add-in, which writes that appearance's look into
+     config/fusion_glow.json; the glow re-reads it by mtime. -->
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; padding: 12px 14px; background: #1c1c1c; color: #ddd;
+         font: 12px -apple-system, "Helvetica Neue", sans-serif; }
+  h2 { font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+       color: #8a8a8a; margin: 14px 0 6px; }
+  h2:first-of-type { margin-top: 4px; }
+  .row { display: grid; grid-template-columns: 96px 1fr 44px; align-items: center;
+         gap: 8px; margin: 5px 0; }
+  .row label { color: #bbb; }
+  .row .val { text-align: right; font-variant-numeric: tabular-nums; color: #eee; }
+  input[type=range] { width: 100%; accent-color: #5b97cf; }
+  input[type=color] { width: 100%; height: 22px; border: 1px solid #444; border-radius: 4px;
+                      background: none; padding: 0; }
+  .hint { color: #777; font-size: 11px; line-height: 1.4; margin: 2px 0 0 104px; }
+  .bar { display: flex; align-items: center; gap: 10px; margin-top: 12px; }
+  button { background: #2e2e2e; color: #ddd; border: 1px solid #444; border-radius: 5px;
+           padding: 4px 10px; font: inherit; cursor: pointer; }
+  button:hover { background: #383838; }
+  .toggle { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+  #status { margin-top: 10px; padding: 7px 9px; border-radius: 5px; background: #242424;
+            color: #aaa; line-height: 1.45; }
+  #status b { color: #ddd; font-weight: 600; }
+  .dim { opacity: .45; }
+  .modes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin: 10px 0 0;
+           border: 1px solid #444; border-radius: 6px; overflow: hidden; }
+  .modes button { border: 0; border-radius: 0; border-left: 1px solid #444; padding: 5px 0;
+                  background: #262626; color: #aaa; position: relative; }
+  .modes button:first-child { border-left: 0; }
+  .modes button.on { background: #3a5675; color: #fff; }
+  .modes button.now::after { content: ""; position: absolute; top: 4px; right: 5px;
+                             width: 5px; height: 5px; border-radius: 50%; background: #6fd08a; }
+  #mode-note { color: #888; font-size: 11px; margin-top: 5px; min-height: 14px; }
+</style>
+</head>
+<body>
+  <div class="bar" style="margin-top:0">
+    <label class="toggle"><input type="checkbox" id="preview"> Preview glow</label>
+    <span style="flex:1"></span>
+  </div>
+  <div id="status">…</div>
+  <div class="row" style="margin-top:10px"><label for="fade">Fade</label>
+    <input type="range" id="fade" min="0" max="1" step="0.05"><span class="val" id="fade-v"></span></div>
+  <div class="hint">Seconds to fade on / off. Shared by all modes.</div>
+
+  <div class="modes" id="modes">
+    <button data-mode="light">Light</button>
+    <button data-mode="dark">Dark</button>
+    <button data-mode="xdark">Extra Dark</button>
+    <button data-mode="xlight">Extra Light</button>
+  </div>
+  <div id="mode-note"></div>
+  <div class="bar" style="margin-top:6px">
+    <button id="copy">Copy to all modes</button>
+    <span style="flex:1"></span>
+    <button id="reset">Reset this mode</button>
+  </div>
+
+  <h2>Look</h2>
+  <div class="row"><label for="reach">Reach</label>
+    <input type="range" id="reach" min="20" max="300" step="1"><span class="val" id="reach-v"></span></div>
+  <div class="row"><label for="alpha">Strength</label>
+    <input type="range" id="alpha" min="0" max="0.6" step="0.005"><span class="val" id="alpha-v"></span></div>
+  <div class="row"><label for="falloff">Falloff</label>
+    <input type="range" id="falloff" min="0.3" max="4" step="0.05"><span class="val" id="falloff-v"></span></div>
+  <div class="hint">Higher fades sooner; lower keeps the tail up further in.</div>
+  <div class="row"><label for="corner">Corners</label>
+    <input type="range" id="corner" min="2" max="24" step="0.5"><span class="val" id="corner-v"></span></div>
+  <div class="hint">Higher is squarer. Past ~20 a diagonal crease shows.</div>
+  <div class="row"><label for="rgb">Colour</label>
+    <input type="color" id="rgb"><span class="val" id="rgb-v"></span></div>
+
+  <h2 id="contrast-h">Dark-mode contrast</h2>
+  <div id="contrast-box">
+    <div class="row"><label for="contrast_comp">Compensation</label>
+      <input type="range" id="contrast_comp" min="0" max="1" step="0.01"><span class="val" id="contrast_comp-v"></span></div>
+    <div class="hint">1 = black exactly as at normal contrast (grey gets a haze);
+      0 = grey exact (black's faint tail is crushed).</div>
+    <div class="row"><label for="contrast_toe">Ramp</label>
+      <input type="range" id="contrast_toe" min="0.005" max="0.3" step="0.005"><span class="val" id="contrast_toe-v"></span></div>
+    <div class="hint">How softly the compensation fades in. Raise it if grey shows a boundary.</div>
+  </div>
+
+<script>
+const NUM = { reach: 0, alpha: 3, falloff: 2, corner: 1, contrast_comp: 2, contrast_toe: 3 };
+const MODE_NAME = { light: "Light", dark: "Dark", xdark: "Extra Dark", xlight: "Extra Light" };
+let looks = {}, mode = null, status = null, sendTimer = null, pending = {}, pendingMode = null;
+let fadeTimer = null;
+
+function call(action, data){
+  return adsk.fusionSendData(action, JSON.stringify(data || {}))
+    .then(r => { try { return JSON.parse(r || "{}"); } catch(e){ return {}; } });
+}
+const hex = rgb => "#" + rgb.map(v => Math.round(v).toString(16).padStart(2, "0")).join("");
+const unhex = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+
+function show(){
+  const c = looks[mode];
+  if (!c) return;
+  for (const k in NUM){
+    document.getElementById(k).value = c[k];
+    document.getElementById(k + "-v").textContent = (+c[k]).toFixed(NUM[k]);
+  }
+  document.getElementById("rgb").value = hex(c.rgb);
+  document.getElementById("rgb-v").textContent = "";
+  for (const b of document.querySelectorAll("#modes button"))
+    b.classList.toggle("on", b.dataset.mode === mode);
+  showStatus(status);
+}
+function pick(m){
+  flush();                       // a drag in flight belongs to the mode it started in
+  mode = m;
+  show();
+}
+function showStatus(s){
+  if (!s) return;
+  status = s;
+  if (!mode) return;             // the first "get" hasn't landed yet
+  const k = s.contrast || 1;
+  // The measured contrast is the CURRENT mode's; another mode's comes from its level.
+  const hi = mode === s.mode ? k > 1.001 : ((s.levels || {})[mode] || 0) > 0;
+  document.getElementById("status").innerHTML =
+    `Screen contrast <b>×${k.toFixed(2)}</b> — ${hi ? "compensating" : "normal, no compensation"}<br>` +
+    `Glow <b>${s.running ? "on screen" : "off"}</b>` +
+    (s.suspended ? " (suspend mode)" : s.preview ? " (preview)" : "");
+  document.getElementById("contrast-box").classList.toggle("dim", !hi);
+  document.getElementById("preview").checked = !!s.preview;
+  for (const b of document.querySelectorAll("#modes button"))
+    b.classList.toggle("now", b.dataset.mode === s.mode);
+  document.getElementById("mode-note").textContent = mode === s.mode
+    ? `Editing ${MODE_NAME[mode]} — the screen's current mode`
+    : `Editing ${MODE_NAME[mode]} — the screen is in ${MODE_NAME[s.mode]}, so the glow shows that mode's look`;
+}
+// Coalesce a slider drag into one write per ~60 ms.
+function flush(){
+  if (sendTimer){ clearTimeout(sendTimer); sendTimer = null; }
+  if (!pendingMode) return;
+  const p = pending, m = pendingMode;
+  pending = {}; pendingMode = null;
+  call("set", { mode: m, values: p });
+}
+function queue(k, v){
+  if (pendingMode && pendingMode !== mode) flush();
+  pending[k] = v;
+  pendingMode = mode;
+  looks[mode][k] = v;
+  if (sendTimer) return;
+  sendTimer = setTimeout(flush, 60);
+}
+
+for (const k in NUM){
+  document.getElementById(k).addEventListener("input", e => {
+    const v = +e.target.value;
+    document.getElementById(k + "-v").textContent = v.toFixed(NUM[k]);
+    queue(k, v);
+  });
+}
+function showFade(v){
+  document.getElementById("fade").value = v;
+  document.getElementById("fade-v").textContent = (+v).toFixed(2) + "s";
+}
+document.getElementById("fade").addEventListener("input", e => {
+  const v = +e.target.value;
+  showFade(v);
+  clearTimeout(fadeTimer);
+  fadeTimer = setTimeout(() => call("fade", { value: v }), 60);
+});
+document.getElementById("rgb").addEventListener("input", e => queue("rgb", unhex(e.target.value)));
+document.getElementById("preview").addEventListener("change", e =>
+  call("preview", { on: e.target.checked }).then(r => showStatus(r.status)));
+document.getElementById("reset").addEventListener("click", () => {
+  flush();
+  call("reset", { mode }).then(r => { if (r.looks){ looks = r.looks; show(); } });
+});
+document.getElementById("copy").addEventListener("click", () => {
+  flush();
+  call("copy", { mode }).then(r => { if (r.looks){ looks = r.looks; show(); } });
+});
+for (const b of document.querySelectorAll("#modes button"))
+  b.addEventListener("click", () => pick(b.dataset.mode));
+
+// adsk is injected by Fusion a moment after load.
+(function boot(){
+  if (!window.adsk || !adsk.fusionSendData){ setTimeout(boot, 50); return; }
+  call("get").then(r => {
+    status = r.status;
+    looks = r.looks || {};
+    showFade(r.fade != null ? r.fade : 0.25);
+    mode = (r.status && r.status.mode) || "light";     // open on the current appearance
+    show();
+  });
+  setInterval(() => call("status").then(r => showStatus(r.status)), 1000);
+})();
+</script>
+</body>
+</html>

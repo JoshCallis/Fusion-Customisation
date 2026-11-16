@@ -1,0 +1,77 @@
+{
+  "_comment": [
+    "The situational variable vocabulary. Shared by naming.py (add-ins, servers) and",
+    "naming.js (the companion windows) — this file is the single source of truth for",
+    "both, exactly as theme.css is for the look.",
+    "",
+    "A parameter name is CamelCase words. Any word that appears here is a VARIABLE: it",
+    "is stripped out to leave the STEM, and recorded as a tag. Names that differ only in",
+    "their variables therefore collapse into one family, and the situation at the moment",
+    "you are typing picks the member.",
+    "",
+    "    EdgeBackOffsetY   stem EdgeOffset   {direction: Back, axis: Y}",
+    "    EdgeFrontOffsetY  stem EdgeOffset   {direction: Front, axis: Y}",
+    "    EdgeOffsetX       stem EdgeOffset   {axis: X}",
+    "    EdgeOffsetZ       stem EdgeOffset   {axis: Z}",
+    "",
+    "Every word is matched as a WHOLE CamelCase word, so acronyms are safe: HIPSThickness",
+    "splits as HIPS + Thickness and never yields a bare axis letter.",
+    "",
+    "axis   the world axis. 'end' is not meaningful; the axis word alone locates nothing,",
+    "       which is exactly what makes it the right tag for a symmetric axis or for a",
+    "       midline.",
+    "direction  an axis AND which end of it. 'high' is the positive end (Right +X, Back",
+    "       +Y, Top +Z); 'low' is the negative end. Bounds values are positive OUTWARD, so",
+    "       the world coordinate of a high bound is +value and of a low bound is -value,",
+    "       and the span between them is (high + low).",
+    "span   the half-extent of a SYMMETRIC axis, measured midline to side. Offered only",
+    "       where that axis is set symmetric on the component; on an asymmetric axis these",
+    "       words are filtered out of the vocabulary entirely rather than given a second",
+    "       meaning."
+  ],
+
+  "_relativeTypes": [
+    "Measurement types whose value is measured FROM the direction named in the same",
+    "name, rather than from the origin. 'ShelfOffsetBack' is 30mm in from the BACK",
+    "bound; 'FrontPosition' merely locates the front in world space, which is",
+    "origin-framed like everything else. That distinction is a parameter's FRAME, and",
+    "it is what lets a dimension starting at the origin stop offering parameters",
+    "measured from a bound. Matched case-insensitively against the last word of the",
+    "stem. Extend this list if another word ever means the same thing."
+  ],
+  "relativeTypes": ["Offset"],
+
+  "dimensions": [
+    {
+      "id": "axis",
+      "label": "Axis",
+      "values": [
+        { "word": "X", "axis": "X" },
+        { "word": "Y", "axis": "Y" },
+        { "word": "Z", "axis": "Z" }
+      ]
+    },
+    {
+      "id": "direction",
+      "label": "Direction",
+      "values": [
+        { "word": "Right",  "axis": "X", "end": "high" },
+        { "word": "Left",   "axis": "X", "end": "low"  },
+        { "word": "Back",   "axis": "Y", "end": "high" },
+        { "word": "Front",  "axis": "Y", "end": "low"  },
+        { "word": "Top",    "axis": "Z", "end": "high" },
+        { "word": "Bottom", "axis": "Z", "end": "low"  }
+      ]
+    },
+    {
+      "id": "span",
+      "label": "Span",
+      "symmetricOnly": true,
+      "values": [
+        { "word": "Width",  "axis": "X" },
+        { "word": "Depth",  "axis": "Y" },
+        { "word": "Height", "axis": "Z" }
+      ]
+    }
+  ]
+}

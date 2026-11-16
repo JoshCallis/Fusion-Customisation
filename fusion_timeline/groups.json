@@ -1,0 +1,2219 @@
+{
+  "byDoc": {
+    "urn:adsk.wipprod:dm.lineage:NWkXGFzaT6qSQaJ7m5RaYQ": {
+      "groups": {
+        "g2": {
+          "name": "Planes",
+          "parent": "c:9c29cf15-e429-4231-9a48-c9e0eb8b2354",
+          "collapsed": true
+        },
+        "g3": {
+          "name": "Sketches",
+          "parent": "c:9c29cf15-e429-4231-9a48-c9e0eb8b2354",
+          "collapsed": true
+        },
+        "g4": {
+          "name": "Sketches",
+          "parent": "c:a83fc338-5b78-4c90-aaed-ffbd884e8476",
+          "collapsed": true
+        },
+        "g8": {
+          "name": "Sketches",
+          "parent": "c:833efea1-f7c7-42a9-a9f3-89dfd6d5b84f",
+          "collapsed": true
+        },
+        "g9": {
+          "name": "Sketches",
+          "parent": "c:1a50d65c-c77a-440c-9f35-395f9ccfc0ee",
+          "collapsed": true
+        },
+        "g11": {
+          "name": "Planes",
+          "parent": "c:c42d2340-39df-4d7a-863f-232136228b65",
+          "collapsed": true
+        },
+        "g15": {
+          "name": "",
+          "parent": "c:9cc3bf44-de27-4874-aebf-7ebfb85af680",
+          "collapsed": true
+        },
+        "g20": {
+          "name": "",
+          "parent": "c:83517715-96d6-4cff-a3d7-f54ef16af697",
+          "collapsed": true
+        },
+        "g21": {
+          "name": "Bounds",
+          "parent": "g:g50",
+          "collapsed": true
+        },
+        "g22": {
+          "name": "Bounds",
+          "parent": "g:g44",
+          "collapsed": true
+        },
+        "g23": {
+          "name": "",
+          "parent": "c:92730eac-931c-4d09-91db-75f35ec691a6",
+          "collapsed": true
+        },
+        "g25": {
+          "name": "Bounds",
+          "parent": "g:g49",
+          "collapsed": true
+        },
+        "g26": {
+          "name": "Bounds",
+          "parent": "g:g48",
+          "collapsed": true
+        },
+        "g28": {
+          "name": "Bounds",
+          "parent": "g:g52",
+          "collapsed": true
+        },
+        "g29": {
+          "name": "Bounds",
+          "parent": "g:g51",
+          "collapsed": true
+        },
+        "g30": {
+          "name": "",
+          "parent": "c:6cda0848-386b-4c2e-b6ae-cfa56c4278ec",
+          "collapsed": true
+        },
+        "g31": {
+          "name": "",
+          "parent": "c:ab389e44-ac53-4611-b434-d16e8db96c5b",
+          "collapsed": true
+        },
+        "g32": {
+          "name": "",
+          "parent": "g:g46",
+          "collapsed": true
+        },
+        "g33": {
+          "name": "",
+          "parent": "g:g46",
+          "collapsed": true
+        },
+        "g34": {
+          "name": "",
+          "parent": "c:ab389e44-ac53-4611-b434-d16e8db96c5b",
+          "collapsed": true
+        },
+        "g36": {
+          "name": "",
+          "parent": "c:ab389e44-ac53-4611-b434-d16e8db96c5b",
+          "collapsed": true
+        },
+        "g37": {
+          "name": "",
+          "parent": "g:g46",
+          "collapsed": true
+        },
+        "g38": {
+          "name": "",
+          "parent": "c:ab389e44-ac53-4611-b434-d16e8db96c5b",
+          "collapsed": true
+        },
+        "g39": {
+          "name": "",
+          "parent": "g:g16",
+          "collapsed": true
+        },
+        "g40": {
+          "name": "Bounds",
+          "parent": "g:g16",
+          "collapsed": true
+        },
+        "g41": {
+          "name": "",
+          "parent": "g:g47",
+          "collapsed": true
+        },
+        "g42": {
+          "name": "",
+          "parent": "c:fe0e50a1-a849-4db0-bc20-eaaf59546876",
+          "collapsed": true
+        },
+        "g43": {
+          "name": "",
+          "parent": "g:g18",
+          "collapsed": true
+        },
+        "g1": {
+          "name": "Supderseded",
+          "parent": "c:9cc3bf44-de27-4874-aebf-7ebfb85af680"
+        },
+        "g5": {
+          "name": "Sketches",
+          "parent": "c:bb29fcd7-98e9-47d0-b988-84b3109573c0",
+          "collapsed": true
+        },
+        "g6": {
+          "name": "Sketches",
+          "parent": "c:83517715-96d6-4cff-a3d7-f54ef16af697",
+          "collapsed": true
+        },
+        "g7": {
+          "name": "Bounds",
+          "parent": "g:g6",
+          "collapsed": true
+        },
+        "g16": {
+          "name": "Sketches",
+          "parent": "c:ff18bfd7-d008-4e4b-a05c-6106cf08ad81",
+          "collapsed": true
+        },
+        "g17": {
+          "name": "Sketches",
+          "parent": "c:1dbb0ae2-dc2a-41df-bc08-ed4011dd5b51",
+          "collapsed": true
+        },
+        "g18": {
+          "name": "Sketches",
+          "parent": "c:fe0e50a1-a849-4db0-bc20-eaaf59546876",
+          "collapsed": true
+        },
+        "g19": {
+          "name": "Sketches",
+          "parent": "c:9cc3bf44-de27-4874-aebf-7ebfb85af680",
+          "collapsed": true
+        },
+        "g24": {
+          "name": "Bounds",
+          "parent": "g:g19",
+          "collapsed": true
+        },
+        "g27": {
+          "name": "Sketches",
+          "parent": "c:ec87b59d-927c-4de4-b397-5fdcf99ea6aa",
+          "collapsed": true
+        },
+        "g35": {
+          "name": "Bounds",
+          "parent": "g:g27",
+          "collapsed": true
+        },
+        "g44": {
+          "name": "Sketches",
+          "parent": "c:d7fa0c87-43d7-4d00-bc09-208a0f43fb91",
+          "collapsed": true
+        },
+        "g45": {
+          "name": "Sketches",
+          "parent": "c:0684a180-406c-4b01-bbcb-bc84336de500",
+          "collapsed": true
+        },
+        "g46": {
+          "name": "Sketches",
+          "parent": "c:ab389e44-ac53-4611-b434-d16e8db96c5b",
+          "collapsed": true
+        },
+        "g47": {
+          "name": "Sketches",
+          "parent": "c:8f96d889-6081-45a7-9c47-6ca5b7c49a91",
+          "collapsed": true
+        },
+        "g48": {
+          "name": "Sketches",
+          "parent": "c:84c5f395-7d36-49a5-b7a8-2930c99aed72",
+          "collapsed": true
+        },
+        "g49": {
+          "name": "Sketches",
+          "parent": "c:c129bb72-f0bf-4353-b24c-8184d1f4aeec",
+          "collapsed": true
+        },
+        "g50": {
+          "name": "Sketches",
+          "parent": "c:92730eac-931c-4d09-91db-75f35ec691a6",
+          "collapsed": true
+        },
+        "g51": {
+          "name": "Sketches",
+          "parent": "c:034df2b3-f3d9-4e44-9b4e-f44696c06beb",
+          "collapsed": true
+        },
+        "g52": {
+          "name": "Sketches",
+          "parent": "c:f46bd1a2-6d92-46d6-958e-21d9079e9bec",
+          "collapsed": true
+        },
+        "g53": {
+          "name": "Sketches",
+          "parent": "c:d63db84e-db03-4278-8bba-71f4e8f4aa99",
+          "collapsed": true
+        },
+        "g54": {
+          "name": "Bounds",
+          "parent": "g:g53",
+          "collapsed": true
+        },
+        "g55": {
+          "name": "Sketches",
+          "parent": "c:8b7597aa-8b40-4b25-8c29-d46bd50e1eec",
+          "collapsed": true
+        },
+        "g56": {
+          "name": "Bounds",
+          "parent": "g:g55",
+          "collapsed": true
+        },
+        "g57": {
+          "name": "Sketches",
+          "parent": "c:a83b86cf-b1fa-4683-955d-058d9d50f78e",
+          "collapsed": true
+        },
+        "g58": {
+          "name": "Bounds",
+          "parent": "g:g57",
+          "collapsed": true
+        },
+        "g59": {
+          "name": "Bounds",
+          "parent": "g:g46",
+          "collapsed": true
+        },
+        "g60": {
+          "name": "Sketches",
+          "parent": "c:5798baf9-d425-4d58-a2fb-2fac0f9713e2",
+          "collapsed": true
+        },
+        "g61": {
+          "name": "Bounds",
+          "parent": "g:g60",
+          "collapsed": true
+        },
+        "g62": {
+          "name": "Sketches",
+          "parent": "c:e3d4008a-eadc-405f-b217-7f296b615d6c",
+          "collapsed": true
+        },
+        "g63": {
+          "name": "Bounds",
+          "parent": "g:g62",
+          "collapsed": true
+        },
+        "g64": {
+          "name": "Bounds",
+          "parent": "g:g3",
+          "collapsed": true
+        },
+        "g65": {
+          "name": "Bounds",
+          "parent": "c:c42d2340-39df-4d7a-863f-232136228b65",
+          "collapsed": true
+        },
+        "g12": {
+          "name": "Bounds",
+          "parent": "g:g5",
+          "collapsed": true
+        },
+        "g13": {
+          "name": "Sketches",
+          "parent": "c:bf4cc2ec-aca5-4d1a-85e6-4f38edea64cc",
+          "collapsed": true
+        },
+        "g14": {
+          "name": "Bounds",
+          "parent": "g:g4",
+          "collapsed": true
+        },
+        "g66": {
+          "name": "Planes",
+          "parent": "c:d63db84e-db03-4278-8bba-71f4e8f4aa99",
+          "collapsed": true
+        },
+        "g67": {
+          "name": "Planes",
+          "parent": "c:a83b86cf-b1fa-4683-955d-058d9d50f78e",
+          "collapsed": true
+        },
+        "g68": {
+          "name": "Planes",
+          "parent": "c:e3d4008a-eadc-405f-b217-7f296b615d6c",
+          "collapsed": true
+        },
+        "g69": {
+          "name": "Planes",
+          "parent": "c:84c5f395-7d36-49a5-b7a8-2930c99aed72",
+          "collapsed": true
+        },
+        "g70": {
+          "name": "Planes",
+          "parent": "c:92730eac-931c-4d09-91db-75f35ec691a6",
+          "collapsed": true
+        },
+        "g71": {
+          "name": "Planes",
+          "parent": "c:034df2b3-f3d9-4e44-9b4e-f44696c06beb",
+          "collapsed": true
+        },
+        "g72": {
+          "name": "Planes",
+          "parent": "c:ff18bfd7-d008-4e4b-a05c-6106cf08ad81",
+          "collapsed": true
+        },
+        "g73": {
+          "name": "Planes",
+          "parent": "c:833efea1-f7c7-42a9-a9f3-89dfd6d5b84f",
+          "collapsed": true
+        },
+        "g74": {
+          "name": "Planes",
+          "parent": "c:f46bd1a2-6d92-46d6-958e-21d9079e9bec",
+          "collapsed": true
+        },
+        "g75": {
+          "name": "Planes",
+          "parent": "c:ab389e44-ac53-4611-b434-d16e8db96c5b",
+          "collapsed": true
+        },
+        "g76": {
+          "name": "Planes",
+          "parent": "c:9cc3bf44-de27-4874-aebf-7ebfb85af680",
+          "collapsed": true
+        },
+        "g77": {
+          "name": "Planes",
+          "parent": "c:a83fc338-5b78-4c90-aaed-ffbd884e8476",
+          "collapsed": true
+        },
+        "g79": {
+          "name": "Planes",
+          "parent": "c:ec87b59d-927c-4de4-b397-5fdcf99ea6aa",
+          "collapsed": true
+        },
+        "g10": {
+          "name": "Sketches",
+          "parent": "c:c42d2340-39df-4d7a-863f-232136228b65",
+          "collapsed": true
+        },
+        "g78": {
+          "name": "Sketches",
+          "parent": "c:d7919e0a-9a0d-43f6-a6f7-2053fd807486",
+          "collapsed": true
+        },
+        "g80": {
+          "name": "Planes",
+          "parent": "c:d7919e0a-9a0d-43f6-a6f7-2053fd807486",
+          "collapsed": true
+        }
+      },
+      "member": {
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Back BootCeiling_Dimension_Front_Inset_Back (1)": "g2",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Back BootCeiling_Dimension_Front_Inset_Back (2)": "g2",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Powerboard": "g3",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Profile - Y": "g3",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Profile - Z": "g3",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Tunnel Entrance": "g3",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Back BootCeiling_Dimension_Front_Inset_Back": "g2",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Profile - X": "g3",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Hole - Boot Latch - Y": "g4",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Profile - X": "g4",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Hole - Tunnel - Z": "g4",
+        "833efea1-f7c7-42a9-a9f3-89dfd6d5b84f|Profile - Y - Front": "g8",
+        "833efea1-f7c7-42a9-a9f3-89dfd6d5b84f|Profile - Y - Back": "g8",
+        "833efea1-f7c7-42a9-a9f3-89dfd6d5b84f|Profile - X": "g8",
+        "1a50d65c-c77a-440c-9f35-395f9ccfc0ee|Bounds Y": "g9",
+        "1a50d65c-c77a-440c-9f35-395f9ccfc0ee|Bounds Z": "g9",
+        "1a50d65c-c77a-440c-9f35-395f9ccfc0ee|Bounds X": "g9",
+        "c42d2340-39df-4d7a-863f-232136228b65|Plane6": "g11",
+        "c42d2340-39df-4d7a-863f-232136228b65|Plane5": "g11",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Profile - Y Axis": "g15",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Profile - Y": "g15",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Sketch4": "g15",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Cut, Bridge": "g15",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Sketch6": "g15",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Sketch7": "g15",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Sketch8": "g15",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Sketch9": "g15",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Sketch10": "g15",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Sketch11": "g15",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Sketch12": "g15",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Sketch13": "g15",
+        "83517715-96d6-4cff-a3d7-f54ef16af697|Profile - X": "g20",
+        "83517715-96d6-4cff-a3d7-f54ef16af697|Rib Slot - Y Axis": "g20",
+        "83517715-96d6-4cff-a3d7-f54ef16af697|Rib Slot - X Axis": "g20",
+        "83517715-96d6-4cff-a3d7-f54ef16af697|Rib Intersetion": "g20",
+        "83517715-96d6-4cff-a3d7-f54ef16af697|Sketch7": "g20",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Bounds Z": "g21",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Bounds Y": "g21",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Bounds X": "g21",
+        "d7fa0c87-43d7-4d00-bc09-208a0f43fb91|Bounds Z": "g22",
+        "d7fa0c87-43d7-4d00-bc09-208a0f43fb91|Bounds Y": "g22",
+        "d7fa0c87-43d7-4d00-bc09-208a0f43fb91|Bounds X": "g22",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Front": "g23",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Front (1)": "g23",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Front (2)": "g23",
+        "c129bb72-f0bf-4353-b24c-8184d1f4aeec|Bounds Z": "g25",
+        "c129bb72-f0bf-4353-b24c-8184d1f4aeec|Bounds Y": "g25",
+        "c129bb72-f0bf-4353-b24c-8184d1f4aeec|Bounds X": "g25",
+        "84c5f395-7d36-49a5-b7a8-2930c99aed72|Bounds Z": "g26",
+        "84c5f395-7d36-49a5-b7a8-2930c99aed72|Bounds Y": "g26",
+        "84c5f395-7d36-49a5-b7a8-2930c99aed72|Bounds X": "g26",
+        "f46bd1a2-6d92-46d6-958e-21d9079e9bec|Bounds Z": "g28",
+        "f46bd1a2-6d92-46d6-958e-21d9079e9bec|Bounds Y": "g28",
+        "f46bd1a2-6d92-46d6-958e-21d9079e9bec|Bounds X": "g28",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|Bounds Z": "g29",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|Bounds Y": "g29",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|Bounds X": "g29",
+        "6cda0848-386b-4c2e-b6ae-cfa56c4278ec|Bounds XY": "g30",
+        "6cda0848-386b-4c2e-b6ae-cfa56c4278ec|Bounds YZ": "g30",
+        "6cda0848-386b-4c2e-b6ae-cfa56c4278ec|Bounds XZ": "g30",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Profile - X (1) (1)": "g31",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Cut, Inside - Y (2)": "g31",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Profile - X (2)": "g31",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Cut, Inside - Y (3)": "g31",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Profile, Small - X (1)": "g31",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Cut, Inside - Y (7)": "g31",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Main - Extrude - X": "g32",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Prong, bottom - Extrude - Z": "g32",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Main, outside - Cut - Y": "g32",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Convexity, top - Path - Z": "g32",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Convexity - Loft": "g32",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Prong, top - Extrude - Z": "g32",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Prong, bottom - Cut - X": "g32",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Main, Inside - Cut - Y (1)": "g32",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Main - Axis, scale": "g32",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Main - Extrude, Big - X": "g32",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Fillet, prong-body - Path": "g32",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Edge rounding - Extrude - X": "g33",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Edge rounding - Extrude - X (1)": "g33",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Combine12": "g34",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Combine13": "g34",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Sketch49 (1)": "g36",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Sketch49 (2)": "g36",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Profile, Small - X (2)": "g36",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Cut, Inside - Y (8)": "g36",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Sketch50 (1)": "g36",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Webs - Extrude - Z": "g37",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Webs - Intersect - Z": "g37",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Prong Bottom Position - Z": "g38",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Wing Outside": "g38",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Wing Top": "g38",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Plane17": "g38",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Master 01 \u2013 Profile - X": "g39",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Master 02 \u2013 Profile - X": "g39",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Master 03 \u2013 Profile - X": "g39",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Bounds Z": "g40",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Bounds Y": "g40",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Bounds X": "g40",
+        "8f96d889-6081-45a7-9c47-6ca5b7c49a91|Sketch11": "g41",
+        "8f96d889-6081-45a7-9c47-6ca5b7c49a91|Top Profile - X": "g41",
+        "fe0e50a1-a849-4db0-bc20-eaaf59546876|Extrude5": "g42",
+        "fe0e50a1-a849-4db0-bc20-eaaf59546876|Extrude6": "g42",
+        "fe0e50a1-a849-4db0-bc20-eaaf59546876|Extrude7": "g42",
+        "fe0e50a1-a849-4db0-bc20-eaaf59546876|Profile - Z": "g43",
+        "fe0e50a1-a849-4db0-bc20-eaaf59546876|Pofile - Y": "g43",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Rib - Y": "g1",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Rib - X": "g1",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Ribs - Y": "g1",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|R-Pattern3": "g1",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Ribs - X (Back)": "g1",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Intersection, Ribs - Y": "g1",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Remove Bridge, Ribs - Y": "g1",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Cable Cavity 2, Ribs - Y": "g1",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Cable Cavity 3, Ribs - Y": "g1",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Extrude19": "g1",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Mirror2": "g1",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Intersection, Ribs - X": "g1",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Tunnel Arm": "g1",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Mirror3": "g1",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Mirror4": "g1",
+        "bb29fcd7-98e9-47d0-b988-84b3109573c0|Profile - X": "g5",
+        "83517715-96d6-4cff-a3d7-f54ef16af697|Tunnel": "g6",
+        "83517715-96d6-4cff-a3d7-f54ef16af697|Bounds Z": "g7",
+        "83517715-96d6-4cff-a3d7-f54ef16af697|Bounds Y": "g7",
+        "83517715-96d6-4cff-a3d7-f54ef16af697|Bounds X": "g7",
+        "1dbb0ae2-dc2a-41df-bc08-ed4011dd5b51|Profile -  Y": "g17",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Tunnel": "g19",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Bounds X": "g24",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Bounds Y": "g24",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Bounds Z": "g24",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Rib Intersetion": "g19",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Rib Slots": "g19",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Width - Z": "g19",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Depth - Z": "g19",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Profile - X": "g19",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Rib Slot - Y Axis": "g19",
+        "ec87b59d-927c-4de4-b397-5fdcf99ea6aa|Bounds Z": "g35",
+        "ec87b59d-927c-4de4-b397-5fdcf99ea6aa|Bounds Y": "g35",
+        "ec87b59d-927c-4de4-b397-5fdcf99ea6aa|Bounds X": "g35",
+        "0684a180-406c-4b01-bbcb-bc84336de500|Profile - X": "g45",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Main, Inside - Cut - Y": "g46",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Drawer Runner Cavities - Cut - Z": "g46",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Profile, Body-Prong Loft - Outside": "g46",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Profile, Body-Prong Loft - Inside": "g46",
+        "84c5f395-7d36-49a5-b7a8-2930c99aed72|Profile - X": "g48",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Profile - Y": "g50",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Profile - X": "g50",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Sketch11": "g50",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Sketch12": "g50",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Sketch13": "g50",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|Sketch4": "g51",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|Sketch5": "g51",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|Sketch6": "g51",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|Sketch7": "g51",
+        "f46bd1a2-6d92-46d6-958e-21d9079e9bec|Profile - X": "g52",
+        "d63db84e-db03-4278-8bba-71f4e8f4aa99|Bounds Z": "g54",
+        "d63db84e-db03-4278-8bba-71f4e8f4aa99|Bounds Y": "g54",
+        "d63db84e-db03-4278-8bba-71f4e8f4aa99|Bounds X": "g54",
+        "d63db84e-db03-4278-8bba-71f4e8f4aa99|Sketch4": "g53",
+        "8b7597aa-8b40-4b25-8c29-d46bd50e1eec|Bounds Z": "g56",
+        "8b7597aa-8b40-4b25-8c29-d46bd50e1eec|Bounds Y": "g56",
+        "8b7597aa-8b40-4b25-8c29-d46bd50e1eec|Bounds X": "g56",
+        "a83b86cf-b1fa-4683-955d-058d9d50f78e|Bounds Z": "g58",
+        "a83b86cf-b1fa-4683-955d-058d9d50f78e|Bounds Y": "g58",
+        "a83b86cf-b1fa-4683-955d-058d9d50f78e|Bounds X": "g58",
+        "a83b86cf-b1fa-4683-955d-058d9d50f78e|Profile - Y - Back": "g57",
+        "a83b86cf-b1fa-4683-955d-058d9d50f78e|Sketch5": "g57",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Sketch15": "g19",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|Sketch4 (1)": "g51",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Sketch Clipboard ref": "g16",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Top Profile - X": "g16",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Profile": "g16",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Bounds X": "g59",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Bounds Y": "g59",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Bounds Z": "g59",
+        "5798baf9-d425-4d58-a2fb-2fac0f9713e2|Bounds X": "g61",
+        "5798baf9-d425-4d58-a2fb-2fac0f9713e2|Bounds Y": "g61",
+        "5798baf9-d425-4d58-a2fb-2fac0f9713e2|Bounds Z": "g61",
+        "5798baf9-d425-4d58-a2fb-2fac0f9713e2|Sketch4 (1)": "g60",
+        "e3d4008a-eadc-405f-b217-7f296b615d6c|Bounds X": "g63",
+        "e3d4008a-eadc-405f-b217-7f296b615d6c|Bounds Y": "g63",
+        "e3d4008a-eadc-405f-b217-7f296b615d6c|Bounds Z": "g63",
+        "e3d4008a-eadc-405f-b217-7f296b615d6c|Sketch4 (1)": "g62",
+        "e3d4008a-eadc-405f-b217-7f296b615d6c|Sketch4 (1) (1)": "g62",
+        "e3d4008a-eadc-405f-b217-7f296b615d6c|Side Profile - Outside": "g62",
+        "e3d4008a-eadc-405f-b217-7f296b615d6c|Side Profile - Inside": "g62",
+        "e3d4008a-eadc-405f-b217-7f296b615d6c|Sketch6": "g62",
+        "e3d4008a-eadc-405f-b217-7f296b615d6c|Sketch5": "g62",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Sketch11": "g3",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Bounds X": "g64",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Bounds Y": "g64",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Bounds Z": "g64",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Sketch15": "g3",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Sketch16": "g3",
+        "c42d2340-39df-4d7a-863f-232136228b65|Bounds X": "g65",
+        "c42d2340-39df-4d7a-863f-232136228b65|Bounds Y": "g65",
+        "c42d2340-39df-4d7a-863f-232136228b65|Bounds Z": "g65",
+        "bb29fcd7-98e9-47d0-b988-84b3109573c0|Bounds X": "g12",
+        "bb29fcd7-98e9-47d0-b988-84b3109573c0|Bounds Y": "g12",
+        "bb29fcd7-98e9-47d0-b988-84b3109573c0|Bounds Z": "g12",
+        "bf4cc2ec-aca5-4d1a-85e6-4f38edea64cc|Remove Top": "g13",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Bounds X": "g14",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Bounds Y": "g14",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Bounds Z": "g14",
+        "d63db84e-db03-4278-8bba-71f4e8f4aa99|Top": "g66",
+        "a83b86cf-b1fa-4683-955d-058d9d50f78e|Front + DrawerCeiling_Dimension_Back_Inset_Front": "g67",
+        "a83b86cf-b1fa-4683-955d-058d9d50f78e|X": "g67",
+        "e3d4008a-eadc-405f-b217-7f296b615d6c|Sketch Clipboard plane": "g68",
+        "e3d4008a-eadc-405f-b217-7f296b615d6c|Top": "g68",
+        "84c5f395-7d36-49a5-b7a8-2930c99aed72|X": "g69",
+        "92730eac-931c-4d09-91db-75f35ec691a6|X": "g70",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Front (3)": "g70",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Front @ - Taper": "g70",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Front (4)": "g70",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Front @ Taper": "g70",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Front @ Taper (1)": "g70",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|X": "g71",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|Back": "g71",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|Back (1)": "g71",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|X": "g72",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Sketch Clipboard plane": "g72",
+        "833efea1-f7c7-42a9-a9f3-89dfd6d5b84f|Front 140": "g73",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|X": "g2",
+        "f46bd1a2-6d92-46d6-958e-21d9079e9bec|X": "g74",
+        "c42d2340-39df-4d7a-863f-232136228b65|Back (Bridge_Tunnels_Shoulder__Radius + TopLevel_Materials_Steel_Thickness + TopLevel_Profile_CurvitureStart_Inset_Back)": "g11",
+        "c42d2340-39df-4d7a-863f-232136228b65|X + Thorax_FanRecesses_Left_Outset_X": "g11",
+        "c42d2340-39df-4d7a-863f-232136228b65|Back (BootCeiling_Dimension_Front_Inset_Back + TopLevel_Materials_HIPS_Thickness)": "g11",
+        "c42d2340-39df-4d7a-863f-232136228b65|Top Thorax_DrawerLatchRecess_Top_Inset_Top": "g11",
+        "c42d2340-39df-4d7a-863f-232136228b65|Top": "g11",
+        "c42d2340-39df-4d7a-863f-232136228b65|X": "g11",
+        "c42d2340-39df-4d7a-863f-232136228b65|X (1)": "g11",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Wing Outside (1)": "g75",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Top": "g76",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Top (1)": "g76",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|X": "g76",
+        "c42d2340-39df-4d7a-863f-232136228b65|X (2)": "g11",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Holes": "g19",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Sketch24": "g19",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|X (1)": "g76",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Sketch Clipboard ref": "g4",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Profile - X (1)": "g4",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Sketch Clipboard plane": "g77",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Sketch28": "g19",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|X (1)": "g2",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Tethers Sketch28": "g19",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Make Way For Boot Ceiling Steel": "g19",
+        "ec87b59d-927c-4de4-b397-5fdcf99ea6aa|Sketch4": "g27",
+        "ec87b59d-927c-4de4-b397-5fdcf99ea6aa|X": "g79",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Sketch42": "g16",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|X (1)": "g72",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Sketch33": "g19",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|X (2)": "g76",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Tethers Sketch33": "g19",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Make Way For Thorax": "g19",
+        "c42d2340-39df-4d7a-863f-232136228b65|ZZ Delete Test Plane": "g11",
+        "c42d2340-39df-4d7a-863f-232136228b65|Base": "g10",
+        "c42d2340-39df-4d7a-863f-232136228b65|Tunnel Entrance": "g10",
+        "c42d2340-39df-4d7a-863f-232136228b65|Tunnel Body": "g10",
+        "c42d2340-39df-4d7a-863f-232136228b65|Boot Door Clearance - X": "g10",
+        "c42d2340-39df-4d7a-863f-232136228b65|Tunnel Shoulder Path - Z": "g10",
+        "c42d2340-39df-4d7a-863f-232136228b65|Tunnel Shoulder-Arm Profile": "g10",
+        "c42d2340-39df-4d7a-863f-232136228b65|Webs": "g10",
+        "c42d2340-39df-4d7a-863f-232136228b65|Fan Recess": "g10",
+        "c42d2340-39df-4d7a-863f-232136228b65|Boot Latch Recess": "g10",
+        "c42d2340-39df-4d7a-863f-232136228b65|Removing Top": "g10",
+        "c42d2340-39df-4d7a-863f-232136228b65|Carving Tunnel Outsides": "g10",
+        "c42d2340-39df-4d7a-863f-232136228b65|Sketch36": "g10",
+        "c42d2340-39df-4d7a-863f-232136228b65|Tethers Sketch37": "g10",
+        "c42d2340-39df-4d7a-863f-232136228b65|Sketch39": "g10",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|References X=0 mm": "g19",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|References X=0 mm": "g3",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|References Z=0 mm": "g19",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Sketch10": "g4",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Top": "g77",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|References Z=0 mm": "g4",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Webs Cutout": "g4",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Top#2": "g77",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Sketch59": "g46",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|X (Core_Dimension_Spacing_Y_X * 13)": "g75",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|References X=650 mm": "g46",
+        "c42d2340-39df-4d7a-863f-232136228b65|Sketch42": "g10",
+        "c42d2340-39df-4d7a-863f-232136228b65|X (Top_Bounds_Span_X - 1 + 120)": "g11",
+        "c42d2340-39df-4d7a-863f-232136228b65|References X=839 mm": "g10",
+        "c42d2340-39df-4d7a-863f-232136228b65|X (Top_Bounds_Span_X - 120 )": "g11",
+        "c42d2340-39df-4d7a-863f-232136228b65|References X=600 mm": "g10",
+        "c42d2340-39df-4d7a-863f-232136228b65|References X=300 mm": "g10",
+        "c42d2340-39df-4d7a-863f-232136228b65|Tethers Sketch42": "g10",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|X (12 * Core_Dimension_Spacing_Y_X + (TopLevel_Materials_MDF_Thickness / Num_1f458bb3))": "g75",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|References X=601.5 mm": "g46",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Fingers": "g46",
+        "d7919e0a-9a0d-43f6-a6f7-2053fd807486|Sketch Clipboard ref": "g78",
+        "d7919e0a-9a0d-43f6-a6f7-2053fd807486|Profile - X": "g78",
+        "d7919e0a-9a0d-43f6-a6f7-2053fd807486|Sketch Clipboard plane": "g80",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Profile - X": "g16",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Sketch Clipboard plane (1)": "g72"
+      },
+      "compCollapsed": {
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476": true,
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354": true,
+        "83517715-96d6-4cff-a3d7-f54ef16af697": true,
+        "bb29fcd7-98e9-47d0-b988-84b3109573c0": true,
+        "c42d2340-39df-4d7a-863f-232136228b65": true,
+        "6cda0848-386b-4c2e-b6ae-cfa56c4278ec": true,
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb": true,
+        "92730eac-931c-4d09-91db-75f35ec691a6": true,
+        "f46bd1a2-6d92-46d6-958e-21d9079e9bec": true,
+        "29e2d7cd-9e77-4034-a5f1-191bc68e7a50": true,
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680": true,
+        "fe0e50a1-a849-4db0-bc20-eaaf59546876": true,
+        "5ad7d9a3-145e-4333-a1a4-6edbc33444cb": true,
+        "6d112123-e316-4b2e-b3f4-1fdcef0126e2": true,
+        "5a2d9ab2-67a0-4106-afab-c73d31f0df9e": true,
+        "d4baba37-5a5e-43fc-a1cd-ed6a46f30d12": true,
+        "f0fa3649-57d6-4c51-94ea-77bf22357b10": true,
+        "c5ed35c0-7e4c-40bc-a282-654ee87c78f2": true,
+        "8f96d889-6081-45a7-9c47-6ca5b7c49a91": true,
+        "833efea1-f7c7-42a9-a9f3-89dfd6d5b84f": true,
+        "1a50d65c-c77a-440c-9f35-395f9ccfc0ee": true,
+        "7c851c67-2180-4b84-9d62-4a9d994dd737": true,
+        "a687eb69-ab85-48b7-999b-dbba65c6cd97": true,
+        "ec87b59d-927c-4de4-b397-5fdcf99ea6aa": true,
+        "bf4cc2ec-aca5-4d1a-85e6-4f38edea64cc": true,
+        "910479df-5465-4fb3-b524-8c1217c88630": true,
+        "d63db84e-db03-4278-8bba-71f4e8f4aa99": true,
+        "af44aec3-045d-4f4a-a3bb-51a704eb7ace": true,
+        "d7919e0a-9a0d-43f6-a6f7-2053fd807486": true
+      },
+      "sketchGroups": 1
+    },
+    "__unsaved__:Untitled": {
+      "groups": {
+        "g1": {
+          "name": "Sketches",
+          "parent": "c:9c3e8a10-a534-435a-be0c-3f95e39da278",
+          "collapsed": true
+        },
+        "g2": {
+          "name": "Sketches",
+          "parent": "c:4e5e63fd-0feb-46db-8101-447d40968328",
+          "collapsed": true
+        },
+        "g3": {
+          "name": "Sketches",
+          "parent": "c:77593872-45cc-4c89-bf14-0d8ba3e9accc",
+          "collapsed": true
+        },
+        "g4": {
+          "name": "Sketches",
+          "parent": "c:ead13f1d-e4e8-479a-a247-864e0db9972c",
+          "collapsed": true
+        },
+        "g5": {
+          "name": "Bounds",
+          "parent": "g:g4",
+          "collapsed": true
+        },
+        "g6": {
+          "name": "Sketches",
+          "parent": "c:9c25676d-8f5d-40d7-8117-eb26b8115788",
+          "collapsed": true
+        },
+        "g7": {
+          "name": "Sketches",
+          "parent": "c:b11ca909-f13b-4670-8fe2-59cdf1f2b623",
+          "collapsed": true
+        },
+        "g8": {
+          "name": "Bounds",
+          "parent": "g:g7",
+          "collapsed": true
+        },
+        "g9": {
+          "name": "Sketches",
+          "parent": "c:80da2180-99cc-4410-940c-1152ff20fa0f",
+          "collapsed": true
+        },
+        "g10": {
+          "name": "Sketches",
+          "parent": "c:f71c2b02-ad29-4b21-8828-03f9a9f0da2a",
+          "collapsed": true
+        },
+        "g11": {
+          "name": "Sketches",
+          "parent": "c:3ec96d43-6ea6-4224-ac8f-61ffa71c4582",
+          "collapsed": true
+        },
+        "g12": {
+          "name": "Sketches",
+          "parent": "c:636867f1-c6db-4387-b34d-6e20b4be1e38",
+          "collapsed": true
+        },
+        "g13": {
+          "name": "Sketches",
+          "parent": "c:2b87afcb-3f51-47bf-ad06-59dbbbef6ddd",
+          "collapsed": true
+        },
+        "g14": {
+          "name": "Sketches",
+          "parent": "c:122cea11-4e7a-499a-a6e0-a4244e71888e",
+          "collapsed": true
+        },
+        "g15": {
+          "name": "Sketches",
+          "parent": "c:c7735242-96a4-4f22-b2bd-7a59169c6048",
+          "collapsed": true
+        },
+        "g16": {
+          "name": "Sketches",
+          "parent": "c:9576cd1a-99e9-4f17-a5ce-ea8c59b626ab",
+          "collapsed": true
+        },
+        "g17": {
+          "name": "Bounds",
+          "parent": "g:g16",
+          "collapsed": true
+        },
+        "g18": {
+          "name": "Sketches",
+          "parent": "c:08567691-43be-4b9b-98cc-1ad553526eb9",
+          "collapsed": true
+        },
+        "g19": {
+          "name": "Sketches",
+          "parent": "c:cc54c5ee-41df-46f3-8ec2-570b20be0317",
+          "collapsed": true
+        },
+        "g20": {
+          "name": "Sketches",
+          "parent": "c:7ff64f62-8689-4294-88ea-85286cf4254d",
+          "collapsed": true
+        },
+        "g21": {
+          "name": "Sketches",
+          "parent": "c:d37453d2-c589-4509-b00f-cad529a3ecde",
+          "collapsed": true
+        },
+        "g22": {
+          "name": "Sketches",
+          "parent": "c:6d9ef8db-90f2-49ca-8a79-6f4709573bcb",
+          "collapsed": true
+        },
+        "g23": {
+          "name": "Sketches",
+          "parent": "c:dd3ed682-82fc-42ad-938c-3fa20c52190e",
+          "collapsed": true
+        },
+        "g24": {
+          "name": "Sketches",
+          "parent": "c:98ed93e4-f8ad-4a9b-900b-23183f444437",
+          "collapsed": true
+        },
+        "g25": {
+          "name": "Sketches",
+          "parent": "c:ce675f24-0c77-49aa-ac2f-b36e2800d20c",
+          "collapsed": true
+        },
+        "g26": {
+          "name": "Sketches",
+          "parent": "c:8263f758-229e-445f-b908-252c8e4e99d4",
+          "collapsed": true
+        },
+        "g27": {
+          "name": "Sketches",
+          "parent": "c:d42690ea-df21-4629-88f9-7d6ae32a3928",
+          "collapsed": true
+        },
+        "g28": {
+          "name": "Sketches",
+          "parent": "c:7a1d3e06-0e0d-4470-91b4-7429b9dbd183",
+          "collapsed": true
+        },
+        "g29": {
+          "name": "Sketches",
+          "parent": "c:2e60447b-2d1d-43ae-88e0-55d9b5b5ad6b",
+          "collapsed": true
+        },
+        "g30": {
+          "name": "Sketches",
+          "parent": "c:f76be390-75b1-44ff-a768-6753e06b2843",
+          "collapsed": true
+        },
+        "g31": {
+          "name": "Sketches",
+          "parent": "c:ee5f6122-b451-4fc4-acba-c09143b3bf4e",
+          "collapsed": true
+        },
+        "g32": {
+          "name": "Sketches",
+          "parent": "c:4b67395a-0016-4d4c-9f45-1b2a2250bf2f",
+          "collapsed": true
+        },
+        "g33": {
+          "name": "Sketches",
+          "parent": "c:b1861ffe-7e06-4d58-a74f-82875f5296f3",
+          "collapsed": true
+        },
+        "g34": {
+          "name": "Sketches",
+          "parent": "c:72e83a90-04fb-4f8e-b2e3-b0948f54ae2f",
+          "collapsed": true
+        },
+        "g35": {
+          "name": "Sketches",
+          "parent": "c:3a5a7e8b-d759-43bb-b4ec-24649b21d7c0",
+          "collapsed": true
+        },
+        "g36": {
+          "name": "Sketches",
+          "parent": "c:e41a8d58-6b9e-4aa1-b4ca-9f7c2d110f45",
+          "collapsed": true
+        },
+        "g37": {
+          "name": "Sketches",
+          "parent": "c:568771aa-d07f-4bff-847f-b65f686d9017",
+          "collapsed": true
+        },
+        "g38": {
+          "name": "Sketches",
+          "parent": "c:1c89bf2e-866e-4128-b209-f25cb7d589f3",
+          "collapsed": true
+        },
+        "g39": {
+          "name": "Sketches",
+          "parent": "c:3042bb8f-9d79-4574-b2b3-dfecf8cc7fb6",
+          "collapsed": true
+        },
+        "g40": {
+          "name": "Sketches",
+          "parent": "c:2cac47aa-bd55-4776-b1d7-ce03bcb358d4",
+          "collapsed": true
+        },
+        "g41": {
+          "name": "Sketches",
+          "parent": "c:350f45d5-9459-439c-a3f6-ef41b26b6ce6",
+          "collapsed": true
+        },
+        "g42": {
+          "name": "Sketches",
+          "parent": "c:82919346-7869-4f8a-ae78-c7b4907a390c",
+          "collapsed": true
+        },
+        "g43": {
+          "name": "Sketches",
+          "parent": "c:0c08f5ba-d7b5-4391-9ae4-0d7339a33576",
+          "collapsed": true
+        },
+        "g44": {
+          "name": "Planes",
+          "parent": "c:0c08f5ba-d7b5-4391-9ae4-0d7339a33576",
+          "collapsed": true
+        },
+        "g45": {
+          "name": "Sketches",
+          "parent": "c:985bee32-8552-4bb4-995a-c29a3e7b30f0",
+          "collapsed": true
+        },
+        "g46": {
+          "name": "Sketches",
+          "parent": "c:90891ded-3c8e-457b-972f-7ea116dca7df",
+          "collapsed": true
+        },
+        "g47": {
+          "name": "Sketches",
+          "parent": "c:4317a174-2b11-40c9-b10f-868a0a740402",
+          "collapsed": true
+        },
+        "g48": {
+          "name": "Planes",
+          "parent": "c:4317a174-2b11-40c9-b10f-868a0a740402",
+          "collapsed": true
+        },
+        "g49": {
+          "name": "Sketches",
+          "parent": "c:dedaafe7-a336-4197-8e37-5fecb244b153",
+          "collapsed": true
+        },
+        "g50": {
+          "name": "Bounds",
+          "parent": "g:g49",
+          "collapsed": true
+        },
+        "g51": {
+          "name": "Planes",
+          "parent": "c:985bee32-8552-4bb4-995a-c29a3e7b30f0",
+          "collapsed": true
+        },
+        "g52": {
+          "name": "Sketches",
+          "parent": "c:1a383deb-f4ef-42c8-b098-0484e713b3a3",
+          "collapsed": true
+        },
+        "g53": {
+          "name": "Planes",
+          "parent": "c:1a383deb-f4ef-42c8-b098-0484e713b3a3",
+          "collapsed": true
+        },
+        "g54": {
+          "name": "Sketches",
+          "parent": "c:4a0850d0-9510-471d-949f-daf00462bb1d",
+          "collapsed": true
+        },
+        "g55": {
+          "name": "Planes",
+          "parent": "c:4a0850d0-9510-471d-949f-daf00462bb1d",
+          "collapsed": true
+        },
+        "g56": {
+          "name": "Sketches",
+          "parent": "c:a06d637f-b400-43da-ae26-75800986c324",
+          "collapsed": true
+        },
+        "g57": {
+          "name": "Planes",
+          "parent": "c:a06d637f-b400-43da-ae26-75800986c324",
+          "collapsed": true
+        },
+        "g58": {
+          "name": "Sketches",
+          "parent": "c:a8b35908-2094-4fd3-a521-7b13a290d394",
+          "collapsed": true
+        },
+        "g59": {
+          "name": "Sketches",
+          "parent": "c:8dbb1130-a5d2-4308-ba49-34f42fac9b16",
+          "collapsed": true
+        }
+      },
+      "member": {
+        "9c3e8a10-a534-435a-be0c-3f95e39da278|RootSketch": "g1",
+        "4e5e63fd-0feb-46db-8101-447d40968328|CompSketch": "g2",
+        "77593872-45cc-4c89-bf14-0d8ba3e9accc|ParentSketch": "g3",
+        "ead13f1d-e4e8-479a-a247-864e0db9972c|Bounds X": "g5",
+        "ead13f1d-e4e8-479a-a247-864e0db9972c|Bounds Y": "g5",
+        "ead13f1d-e4e8-479a-a247-864e0db9972c|Bounds Z": "g5",
+        "9c25676d-8f5d-40d7-8117-eb26b8115788|ParentSketch": "g6",
+        "b11ca909-f13b-4670-8fe2-59cdf1f2b623|Bounds X": "g8",
+        "b11ca909-f13b-4670-8fe2-59cdf1f2b623|Bounds Y": "g8",
+        "b11ca909-f13b-4670-8fe2-59cdf1f2b623|Bounds Z": "g8",
+        "80da2180-99cc-4410-940c-1152ff20fa0f|RootSketch": "g9",
+        "f71c2b02-ad29-4b21-8828-03f9a9f0da2a|PastedSketch": "g10",
+        "3ec96d43-6ea6-4224-ac8f-61ffa71c4582|Sketch1": "g11",
+        "636867f1-c6db-4387-b34d-6e20b4be1e38|Sketch1": "g12",
+        "2b87afcb-3f51-47bf-ad06-59dbbbef6ddd|Sketch1": "g13",
+        "122cea11-4e7a-499a-a6e0-a4244e71888e|Sketch1": "g14",
+        "636867f1-c6db-4387-b34d-6e20b4be1e38|Sketch2": "g12",
+        "2b87afcb-3f51-47bf-ad06-59dbbbef6ddd|Sketch2": "g13",
+        "122cea11-4e7a-499a-a6e0-a4244e71888e|Sketch2": "g14",
+        "c7735242-96a4-4f22-b2bd-7a59169c6048|Base": "g15",
+        "c7735242-96a4-4f22-b2bd-7a59169c6048|Cut": "g15",
+        "c7735242-96a4-4f22-b2bd-7a59169c6048|Sketch3": "g15",
+        "9576cd1a-99e9-4f17-a5ce-ea8c59b626ab|Bounds X": "g17",
+        "9576cd1a-99e9-4f17-a5ce-ea8c59b626ab|Bounds Y": "g17",
+        "9576cd1a-99e9-4f17-a5ce-ea8c59b626ab|Bounds Z": "g17",
+        "9576cd1a-99e9-4f17-a5ce-ea8c59b626ab|Shelf - Y": "g16",
+        "9576cd1a-99e9-4f17-a5ce-ea8c59b626ab|Bracket - X": "g16",
+        "08567691-43be-4b9b-98cc-1ad553526eb9|Sketch1": "g18",
+        "08567691-43be-4b9b-98cc-1ad553526eb9|SliceTest": "g18",
+        "cc54c5ee-41df-46f3-8ec2-570b20be0317|Sketch1": "g19",
+        "cc54c5ee-41df-46f3-8ec2-570b20be0317|NestedSlice": "g19",
+        "7ff64f62-8689-4294-88ea-85286cf4254d|SliceReal": "g20",
+        "d37453d2-c589-4509-b00f-cad529a3ecde|Base": "g21",
+        "d37453d2-c589-4509-b00f-cad529a3ecde|S": "g21",
+        "d37453d2-c589-4509-b00f-cad529a3ecde|Tethers S": "g21",
+        "6d9ef8db-90f2-49ca-8a79-6f4709573bcb|Base": "g22",
+        "6d9ef8db-90f2-49ca-8a79-6f4709573bcb|S": "g22",
+        "6d9ef8db-90f2-49ca-8a79-6f4709573bcb|Tethers S": "g22",
+        "6d9ef8db-90f2-49ca-8a79-6f4709573bcb|S2": "g22",
+        "6d9ef8db-90f2-49ca-8a79-6f4709573bcb|Tethers S2": "g22",
+        "6d9ef8db-90f2-49ca-8a79-6f4709573bcb|S3": "g22",
+        "dd3ed682-82fc-42ad-938c-3fa20c52190e|H": "g23",
+        "dd3ed682-82fc-42ad-938c-3fa20c52190e|S": "g23",
+        "98ed93e4-f8ad-4a9b-900b-23183f444437|eps1e-05": "g24",
+        "98ed93e4-f8ad-4a9b-900b-23183f444437|eps0.0001": "g24",
+        "98ed93e4-f8ad-4a9b-900b-23183f444437|eps0.001": "g24",
+        "ce675f24-0c77-49aa-ac2f-b36e2800d20c|Sketch1": "g25",
+        "8263f758-229e-445f-b908-252c8e4e99d4|Sketch1": "g26",
+        "8263f758-229e-445f-b908-252c8e4e99d4|Sketch2": "g26",
+        "8263f758-229e-445f-b908-252c8e4e99d4|Sketch3": "g26",
+        "ce675f24-0c77-49aa-ac2f-b36e2800d20c|Sketch2": "g25",
+        "ce675f24-0c77-49aa-ac2f-b36e2800d20c|Sketch3": "g25",
+        "ce675f24-0c77-49aa-ac2f-b36e2800d20c|Sketch4": "g25",
+        "ce675f24-0c77-49aa-ac2f-b36e2800d20c|Sketch5": "g25",
+        "d42690ea-df21-4629-88f9-7d6ae32a3928|Sketch1": "g27",
+        "d42690ea-df21-4629-88f9-7d6ae32a3928|Sketch2": "g27",
+        "7a1d3e06-0e0d-4470-91b4-7429b9dbd183|Sketch1": "g28",
+        "7a1d3e06-0e0d-4470-91b4-7429b9dbd183|Sketch2": "g28",
+        "d42690ea-df21-4629-88f9-7d6ae32a3928|Sketch3": "g27",
+        "7a1d3e06-0e0d-4470-91b4-7429b9dbd183|Sketch3": "g28",
+        "2e60447b-2d1d-43ae-88e0-55d9b5b5ad6b|Sketch1": "g29",
+        "2e60447b-2d1d-43ae-88e0-55d9b5b5ad6b|Sketch2": "g29",
+        "f76be390-75b1-44ff-a768-6753e06b2843|Sketch1": "g30",
+        "f76be390-75b1-44ff-a768-6753e06b2843|Sketch2": "g30",
+        "ee5f6122-b451-4fc4-acba-c09143b3bf4e|Sketch1": "g31",
+        "4b67395a-0016-4d4c-9f45-1b2a2250bf2f|Sketch1": "g32",
+        "4b67395a-0016-4d4c-9f45-1b2a2250bf2f|Sketch2": "g32",
+        "b1861ffe-7e06-4d58-a74f-82875f5296f3|Sketch1": "g33",
+        "b1861ffe-7e06-4d58-a74f-82875f5296f3|Sketch2": "g33",
+        "72e83a90-04fb-4f8e-b2e3-b0948f54ae2f|Sketch1": "g34",
+        "b1861ffe-7e06-4d58-a74f-82875f5296f3|Sketch3": "g33",
+        "d42690ea-df21-4629-88f9-7d6ae32a3928|Sketch4": "g27",
+        "3a5a7e8b-d759-43bb-b4ec-24649b21d7c0|Sketch1": "g35",
+        "e41a8d58-6b9e-4aa1-b4ca-9f7c2d110f45|Sketch1": "g36",
+        "568771aa-d07f-4bff-847f-b65f686d9017|Boxes Profile": "g37",
+        "568771aa-d07f-4bff-847f-b65f686d9017|Boxes Profile 2": "g37",
+        "1c89bf2e-866e-4128-b209-f25cb7d589f3|Plate Profile": "g38",
+        "3042bb8f-9d79-4574-b2b3-dfecf8cc7fb6|Wedge Profile": "g39",
+        "2cac47aa-bd55-4776-b1d7-ce03bcb358d4|Rounded Profile": "g40",
+        "350f45d5-9459-439c-a3f6-ef41b26b6ce6|Tube Profile": "g41",
+        "82919346-7869-4f8a-ae78-c7b4907a390c|Peg Profile": "g42",
+        "0c08f5ba-d7b5-4391-9ae4-0d7339a33576|Toucher Profile": "g43",
+        "0c08f5ba-d7b5-4391-9ae4-0d7339a33576|Plane1": "g44",
+        "985bee32-8552-4bb4-995a-c29a3e7b30f0|Tilted Profile": "g45",
+        "90891ded-3c8e-457b-972f-7ea116dca7df|Ball Profile": "g46",
+        "4317a174-2b11-40c9-b10f-868a0a740402|Stress Z5": "g47",
+        "4317a174-2b11-40c9-b10f-868a0a740402|Z5": "g48",
+        "dedaafe7-a336-4197-8e37-5fecb244b153|Bounds X": "g50",
+        "dedaafe7-a336-4197-8e37-5fecb244b153|Bounds Y": "g50",
+        "dedaafe7-a336-4197-8e37-5fecb244b153|Bounds Z": "g50",
+        "dedaafe7-a336-4197-8e37-5fecb244b153|Wall Profile": "g49",
+        "4317a174-2b11-40c9-b10f-868a0a740402|Tethers Stress Z5": "g47",
+        "82919346-7869-4f8a-ae78-c7b4907a390c|Peg Section": "g42",
+        "985bee32-8552-4bb4-995a-c29a3e7b30f0|Tilted Section": "g45",
+        "985bee32-8552-4bb4-995a-c29a3e7b30f0|Plane1": "g51",
+        "1a383deb-f4ef-42c8-b098-0484e713b3a3|Rot Profile": "g52",
+        "1a383deb-f4ef-42c8-b098-0484e713b3a3|Rot Section": "g52",
+        "1a383deb-f4ef-42c8-b098-0484e713b3a3|Plane1": "g53",
+        "4a0850d0-9510-471d-949f-daf00462bb1d|Sketch1": "g54",
+        "4a0850d0-9510-471d-949f-daf00462bb1d|Doc2 Section": "g54",
+        "4a0850d0-9510-471d-949f-daf00462bb1d|Plane1": "g55",
+        "a06d637f-b400-43da-ae26-75800986c324|Sketch1": "g56",
+        "a06d637f-b400-43da-ae26-75800986c324|Doc2 Section": "g56",
+        "a06d637f-b400-43da-ae26-75800986c324|Plane1": "g57",
+        "4317a174-2b11-40c9-b10f-868a0a740402|Tie Victim": "g47",
+        "4317a174-2b11-40c9-b10f-868a0a740402|Tethers Tie Victim": "g47",
+        "4317a174-2b11-40c9-b10f-868a0a740402|Stress Y10": "g47",
+        "4317a174-2b11-40c9-b10f-868a0a740402|Y10": "g48",
+        "4317a174-2b11-40c9-b10f-868a0a740402|Tethers Stress Y10": "g47",
+        "a8b35908-2094-4fd3-a521-7b13a290d394|Joint Tube": "g58",
+        "a8b35908-2094-4fd3-a521-7b13a290d394|Joint Rib": "g58",
+        "a8b35908-2094-4fd3-a521-7b13a290d394|Joint D": "g58",
+        "8dbb1130-a5d2-4308-ba49-34f42fac9b16|Box Profile": "g59",
+        "8dbb1130-a5d2-4308-ba49-34f42fac9b16|Section Z=0": "g59",
+        "8dbb1130-a5d2-4308-ba49-34f42fac9b16|My Sketch": "g59",
+        "8dbb1130-a5d2-4308-ba49-34f42fac9b16|References Z=0 mm": "g59"
+      },
+      "compCollapsed": {},
+      "sketchGroups": 1
+    },
+    "__unsaved__:260612 (~recovered)": {
+      "groups": {
+        "g1": {
+          "name": "Sketches",
+          "parent": "c:fe0e50a1-a849-4db0-bc20-eaaf59546876",
+          "collapsed": true
+        },
+        "g2": {
+          "name": "Sketches",
+          "parent": "c:9c29cf15-e429-4231-9a48-c9e0eb8b2354",
+          "collapsed": true
+        },
+        "g3": {
+          "name": "Sketches",
+          "parent": "c:1dbb0ae2-dc2a-41df-bc08-ed4011dd5b51",
+          "collapsed": true
+        },
+        "g4": {
+          "name": "Sketches",
+          "parent": "c:bb29fcd7-98e9-47d0-b988-84b3109573c0",
+          "collapsed": true
+        },
+        "g5": {
+          "name": "Sketches",
+          "parent": "c:1a50d65c-c77a-440c-9f35-395f9ccfc0ee",
+          "collapsed": true
+        },
+        "g6": {
+          "name": "Bounds",
+          "parent": "g:g5",
+          "collapsed": true
+        },
+        "g7": {
+          "name": "Sketches",
+          "parent": "c:f46bd1a2-6d92-46d6-958e-21d9079e9bec",
+          "collapsed": true
+        },
+        "g8": {
+          "name": "Bounds",
+          "parent": "g:g7",
+          "collapsed": true
+        },
+        "g9": {
+          "name": "Sketches",
+          "parent": "c:d63db84e-db03-4278-8bba-71f4e8f4aa99",
+          "collapsed": true
+        },
+        "g10": {
+          "name": "Bounds",
+          "parent": "g:g9",
+          "collapsed": true
+        },
+        "g11": {
+          "name": "Sketches",
+          "parent": "c:8b7597aa-8b40-4b25-8c29-d46bd50e1eec",
+          "collapsed": true
+        },
+        "g12": {
+          "name": "Bounds",
+          "parent": "g:g11",
+          "collapsed": true
+        },
+        "g13": {
+          "name": "Sketches",
+          "parent": "c:a83b86cf-b1fa-4683-955d-058d9d50f78e",
+          "collapsed": true
+        },
+        "g14": {
+          "name": "Bounds",
+          "parent": "g:g13",
+          "collapsed": true
+        },
+        "g15": {
+          "name": "Sketches",
+          "parent": "c:833efea1-f7c7-42a9-a9f3-89dfd6d5b84f",
+          "collapsed": true
+        },
+        "g16": {
+          "name": "Sketches",
+          "parent": "c:83517715-96d6-4cff-a3d7-f54ef16af697",
+          "collapsed": true
+        },
+        "g17": {
+          "name": "Bounds",
+          "parent": "g:g16",
+          "collapsed": true
+        },
+        "g18": {
+          "name": "Sketches",
+          "parent": "c:9cc3bf44-de27-4874-aebf-7ebfb85af680",
+          "collapsed": true
+        },
+        "g19": {
+          "name": "Bounds",
+          "parent": "g:g18",
+          "collapsed": true
+        },
+        "g20": {
+          "name": "Sketches",
+          "parent": "c:ec87b59d-927c-4de4-b397-5fdcf99ea6aa",
+          "collapsed": true
+        },
+        "g21": {
+          "name": "Bounds",
+          "parent": "g:g20",
+          "collapsed": true
+        },
+        "g22": {
+          "name": "Sketches",
+          "parent": "c:d7fa0c87-43d7-4d00-bc09-208a0f43fb91",
+          "collapsed": true
+        },
+        "g23": {
+          "name": "Bounds",
+          "parent": "g:g22",
+          "collapsed": true
+        },
+        "g24": {
+          "name": "Sketches",
+          "parent": "c:8f96d889-6081-45a7-9c47-6ca5b7c49a91",
+          "collapsed": true
+        },
+        "g25": {
+          "name": "Sketches",
+          "parent": "c:84c5f395-7d36-49a5-b7a8-2930c99aed72",
+          "collapsed": true
+        },
+        "g26": {
+          "name": "Bounds",
+          "parent": "g:g25",
+          "collapsed": true
+        },
+        "g27": {
+          "name": "Sketches",
+          "parent": "c:c129bb72-f0bf-4353-b24c-8184d1f4aeec",
+          "collapsed": true
+        },
+        "g28": {
+          "name": "Bounds",
+          "parent": "g:g27",
+          "collapsed": true
+        },
+        "g29": {
+          "name": "Sketches",
+          "parent": "c:92730eac-931c-4d09-91db-75f35ec691a6",
+          "collapsed": true
+        },
+        "g30": {
+          "name": "Bounds",
+          "parent": "g:g29",
+          "collapsed": true
+        },
+        "g31": {
+          "name": "Sketches",
+          "parent": "c:034df2b3-f3d9-4e44-9b4e-f44696c06beb",
+          "collapsed": true
+        },
+        "g32": {
+          "name": "Bounds",
+          "parent": "g:g31",
+          "collapsed": true
+        },
+        "g33": {
+          "name": "Sketches",
+          "parent": "c:a83fc338-5b78-4c90-aaed-ffbd884e8476",
+          "collapsed": true
+        },
+        "g34": {
+          "name": "Sketches",
+          "parent": "c:0684a180-406c-4b01-bbcb-bc84336de500",
+          "collapsed": true
+        },
+        "g35": {
+          "name": "Sketches",
+          "parent": "c:c42d2340-39df-4d7a-863f-232136228b65",
+          "collapsed": true
+        },
+        "g36": {
+          "name": "Sketches",
+          "parent": "c:ab389e44-ac53-4611-b434-d16e8db96c5b",
+          "collapsed": true
+        },
+        "g37": {
+          "name": "Sketches",
+          "parent": "c:ff18bfd7-d008-4e4b-a05c-6106cf08ad81",
+          "collapsed": true
+        },
+        "g38": {
+          "name": "Bounds",
+          "parent": "g:g37",
+          "collapsed": true
+        },
+        "g39": {
+          "name": "Bounds",
+          "parent": "g:g36",
+          "collapsed": true
+        },
+        "g40": {
+          "name": "Sketches",
+          "parent": "c:5798baf9-d425-4d58-a2fb-2fac0f9713e2",
+          "collapsed": true
+        },
+        "g41": {
+          "name": "Bounds",
+          "parent": "g:g40",
+          "collapsed": true
+        },
+        "g42": {
+          "name": "Sketches",
+          "parent": "c:e3d4008a-eadc-405f-b217-7f296b615d6c",
+          "collapsed": true
+        },
+        "g43": {
+          "name": "Bounds",
+          "parent": "g:g42",
+          "collapsed": true
+        },
+        "g44": {
+          "name": "Bounds",
+          "parent": "g:g2",
+          "collapsed": true
+        },
+        "g45": {
+          "name": "Bounds",
+          "parent": "g:g35",
+          "collapsed": true
+        },
+        "g46": {
+          "name": "Bounds",
+          "parent": "g:g4",
+          "collapsed": true
+        },
+        "g47": {
+          "name": "Sketches",
+          "parent": "c:bf4cc2ec-aca5-4d1a-85e6-4f38edea64cc",
+          "collapsed": true
+        },
+        "g48": {
+          "name": "Bounds",
+          "parent": "g:g33",
+          "collapsed": true
+        },
+        "g49": {
+          "name": "Planes",
+          "parent": "c:ff18bfd7-d008-4e4b-a05c-6106cf08ad81",
+          "collapsed": true
+        },
+        "g50": {
+          "name": "Planes",
+          "parent": "c:833efea1-f7c7-42a9-a9f3-89dfd6d5b84f",
+          "collapsed": true
+        },
+        "g51": {
+          "name": "Planes",
+          "parent": "c:9c29cf15-e429-4231-9a48-c9e0eb8b2354",
+          "collapsed": true
+        },
+        "g52": {
+          "name": "Planes",
+          "parent": "c:9cc3bf44-de27-4874-aebf-7ebfb85af680",
+          "collapsed": true
+        },
+        "g53": {
+          "name": "Planes",
+          "parent": "c:c42d2340-39df-4d7a-863f-232136228b65",
+          "collapsed": true
+        },
+        "g54": {
+          "name": "Planes",
+          "parent": "c:ab389e44-ac53-4611-b434-d16e8db96c5b",
+          "collapsed": true
+        },
+        "g55": {
+          "name": "Planes",
+          "parent": "c:f46bd1a2-6d92-46d6-958e-21d9079e9bec",
+          "collapsed": true
+        },
+        "g56": {
+          "name": "Planes",
+          "parent": "c:84c5f395-7d36-49a5-b7a8-2930c99aed72",
+          "collapsed": true
+        },
+        "g57": {
+          "name": "Planes",
+          "parent": "c:92730eac-931c-4d09-91db-75f35ec691a6",
+          "collapsed": true
+        },
+        "g58": {
+          "name": "Planes",
+          "parent": "c:034df2b3-f3d9-4e44-9b4e-f44696c06beb",
+          "collapsed": true
+        },
+        "g59": {
+          "name": "Planes",
+          "parent": "c:d63db84e-db03-4278-8bba-71f4e8f4aa99",
+          "collapsed": true
+        },
+        "g60": {
+          "name": "Planes",
+          "parent": "c:a83b86cf-b1fa-4683-955d-058d9d50f78e",
+          "collapsed": true
+        },
+        "g61": {
+          "name": "Planes",
+          "parent": "c:e3d4008a-eadc-405f-b217-7f296b615d6c",
+          "collapsed": true
+        },
+        "g62": {
+          "name": "Planes",
+          "parent": "c:a83fc338-5b78-4c90-aaed-ffbd884e8476",
+          "collapsed": true
+        },
+        "g63": {
+          "name": "Sketches",
+          "parent": "c:d7919e0a-9a0d-43f6-a6f7-2053fd807486",
+          "collapsed": true
+        },
+        "g64": {
+          "name": "Planes",
+          "parent": "c:d7919e0a-9a0d-43f6-a6f7-2053fd807486",
+          "collapsed": true
+        }
+      },
+      "member": {
+        "fe0e50a1-a849-4db0-bc20-eaaf59546876|Profile - Z": "g1",
+        "fe0e50a1-a849-4db0-bc20-eaaf59546876|Pofile - Y": "g1",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Profile - X": "g2",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Powerboard": "g2",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Profile - Y": "g2",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Profile - Z": "g2",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Tunnel Entrance": "g2",
+        "1dbb0ae2-dc2a-41df-bc08-ed4011dd5b51|Profile -  Y": "g3",
+        "bb29fcd7-98e9-47d0-b988-84b3109573c0|Profile - X": "g4",
+        "1a50d65c-c77a-440c-9f35-395f9ccfc0ee|Bounds Z": "g6",
+        "1a50d65c-c77a-440c-9f35-395f9ccfc0ee|Bounds Y": "g6",
+        "1a50d65c-c77a-440c-9f35-395f9ccfc0ee|Bounds X": "g6",
+        "f46bd1a2-6d92-46d6-958e-21d9079e9bec|Bounds Z": "g8",
+        "f46bd1a2-6d92-46d6-958e-21d9079e9bec|Bounds Y": "g8",
+        "f46bd1a2-6d92-46d6-958e-21d9079e9bec|Bounds X": "g8",
+        "f46bd1a2-6d92-46d6-958e-21d9079e9bec|Profile - X": "g7",
+        "d63db84e-db03-4278-8bba-71f4e8f4aa99|Bounds Z": "g10",
+        "d63db84e-db03-4278-8bba-71f4e8f4aa99|Bounds Y": "g10",
+        "d63db84e-db03-4278-8bba-71f4e8f4aa99|Bounds X": "g10",
+        "d63db84e-db03-4278-8bba-71f4e8f4aa99|Sketch4": "g9",
+        "8b7597aa-8b40-4b25-8c29-d46bd50e1eec|Bounds Z": "g12",
+        "8b7597aa-8b40-4b25-8c29-d46bd50e1eec|Bounds Y": "g12",
+        "8b7597aa-8b40-4b25-8c29-d46bd50e1eec|Bounds X": "g12",
+        "a83b86cf-b1fa-4683-955d-058d9d50f78e|Bounds Z": "g14",
+        "a83b86cf-b1fa-4683-955d-058d9d50f78e|Bounds Y": "g14",
+        "a83b86cf-b1fa-4683-955d-058d9d50f78e|Bounds X": "g14",
+        "a83b86cf-b1fa-4683-955d-058d9d50f78e|Profile - Y - Back": "g13",
+        "a83b86cf-b1fa-4683-955d-058d9d50f78e|Sketch5": "g13",
+        "833efea1-f7c7-42a9-a9f3-89dfd6d5b84f|Profile - Y - Back": "g15",
+        "833efea1-f7c7-42a9-a9f3-89dfd6d5b84f|Profile - Y - Front": "g15",
+        "833efea1-f7c7-42a9-a9f3-89dfd6d5b84f|Profile - X": "g15",
+        "83517715-96d6-4cff-a3d7-f54ef16af697|Bounds Z": "g17",
+        "83517715-96d6-4cff-a3d7-f54ef16af697|Bounds Y": "g17",
+        "83517715-96d6-4cff-a3d7-f54ef16af697|Bounds X": "g17",
+        "83517715-96d6-4cff-a3d7-f54ef16af697|Profile - X": "g16",
+        "83517715-96d6-4cff-a3d7-f54ef16af697|Rib Slot - Y Axis": "g16",
+        "83517715-96d6-4cff-a3d7-f54ef16af697|Rib Slot - X Axis": "g16",
+        "83517715-96d6-4cff-a3d7-f54ef16af697|Rib Intersetion": "g16",
+        "83517715-96d6-4cff-a3d7-f54ef16af697|Tunnel": "g16",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Bounds X": "g19",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Bounds Y": "g19",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Bounds Z": "g19",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Profile - Y Axis": "g18",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Profile - Y": "g18",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Sketch4": "g18",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Sketch6": "g18",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Sketch8": "g18",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Depth - Z": "g18",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Profile - X": "g18",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Width - Z": "g18",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Rib Intersetion": "g18",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Rib Slots": "g18",
+        "ec87b59d-927c-4de4-b397-5fdcf99ea6aa|Bounds Z": "g21",
+        "ec87b59d-927c-4de4-b397-5fdcf99ea6aa|Bounds Y": "g21",
+        "ec87b59d-927c-4de4-b397-5fdcf99ea6aa|Bounds X": "g21",
+        "d7fa0c87-43d7-4d00-bc09-208a0f43fb91|Bounds Z": "g23",
+        "d7fa0c87-43d7-4d00-bc09-208a0f43fb91|Bounds Y": "g23",
+        "d7fa0c87-43d7-4d00-bc09-208a0f43fb91|Bounds X": "g23",
+        "8f96d889-6081-45a7-9c47-6ca5b7c49a91|Top Profile - X": "g24",
+        "84c5f395-7d36-49a5-b7a8-2930c99aed72|Bounds Z": "g26",
+        "84c5f395-7d36-49a5-b7a8-2930c99aed72|Bounds Y": "g26",
+        "84c5f395-7d36-49a5-b7a8-2930c99aed72|Bounds X": "g26",
+        "84c5f395-7d36-49a5-b7a8-2930c99aed72|Profile - X": "g25",
+        "c129bb72-f0bf-4353-b24c-8184d1f4aeec|Bounds Z": "g28",
+        "c129bb72-f0bf-4353-b24c-8184d1f4aeec|Bounds Y": "g28",
+        "c129bb72-f0bf-4353-b24c-8184d1f4aeec|Bounds X": "g28",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Bounds Z": "g30",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Bounds Y": "g30",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Bounds X": "g30",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Profile - Y": "g29",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Profile - X": "g29",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Sketch11": "g29",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Sketch12": "g29",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Sketch13": "g29",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|Bounds Z": "g32",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|Bounds Y": "g32",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|Bounds X": "g32",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|Sketch4": "g31",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|Sketch5": "g31",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|Sketch6": "g31",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|Sketch7": "g31",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Hole - Tunnel - Z": "g33",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Hole - Boot Latch - Y": "g33",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Profile - X": "g33",
+        "0684a180-406c-4b01-bbcb-bc84336de500|Profile - X": "g34",
+        "c42d2340-39df-4d7a-863f-232136228b65|Profile - X": "g35",
+        "c42d2340-39df-4d7a-863f-232136228b65|Tunnel Entrance - Y": "g35",
+        "c42d2340-39df-4d7a-863f-232136228b65|Removing Top - X": "g35",
+        "c42d2340-39df-4d7a-863f-232136228b65|Tunnel Body Profile": "g35",
+        "c42d2340-39df-4d7a-863f-232136228b65|Fan Recess - X": "g35",
+        "c42d2340-39df-4d7a-863f-232136228b65|Drawer Latch Recess - Y": "g35",
+        "c42d2340-39df-4d7a-863f-232136228b65|Drawer Latch Motor Recess - Y": "g35",
+        "c42d2340-39df-4d7a-863f-232136228b65|Boot Door Clearance - X": "g35",
+        "c42d2340-39df-4d7a-863f-232136228b65|Tunnel Shoulder Path - Z": "g35",
+        "c42d2340-39df-4d7a-863f-232136228b65|Tunnel Shoulder-Arm Profile": "g35",
+        "c42d2340-39df-4d7a-863f-232136228b65|Periscope Profile - Z": "g35",
+        "c42d2340-39df-4d7a-863f-232136228b65|Sketch25": "g35",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Edge rounding - Extrude - X (1)": "g36",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Main, Inside - Cut - Y": "g36",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Main - Extrude - X": "g36",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Prong, bottom - Extrude - Z": "g36",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Main, outside - Cut - Y": "g36",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Convexity, top - Path - Z": "g36",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Convexity - Loft": "g36",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Prong, top - Extrude - Z": "g36",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Prong, bottom - Cut - X": "g36",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Main, Inside - Cut - Y (1)": "g36",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Main - Axis, scale": "g36",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Main - Extrude, Big - X": "g36",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Fillet, prong-body - Path": "g36",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Webs - Extrude - Z": "g36",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Webs - Intersect - Z": "g36",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Drawer Runner Cavities - Cut - Z": "g36",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Edge rounding - Extrude - X": "g36",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Profile, Body-Prong Loft - Outside": "g36",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Profile, Body-Prong Loft - Inside": "g36",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Bounds Z": "g38",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Bounds Y": "g38",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Bounds X": "g38",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Master 01 \u2013 Profile - X": "g37",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Master 02 \u2013 Profile - X": "g37",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Master 03 \u2013 Profile - X": "g37",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Profile": "g37",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Bounds X": "g39",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Bounds Y": "g39",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Bounds Z": "g39",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|Sketch4 (1)": "g31",
+        "5798baf9-d425-4d58-a2fb-2fac0f9713e2|Bounds X": "g41",
+        "5798baf9-d425-4d58-a2fb-2fac0f9713e2|Bounds Y": "g41",
+        "5798baf9-d425-4d58-a2fb-2fac0f9713e2|Bounds Z": "g41",
+        "5798baf9-d425-4d58-a2fb-2fac0f9713e2|Sketch4 (1)": "g40",
+        "e3d4008a-eadc-405f-b217-7f296b615d6c|Side Profile - Outside": "g42",
+        "e3d4008a-eadc-405f-b217-7f296b615d6c|Bounds X": "g43",
+        "e3d4008a-eadc-405f-b217-7f296b615d6c|Sketch5": "g42",
+        "e3d4008a-eadc-405f-b217-7f296b615d6c|Bounds Y": "g43",
+        "e3d4008a-eadc-405f-b217-7f296b615d6c|Bounds Z": "g43",
+        "e3d4008a-eadc-405f-b217-7f296b615d6c|Side Profile - Inside": "g42",
+        "e3d4008a-eadc-405f-b217-7f296b615d6c|Sketch6": "g42",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Bounds X": "g44",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Bounds Y": "g44",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Bounds Z": "g44",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Sketch15": "g2",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Sketch16": "g2",
+        "c42d2340-39df-4d7a-863f-232136228b65|Bounds X": "g45",
+        "c42d2340-39df-4d7a-863f-232136228b65|Bounds Y": "g45",
+        "c42d2340-39df-4d7a-863f-232136228b65|Bounds Z": "g45",
+        "c42d2340-39df-4d7a-863f-232136228b65|Webs": "g35",
+        "c42d2340-39df-4d7a-863f-232136228b65|Sketch32": "g35",
+        "c42d2340-39df-4d7a-863f-232136228b65|Base": "g35",
+        "c42d2340-39df-4d7a-863f-232136228b65|Tunnel Entrance": "g35",
+        "c42d2340-39df-4d7a-863f-232136228b65|Tunnel Body": "g35",
+        "c42d2340-39df-4d7a-863f-232136228b65|Fan Recess": "g35",
+        "c42d2340-39df-4d7a-863f-232136228b65|Sketch33": "g35",
+        "bb29fcd7-98e9-47d0-b988-84b3109573c0|Bounds X": "g46",
+        "bb29fcd7-98e9-47d0-b988-84b3109573c0|Bounds Y": "g46",
+        "bb29fcd7-98e9-47d0-b988-84b3109573c0|Bounds Z": "g46",
+        "bf4cc2ec-aca5-4d1a-85e6-4f38edea64cc|Remove Top": "g47",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Bounds X": "g48",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Bounds Y": "g48",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Bounds Z": "g48",
+        "c42d2340-39df-4d7a-863f-232136228b65|Boot Latch Recess": "g35",
+        "c42d2340-39df-4d7a-863f-232136228b65|Removing Top": "g35",
+        "c42d2340-39df-4d7a-863f-232136228b65|Carving Tunnel Outsides": "g35",
+        "c42d2340-39df-4d7a-863f-232136228b65|Sketch36": "g35",
+        "c42d2340-39df-4d7a-863f-232136228b65|Sketch37": "g35",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|X": "g49",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Sketch Clipboard plane": "g49",
+        "833efea1-f7c7-42a9-a9f3-89dfd6d5b84f|Front 140": "g50",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Back BootCeiling_Dimension_Front_Inset_Back": "g51",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Back BootCeiling_Dimension_Front_Inset_Back (1)": "g51",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Back BootCeiling_Dimension_Front_Inset_Back (2)": "g51",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|X": "g51",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Top": "g52",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Top (1)": "g52",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|X": "g52",
+        "c42d2340-39df-4d7a-863f-232136228b65|Tethers Sketch37": "g35",
+        "c42d2340-39df-4d7a-863f-232136228b65|Plane5": "g53",
+        "c42d2340-39df-4d7a-863f-232136228b65|Plane6": "g53",
+        "c42d2340-39df-4d7a-863f-232136228b65|Back (Bridge_Tunnels_Shoulder__Radius + TopLevel_Materials_Steel_Thickness + TopLevel_Profile_CurvitureStart_Inset_Back)": "g53",
+        "c42d2340-39df-4d7a-863f-232136228b65|X + Thorax_FanRecesses_Left_Outset_X": "g53",
+        "c42d2340-39df-4d7a-863f-232136228b65|Back (BootCeiling_Dimension_Front_Inset_Back + TopLevel_Materials_HIPS_Thickness)": "g53",
+        "c42d2340-39df-4d7a-863f-232136228b65|Top Thorax_DrawerLatchRecess_Top_Inset_Top": "g53",
+        "c42d2340-39df-4d7a-863f-232136228b65|Top": "g53",
+        "c42d2340-39df-4d7a-863f-232136228b65|X": "g53",
+        "c42d2340-39df-4d7a-863f-232136228b65|X (1)": "g53",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Prong Bottom Position - Z": "g54",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Wing Outside": "g54",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Wing Top": "g54",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Plane17": "g54",
+        "ab389e44-ac53-4611-b434-d16e8db96c5b|Wing Outside (1)": "g54",
+        "f46bd1a2-6d92-46d6-958e-21d9079e9bec|X": "g55",
+        "84c5f395-7d36-49a5-b7a8-2930c99aed72|X": "g56",
+        "92730eac-931c-4d09-91db-75f35ec691a6|X": "g57",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Front (3)": "g57",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Front": "g57",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Front (1)": "g57",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Front (2)": "g57",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Front @ - Taper": "g57",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Front (4)": "g57",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Front @ Taper": "g57",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Front @ Taper (1)": "g57",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|X": "g58",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|Back": "g58",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|Back (1)": "g58",
+        "d63db84e-db03-4278-8bba-71f4e8f4aa99|Top": "g59",
+        "a83b86cf-b1fa-4683-955d-058d9d50f78e|Front + DrawerCeiling_Dimension_Back_Inset_Front": "g60",
+        "a83b86cf-b1fa-4683-955d-058d9d50f78e|X": "g60",
+        "e3d4008a-eadc-405f-b217-7f296b615d6c|Sketch Clipboard plane": "g61",
+        "e3d4008a-eadc-405f-b217-7f296b615d6c|Top": "g61",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Holes": "g18",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Sketch24": "g18",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|X (1)": "g52",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Sketch Clipboard ref": "g33",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Profile - X (1)": "g33",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Sketch Clipboard plane": "g62",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Tethers Sketch28": "g18",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Make Way For Boot Ceiling Steel": "g18",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|X (1)": "g51",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|References X=0 mm": "g2",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Tunnel": "g18",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|References Z=0 mm": "g18",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|References X=0 mm": "g18",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Tethers Sketch33": "g18",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Make Way For Thorax": "g18",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|X (2)": "g52",
+        "d7919e0a-9a0d-43f6-a6f7-2053fd807486|Sketch Clipboard ref": "g63",
+        "d7919e0a-9a0d-43f6-a6f7-2053fd807486|Profile - X": "g63",
+        "d7919e0a-9a0d-43f6-a6f7-2053fd807486|Sketch Clipboard plane": "g64",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|References Z=0 mm": "g33",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Sketch10": "g33",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Top": "g62",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Top#2": "g62",
+        "c42d2340-39df-4d7a-863f-232136228b65|References X=300 mm": "g35",
+        "c42d2340-39df-4d7a-863f-232136228b65|References X=839 mm": "g35",
+        "c42d2340-39df-4d7a-863f-232136228b65|References X=600 mm": "g35",
+        "c42d2340-39df-4d7a-863f-232136228b65|Tethers Sketch42": "g35",
+        "c42d2340-39df-4d7a-863f-232136228b65|Sketch42": "g35",
+        "c42d2340-39df-4d7a-863f-232136228b65|X (Top_Bounds_Span_X - 120 )": "g53",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Sketch Clipboard ref": "g37",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Profile - X": "g37",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Sketch Clipboard plane (1)": "g49"
+      },
+      "compCollapsed": {},
+      "sketchGroups": 1
+    },
+    "__unsaved__:ScratchFilletTest": {
+      "groups": {
+        "g1": {
+          "name": "Sketches",
+          "parent": "c:b01f4b1f-17b0-4356-ae79-66cd3b9677d9",
+          "collapsed": true
+        }
+      },
+      "member": {
+        "b01f4b1f-17b0-4356-ae79-66cd3b9677d9|Sketch1": "g1",
+        "b01f4b1f-17b0-4356-ae79-66cd3b9677d9|Sketch2": "g1"
+      },
+      "compCollapsed": {},
+      "sketchGroups": 1
+    },
+    "__unsaved__:260612 v617": {
+      "groups": {
+        "g1": {
+          "name": "Sketches",
+          "parent": "c:ff18bfd7-d008-4e4b-a05c-6106cf08ad81",
+          "collapsed": true
+        },
+        "g2": {
+          "name": "Bounds",
+          "parent": "g:g1",
+          "collapsed": true
+        },
+        "g3": {
+          "name": "Planes",
+          "parent": "c:ff18bfd7-d008-4e4b-a05c-6106cf08ad81",
+          "collapsed": true
+        },
+        "g4": {
+          "name": "Sketches",
+          "parent": "c:9cc3bf44-de27-4874-aebf-7ebfb85af680",
+          "collapsed": true
+        },
+        "g5": {
+          "name": "Bounds",
+          "parent": "g:g4",
+          "collapsed": true
+        },
+        "g6": {
+          "name": "Planes",
+          "parent": "c:9cc3bf44-de27-4874-aebf-7ebfb85af680",
+          "collapsed": true
+        },
+        "g7": {
+          "name": "Sketches",
+          "parent": "c:d7919e0a-9a0d-43f6-a6f7-2053fd807486",
+          "collapsed": true
+        },
+        "g8": {
+          "name": "Planes",
+          "parent": "c:d7919e0a-9a0d-43f6-a6f7-2053fd807486",
+          "collapsed": true
+        },
+        "g9": {
+          "name": "Sketches",
+          "parent": "c:ec87b59d-927c-4de4-b397-5fdcf99ea6aa",
+          "collapsed": true
+        },
+        "g10": {
+          "name": "Bounds",
+          "parent": "g:g9",
+          "collapsed": true
+        },
+        "g11": {
+          "name": "Sketches",
+          "parent": "c:d7fa0c87-43d7-4d00-bc09-208a0f43fb91",
+          "collapsed": true
+        },
+        "g12": {
+          "name": "Bounds",
+          "parent": "g:g11",
+          "collapsed": true
+        },
+        "g13": {
+          "name": "Sketches",
+          "parent": "c:a83fc338-5b78-4c90-aaed-ffbd884e8476",
+          "collapsed": true
+        },
+        "g14": {
+          "name": "Bounds",
+          "parent": "g:g13",
+          "collapsed": true
+        },
+        "g15": {
+          "name": "Planes",
+          "parent": "c:a83fc338-5b78-4c90-aaed-ffbd884e8476",
+          "collapsed": true
+        },
+        "g16": {
+          "name": "Sketches",
+          "parent": "c:92730eac-931c-4d09-91db-75f35ec691a6",
+          "collapsed": true
+        },
+        "g17": {
+          "name": "Bounds",
+          "parent": "g:g16",
+          "collapsed": true
+        },
+        "g18": {
+          "name": "Planes",
+          "parent": "c:92730eac-931c-4d09-91db-75f35ec691a6",
+          "collapsed": true
+        },
+        "g19": {
+          "name": "Sketches",
+          "parent": "c:034df2b3-f3d9-4e44-9b4e-f44696c06beb",
+          "collapsed": true
+        },
+        "g20": {
+          "name": "Bounds",
+          "parent": "g:g19",
+          "collapsed": true
+        },
+        "g21": {
+          "name": "Planes",
+          "parent": "c:034df2b3-f3d9-4e44-9b4e-f44696c06beb",
+          "collapsed": true
+        },
+        "g22": {
+          "name": "Sketches",
+          "parent": "c:1a50d65c-c77a-440c-9f35-395f9ccfc0ee",
+          "collapsed": true
+        },
+        "g23": {
+          "name": "Bounds",
+          "parent": "g:g22",
+          "collapsed": true
+        },
+        "g24": {
+          "name": "Sketches",
+          "parent": "c:f46bd1a2-6d92-46d6-958e-21d9079e9bec",
+          "collapsed": true
+        },
+        "g25": {
+          "name": "Bounds",
+          "parent": "g:g24",
+          "collapsed": true
+        },
+        "g26": {
+          "name": "Planes",
+          "parent": "c:f46bd1a2-6d92-46d6-958e-21d9079e9bec",
+          "collapsed": true
+        },
+        "g27": {
+          "name": "Sketches",
+          "parent": "c:d63db84e-db03-4278-8bba-71f4e8f4aa99",
+          "collapsed": true
+        },
+        "g28": {
+          "name": "Bounds",
+          "parent": "g:g27",
+          "collapsed": true
+        },
+        "g29": {
+          "name": "Planes",
+          "parent": "c:d63db84e-db03-4278-8bba-71f4e8f4aa99",
+          "collapsed": true
+        },
+        "g30": {
+          "name": "Sketches",
+          "parent": "c:8b7597aa-8b40-4b25-8c29-d46bd50e1eec",
+          "collapsed": true
+        },
+        "g31": {
+          "name": "Bounds",
+          "parent": "g:g30",
+          "collapsed": true
+        },
+        "g32": {
+          "name": "Sketches",
+          "parent": "c:a83b86cf-b1fa-4683-955d-058d9d50f78e",
+          "collapsed": true
+        },
+        "g33": {
+          "name": "Bounds",
+          "parent": "g:g32",
+          "collapsed": true
+        },
+        "g34": {
+          "name": "Planes",
+          "parent": "c:a83b86cf-b1fa-4683-955d-058d9d50f78e",
+          "collapsed": true
+        },
+        "g35": {
+          "name": "Sketches",
+          "parent": "c:833efea1-f7c7-42a9-a9f3-89dfd6d5b84f",
+          "collapsed": true
+        },
+        "g36": {
+          "name": "Planes",
+          "parent": "c:833efea1-f7c7-42a9-a9f3-89dfd6d5b84f",
+          "collapsed": true
+        },
+        "g37": {
+          "name": "Sketches",
+          "parent": "c:1dbb0ae2-dc2a-41df-bc08-ed4011dd5b51",
+          "collapsed": true
+        },
+        "g38": {
+          "name": "Sketches",
+          "parent": "c:9c29cf15-e429-4231-9a48-c9e0eb8b2354",
+          "collapsed": true
+        },
+        "g39": {
+          "name": "Bounds",
+          "parent": "g:g38",
+          "collapsed": true
+        },
+        "g40": {
+          "name": "Planes",
+          "parent": "c:9c29cf15-e429-4231-9a48-c9e0eb8b2354",
+          "collapsed": true
+        },
+        "g41": {
+          "name": "Sketches",
+          "parent": "c:fe0e50a1-a849-4db0-bc20-eaaf59546876",
+          "collapsed": true
+        },
+        "g42": {
+          "name": "Sketches",
+          "parent": "c:bb29fcd7-98e9-47d0-b988-84b3109573c0",
+          "collapsed": true
+        },
+        "g43": {
+          "name": "Bounds",
+          "parent": "g:g42",
+          "collapsed": true
+        },
+        "g44": {
+          "name": "Sketches",
+          "parent": "c:83517715-96d6-4cff-a3d7-f54ef16af697",
+          "collapsed": true
+        },
+        "g45": {
+          "name": "Bounds",
+          "parent": "g:g44",
+          "collapsed": true
+        },
+        "g46": {
+          "name": "Sketches",
+          "parent": "c:0684a180-406c-4b01-bbcb-bc84336de500",
+          "collapsed": true
+        },
+        "g47": {
+          "name": "Sketches",
+          "parent": "c:c42d2340-39df-4d7a-863f-232136228b65",
+          "collapsed": true
+        },
+        "g48": {
+          "name": "Bounds",
+          "parent": "g:g47",
+          "collapsed": true
+        },
+        "g49": {
+          "name": "Planes",
+          "parent": "c:c42d2340-39df-4d7a-863f-232136228b65",
+          "collapsed": true
+        },
+        "g50": {
+          "name": "Sketches",
+          "parent": "c:8f96d889-6081-45a7-9c47-6ca5b7c49a91",
+          "collapsed": true
+        },
+        "g51": {
+          "name": "Sketches",
+          "parent": "c:84c5f395-7d36-49a5-b7a8-2930c99aed72",
+          "collapsed": true
+        },
+        "g52": {
+          "name": "Bounds",
+          "parent": "g:g51",
+          "collapsed": true
+        },
+        "g53": {
+          "name": "Planes",
+          "parent": "c:84c5f395-7d36-49a5-b7a8-2930c99aed72",
+          "collapsed": true
+        },
+        "g54": {
+          "name": "Sketches",
+          "parent": "c:c129bb72-f0bf-4353-b24c-8184d1f4aeec",
+          "collapsed": true
+        },
+        "g55": {
+          "name": "Bounds",
+          "parent": "g:g54",
+          "collapsed": true
+        },
+        "g56": {
+          "name": "Sketches",
+          "parent": "c:e3d4008a-eadc-405f-b217-7f296b615d6c",
+          "collapsed": true
+        },
+        "g57": {
+          "name": "Bounds",
+          "parent": "g:g56",
+          "collapsed": true
+        },
+        "g58": {
+          "name": "Planes",
+          "parent": "c:e3d4008a-eadc-405f-b217-7f296b615d6c",
+          "collapsed": true
+        }
+      },
+      "member": {
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Bounds Z": "g2",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Bounds Y": "g2",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Bounds X": "g2",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Master 01 \u2013 Profile - X": "g1",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Master 02 \u2013 Profile - X": "g1",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Master 03 \u2013 Profile - X": "g1",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Profile": "g1",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|X": "g3",
+        "ff18bfd7-d008-4e4b-a05c-6106cf08ad81|Sketch Clipboard plane": "g3",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Bounds X": "g5",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Bounds Y": "g5",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Bounds Z": "g5",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Profile - Y": "g4",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Tunnel": "g4",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|References Z=0 mm": "g4",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Depth - Z": "g4",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Profile - X": "g4",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Width - Z": "g4",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Rib Intersetion": "g4",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Rib Slots": "g4",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Tethers Sketch28": "g4",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|References X=0 mm": "g4",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Make Way For Boot Ceiling Steel": "g4",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Tethers Sketch33": "g4",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Make Way For Thorax": "g4",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Top": "g6",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|Top (1)": "g6",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|X": "g6",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|X (1)": "g6",
+        "9cc3bf44-de27-4874-aebf-7ebfb85af680|X (2)": "g6",
+        "d7919e0a-9a0d-43f6-a6f7-2053fd807486|Sketch Clipboard ref": "g7",
+        "d7919e0a-9a0d-43f6-a6f7-2053fd807486|Profile - X": "g7",
+        "d7919e0a-9a0d-43f6-a6f7-2053fd807486|Sketch Clipboard plane": "g8",
+        "ec87b59d-927c-4de4-b397-5fdcf99ea6aa|Bounds Z": "g10",
+        "ec87b59d-927c-4de4-b397-5fdcf99ea6aa|Bounds Y": "g10",
+        "ec87b59d-927c-4de4-b397-5fdcf99ea6aa|Bounds X": "g10",
+        "d7fa0c87-43d7-4d00-bc09-208a0f43fb91|Bounds Z": "g12",
+        "d7fa0c87-43d7-4d00-bc09-208a0f43fb91|Bounds Y": "g12",
+        "d7fa0c87-43d7-4d00-bc09-208a0f43fb91|Bounds X": "g12",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Bounds X": "g14",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Bounds Y": "g14",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Bounds Z": "g14",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Hole - Tunnel - Z": "g13",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Hole - Boot Latch - Y": "g13",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Profile - X": "g13",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Sketch Clipboard ref": "g13",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Profile - X (1)": "g13",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|References Z=0 mm": "g13",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Sketch10": "g13",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Sketch Clipboard plane": "g15",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Top": "g15",
+        "a83fc338-5b78-4c90-aaed-ffbd884e8476|Top#2": "g15",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Bounds Z": "g17",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Bounds Y": "g17",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Bounds X": "g17",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Profile - Y": "g16",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Sketch12": "g16",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Sketch13": "g16",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Profile - X": "g16",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Sketch11": "g16",
+        "92730eac-931c-4d09-91db-75f35ec691a6|X": "g18",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Front (3)": "g18",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Front": "g18",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Front (1)": "g18",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Front (2)": "g18",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Front @ - Taper": "g18",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Front (4)": "g18",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Front @ Taper": "g18",
+        "92730eac-931c-4d09-91db-75f35ec691a6|Front @ Taper (1)": "g18",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|Bounds Z": "g20",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|Bounds Y": "g20",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|Bounds X": "g20",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|Sketch4": "g19",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|Sketch5": "g19",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|Sketch6": "g19",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|X": "g21",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|Back": "g21",
+        "034df2b3-f3d9-4e44-9b4e-f44696c06beb|Back (1)": "g21",
+        "1a50d65c-c77a-440c-9f35-395f9ccfc0ee|Bounds Z": "g23",
+        "1a50d65c-c77a-440c-9f35-395f9ccfc0ee|Bounds Y": "g23",
+        "1a50d65c-c77a-440c-9f35-395f9ccfc0ee|Bounds X": "g23",
+        "f46bd1a2-6d92-46d6-958e-21d9079e9bec|Bounds Z": "g25",
+        "f46bd1a2-6d92-46d6-958e-21d9079e9bec|Bounds Y": "g25",
+        "f46bd1a2-6d92-46d6-958e-21d9079e9bec|Bounds X": "g25",
+        "f46bd1a2-6d92-46d6-958e-21d9079e9bec|Profile - X": "g24",
+        "f46bd1a2-6d92-46d6-958e-21d9079e9bec|X": "g26",
+        "d63db84e-db03-4278-8bba-71f4e8f4aa99|Bounds Z": "g28",
+        "d63db84e-db03-4278-8bba-71f4e8f4aa99|Bounds Y": "g28",
+        "d63db84e-db03-4278-8bba-71f4e8f4aa99|Bounds X": "g28",
+        "d63db84e-db03-4278-8bba-71f4e8f4aa99|Sketch4": "g27",
+        "d63db84e-db03-4278-8bba-71f4e8f4aa99|Top": "g29",
+        "8b7597aa-8b40-4b25-8c29-d46bd50e1eec|Bounds Z": "g31",
+        "8b7597aa-8b40-4b25-8c29-d46bd50e1eec|Bounds Y": "g31",
+        "8b7597aa-8b40-4b25-8c29-d46bd50e1eec|Bounds X": "g31",
+        "a83b86cf-b1fa-4683-955d-058d9d50f78e|Bounds Z": "g33",
+        "a83b86cf-b1fa-4683-955d-058d9d50f78e|Bounds Y": "g33",
+        "a83b86cf-b1fa-4683-955d-058d9d50f78e|Bounds X": "g33",
+        "a83b86cf-b1fa-4683-955d-058d9d50f78e|Profile - Y - Back": "g32",
+        "a83b86cf-b1fa-4683-955d-058d9d50f78e|Sketch5": "g32",
+        "a83b86cf-b1fa-4683-955d-058d9d50f78e|Front + DrawerCeiling_Dimension_Back_Inset_Front": "g34",
+        "a83b86cf-b1fa-4683-955d-058d9d50f78e|X": "g34",
+        "833efea1-f7c7-42a9-a9f3-89dfd6d5b84f|Profile - Y - Back": "g35",
+        "833efea1-f7c7-42a9-a9f3-89dfd6d5b84f|Profile - Y - Front": "g35",
+        "833efea1-f7c7-42a9-a9f3-89dfd6d5b84f|Profile - X": "g35",
+        "833efea1-f7c7-42a9-a9f3-89dfd6d5b84f|Front 140": "g36",
+        "1dbb0ae2-dc2a-41df-bc08-ed4011dd5b51|Profile -  Y": "g37",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Profile - X": "g38",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Powerboard": "g38",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Profile - Y": "g38",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Profile - Z": "g38",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Tunnel Entrance": "g38",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Bounds X": "g39",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Bounds Y": "g39",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Bounds Z": "g39",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|References X=0 mm": "g38",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Sketch15": "g38",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Sketch16": "g38",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Back BootCeiling_Dimension_Front_Inset_Back": "g40",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Back BootCeiling_Dimension_Front_Inset_Back (1)": "g40",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|Back BootCeiling_Dimension_Front_Inset_Back (2)": "g40",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|X": "g40",
+        "9c29cf15-e429-4231-9a48-c9e0eb8b2354|X (1)": "g40",
+        "fe0e50a1-a849-4db0-bc20-eaaf59546876|Profile - Z": "g41",
+        "fe0e50a1-a849-4db0-bc20-eaaf59546876|Pofile - Y": "g41",
+        "bb29fcd7-98e9-47d0-b988-84b3109573c0|Bounds X": "g43",
+        "bb29fcd7-98e9-47d0-b988-84b3109573c0|Bounds Y": "g43",
+        "bb29fcd7-98e9-47d0-b988-84b3109573c0|Bounds Z": "g43",
+        "bb29fcd7-98e9-47d0-b988-84b3109573c0|Profile - X": "g42",
+        "83517715-96d6-4cff-a3d7-f54ef16af697|Bounds Z": "g45",
+        "83517715-96d6-4cff-a3d7-f54ef16af697|Bounds Y": "g45",
+        "83517715-96d6-4cff-a3d7-f54ef16af697|Bounds X": "g45",
+        "83517715-96d6-4cff-a3d7-f54ef16af697|Profile - X": "g44",
+        "83517715-96d6-4cff-a3d7-f54ef16af697|Rib Slot - Y Axis": "g44",
+        "83517715-96d6-4cff-a3d7-f54ef16af697|Rib Slot - X Axis": "g44",
+        "83517715-96d6-4cff-a3d7-f54ef16af697|Rib Intersetion": "g44",
+        "83517715-96d6-4cff-a3d7-f54ef16af697|Tunnel": "g44",
+        "0684a180-406c-4b01-bbcb-bc84336de500|Profile - X": "g46",
+        "c42d2340-39df-4d7a-863f-232136228b65|Bounds X": "g48",
+        "c42d2340-39df-4d7a-863f-232136228b65|Bounds Y": "g48",
+        "c42d2340-39df-4d7a-863f-232136228b65|Bounds Z": "g48",
+        "c42d2340-39df-4d7a-863f-232136228b65|Base": "g47",
+        "c42d2340-39df-4d7a-863f-232136228b65|Tunnel Entrance": "g47",
+        "c42d2340-39df-4d7a-863f-232136228b65|Tunnel Body": "g47",
+        "c42d2340-39df-4d7a-863f-232136228b65|Boot Door Clearance - X": "g47",
+        "c42d2340-39df-4d7a-863f-232136228b65|Tunnel Shoulder Path - Z": "g47",
+        "c42d2340-39df-4d7a-863f-232136228b65|Tunnel Shoulder-Arm Profile": "g47",
+        "c42d2340-39df-4d7a-863f-232136228b65|Webs": "g47",
+        "c42d2340-39df-4d7a-863f-232136228b65|References X=300 mm": "g47",
+        "c42d2340-39df-4d7a-863f-232136228b65|Fan Recess": "g47",
+        "c42d2340-39df-4d7a-863f-232136228b65|Boot Latch Recess": "g47",
+        "c42d2340-39df-4d7a-863f-232136228b65|Removing Top": "g47",
+        "c42d2340-39df-4d7a-863f-232136228b65|Carving Tunnel Outsides": "g47",
+        "c42d2340-39df-4d7a-863f-232136228b65|References X=839 mm": "g47",
+        "c42d2340-39df-4d7a-863f-232136228b65|References X=600 mm": "g47",
+        "c42d2340-39df-4d7a-863f-232136228b65|Tethers Sketch42": "g47",
+        "c42d2340-39df-4d7a-863f-232136228b65|Sketch42": "g47",
+        "c42d2340-39df-4d7a-863f-232136228b65|Plane5": "g49",
+        "c42d2340-39df-4d7a-863f-232136228b65|Plane6": "g49",
+        "c42d2340-39df-4d7a-863f-232136228b65|Back (Bridge_Tunnels_Shoulder__Radius + TopLevel_Materials_Steel_Thickness + TopLevel_Profile_CurvitureStart_Inset_Back)": "g49",
+        "c42d2340-39df-4d7a-863f-232136228b65|X + Thorax_FanRecesses_Left_Outset_X": "g49",
+        "c42d2340-39df-4d7a-863f-232136228b65|Back (BootCeiling_Dimension_Front_Inset_Back + TopLevel_Materials_HIPS_Thickness)": "g49",
+        "c42d2340-39df-4d7a-863f-232136228b65|Top Thorax_DrawerLatchRecess_Top_Inset_Top": "g49",
+        "c42d2340-39df-4d7a-863f-232136228b65|Top": "g49",
+        "c42d2340-39df-4d7a-863f-232136228b65|X (Top_Bounds_Span_X - 120 )": "g49",
+        "8f96d889-6081-45a7-9c47-6ca5b7c49a91|Top Profile - X": "g50",
+        "84c5f395-7d36-49a5-b7a8-2930c99aed72|Bounds Z": "g52",
+        "84c5f395-7d36-49a5-b7a8-2930c99aed72|Bounds Y": "g52",
+        "84c5f395-7d36-49a5-b7a8-2930c99aed72|Bounds X": "g52",
+        "84c5f395-7d36-49a5-b7a8-2930c99aed72|Profile - X": "g51",
+        "84c5f395-7d36-49a5-b7a8-2930c99aed72|X": "g53",
+        "c129bb72-f0bf-4353-b24c-8184d1f4aeec|Bounds Z": "g55",
+        "c129bb72-f0bf-4353-b24c-8184d1f4aeec|Bounds Y": "g55",
+        "c129bb72-f0bf-4353-b24c-8184d1f4aeec|Bounds X": "g55",
+        "e3d4008a-eadc-405f-b217-7f296b615d6c|Bounds X": "g57",
+        "e3d4008a-eadc-405f-b217-7f296b615d6c|Bounds Y": "g57",
+        "e3d4008a-eadc-405f-b217-7f296b615d6c|Bounds Z": "g57",
+        "e3d4008a-eadc-405f-b217-7f296b615d6c|Sketch6": "g56",
+        "e3d4008a-eadc-405f-b217-7f296b615d6c|Side Profile - Inside": "g56",
+        "e3d4008a-eadc-405f-b217-7f296b615d6c|Side Profile - Outside": "g56",
+        "e3d4008a-eadc-405f-b217-7f296b615d6c|Sketch5": "g56",
+        "e3d4008a-eadc-405f-b217-7f296b615d6c|Sketch Clipboard plane": "g58",
+        "e3d4008a-eadc-405f-b217-7f296b615d6c|Top": "g58"
+      },
+      "compCollapsed": {},
+      "sketchGroups": 1
+    }
+  }
+}

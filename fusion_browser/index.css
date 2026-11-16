@@ -1,0 +1,379 @@
+  /* Browser-specific rules only. Palette, typography, list metrics (row height,
+     separator line, indent), the twirl/arrow, and the scrollbar all come from
+     the shared /theme.css. */
+
+  /* Selection-highlight lift — Control Room ▸ Light / Dark, one value per
+     appearance (fusion_ui/browser_sel.json). /browser_sel.js mirrors the
+     current appearance's value onto these two as non-negative percents (never
+     both nonzero) so the mix below never needs a signed color-mix, which CSS
+     doesn't have. 0/0 is exactly today's --sel — unset until the script runs. */
+  :root {
+    --sel-lighten:0%; --sel-darken:0%;
+    /* --sel pushed toward white or black by the lift above. */
+    --sel-adj: color-mix(in srgb, black var(--sel-darken), color-mix(in srgb, white var(--sel-lighten), var(--sel)));
+  }
+  html, body { display:flex; flex-direction:column; }
+
+  #tree { flex:1; overflow-y:auto; padding:0 0 40px; position:relative; }
+  #waiting { color:var(--text-faint); font-size:12px; padding:20px; text-align:center; }
+
+  /* No separator line between rows — the indent and the row shading carry the
+     structure on their own. (--sep is still used by the settings dialog.) */
+  .row {
+    display:flex; align-items:center; min-height:var(--row-h); padding:0 10px 0 4px;
+    cursor:default; white-space:nowrap;
+  }
+  /* Selection — a real selection (grey row shading). Set by a left-click in the
+     browser, by Cmd-click (browser-only multi-select), or mirrored from the
+     viewport selection. Persists while the window is unfocused so a viewport
+     selection stays shown. No hover highlight. */
+  /* A touch quieter than the shared --sel: partly see-through (the page itself is
+     transparent), so it follows every appearance. --sel-adj (see the :root block
+     above) is --sel pushed lighter/darker by Control Room's per-appearance lift. */
+  .row.cursor { background:color-mix(in srgb, var(--sel-adj) 82%, transparent); }
+  /* While dragging, the source row dims (its ghost follows the cursor instead). */
+  .row.drag-source { opacity:.4; }
+  /* Cut (⌘X), waiting for a ⌘V. Deliberately the same mark as a drag source: it says
+     the same thing — this row is on its way somewhere else. */
+  .row.cut { opacity:.4; }
+  /* A body the open Extrude joins/cuts/intersects (click it to take it out): an accent
+     bar down its left edge, so it reads as "in" without looking selected. */
+  .row.xpart { box-shadow: inset 3px 0 0 var(--accent); }
+  .row.xpart .name { color: var(--accent); }
+  /* Drop-INTO a component: subtle blue fill (like Params' group drop-inside), NOT
+     a bold outline. The cursor stays the normal arrow throughout the drag. */
+  .row.dropinto { background: rgba(91,151,207,.18); }
+  .row.dropinto.cursor { background: rgba(91,151,207,.24); }
+
+  /* Insertion line shown between rows when reordering. Darker, more saturated blue
+     (--drop-line) and no end-cap circle. */
+  #drop-line {
+    position:fixed; height:2px; background:var(--drop-line); border-radius:1px;
+    display:none; pointer-events:none; z-index:500; box-shadow:0 0 4px var(--drop-line);
+  }
+  /* Floating ghost of the dragged item that follows the cursor. */
+  #drag-ghost {
+    position:fixed; z-index:600; pointer-events:none; display:none;
+    padding:1px 10px; font-size:13px; color:var(--text-bright); background:var(--surface);
+    border:1px solid var(--border2); border-radius:var(--radius);
+    box-shadow:0 4px 14px rgba(0,0,0,.6); opacity:.92; white-space:nowrap;
+    max-width:260px; overflow:hidden; text-overflow:ellipsis;
+  }
+
+  /* Natural width, not flex:1 — a greedy name box was eating the width the window
+     gained on a resize and holding the expression away from it, and the expression
+     stayed truncated because of its own cap. Shrinks only once the expression has
+     nothing left to give (see .expr), so the NAME is the last thing to go. */
+  .name {
+    font-size:13px; color:var(--text-bright); overflow:hidden; text-overflow:ellipsis;
+    flex:0 1 auto; min-width:0; text-shadow:var(--name-halo);
+  }
+  /* Anything that HOLDS other rows is bold: components, virtual folders, the Geometry
+     and Origin groups, and the groups a structured parameter name makes. One weight
+     for one idea — the list reads as containers and contents, and the eye finds the
+     shape of a component before it reads a single name in it. The active component
+     keeps the underline as its own mark, since bold no longer sets it apart. */
+  .row[data-type="component"] .name,
+  .row[data-type="folder"] .name,
+  .row[data-type="geometry"] .name,
+  .row[data-type="features"] .name,
+  .row[data-type="origin"] .name,
+  .row[data-type="construction"] .name,
+  .row[data-type="namegroup"] .name { font-weight:700; }
+  /* Active component = bold + underline (nothing else is, so it stands out), same white. */
+  .row.active[data-type="component"] .name {
+    font-weight:700; text-decoration:underline; text-underline-offset:2px;
+  }
+  /* Sketch being edited: underlined, not bold — it is an item, not a container. */
+  .row.active[data-type="sketch"] .name {
+    text-decoration:underline; text-underline-offset:2px;
+  }
+  /* Bodies & sketches: smaller, upright (their colour — k-* below — says which). */
+  .row[data-type="body"] .name, .row[data-type="sketch"] .name {
+    color:var(--text-bright); font-size:12px;
+  }
+  .row[data-type="param"] .name { color:var(--text-bright); font-size:12px; }
+  /* Kind colours (render() stamps k-*) — replace the old group icons. Light and plainly
+     coloured — Bodies group amber, features indigo, sketch yellow-green, param red, well apart; components stay
+     white, Origin is purpley-pink (below). Hidden rows still grey out
+     (.row.hidden below is more specific). */
+  /* --k-body / --k-sketch / --k-param / --k-origin live in /theme.css (the timeline
+     wears them too). */
+  .row.k-body   { --k:var(--k-body); }
+  .row.k-bodies { --k:var(--k-bodies); }
+  .row.k-sketch { --k:var(--k-sketch); }
+  .row.k-param  { --k:var(--k-param); }
+  .row.k-body .name, .row.k-bodies .name, .row.k-sketch .name, .row.k-param .name { color:var(--k); }
+  /* Origin: not a k-* kind (it's not body/sketch/param), coloured directly — the
+     groups and the planes/axes/point inside them alike. */
+  .row[data-type="origin"] .name,
+  .row[data-type="construction"] .name,
+  .row[data-type="originent"] .name,
+  .row[data-type="conplane"] .name { color:var(--k-origin); }
+  /* A name group is a segment of the names inside it, so it sits at the parameters'
+     own size rather than a component's — bold (it holds things) but not louder. */
+  .row[data-type="namegroup"] .name { font-size:12px; }
+  /* "(empty)" placeholder under an expanded empty component or group — in the group's
+     own colour (render() gives it the parent's k-*), faint under a component. */
+  .row.placeholder .name { color:var(--k, var(--text-faint)); }
+  /* Context rows (the components you are inside — visible, but not what you're
+     working in) → grayed; wins. Off-viewport rows strike instead (.offview below). */
+  .row.hidden[data-type] .name { color:var(--text-faint); }
+  /* …a coloured row greys toward its own colour, not to plain grey: its kind colour
+     mixed into --text-faint, so it tracks every theme and the selected-hidden lift. */
+  .row.hidden.k-body .name, .row.hidden.k-bodies .name, .row.hidden.k-sketch .name,
+  .row.hidden.k-param .name {
+    color:color-mix(in oklab, var(--k) 45%, var(--text-faint));
+  }
+  /* Not shown in the viewport → a fine strike through instead of greying (render()
+     gives such a row .offview, never .hidden; .hidden is left for context rows).
+     The strike's weight follows the text's: 1px through regular text (sketches, bodies,
+     parameters), 1.5px through the bold rows — the same five types as the bold rule
+     above, so a new bold type goes in both. */
+  .row.offview .name {
+    text-decoration:line-through; text-decoration-thickness:1px;
+  }
+  /* Cycle Visibility (groupOff, AddIns/Visibility Snapshot.py's cycle_visibility)
+     switched this row's group off for the active component — 50% darker, same hue
+     and saturation. color-mix in hsl, not oklab like .hidden above: mixing with
+     black at L:0% makes black's hue AND saturation "powerless" (CSS Color 4), so the
+     spec substitutes this row's own H and S before interpolating — only L gets
+     pulled toward 0, halved at a 50/50 mix. Placed after .hidden/.offview and at the
+     same specificity so it wins the colour on a tie: additive with either (a row
+     struck for a real hide, or greyed as context, can ALSO be dimmed for being
+     switched off by the group) rather than a third alternative to them. */
+  .row.groupdim.k-body .name, .row.groupdim.k-bodies .name, .row.groupdim.k-sketch .name {
+    color:color-mix(in hsl, var(--k) 50%, black 50%);
+  }
+  /* Feature rows (a body's timeline features, opened with F). The problem marker
+     follows the name (no phase mark — the phase lines say it) — never a
+     colour on it, the timeline's rule. Suppressed dims (50% darker, like .groupdim);
+     past the marker greys; every body it touches hidden strikes (.offview). */
+  .row .feat-mark { margin-left:6px; font-size:11px; color:var(--text-faint); cursor:default; }
+  .row .feat-mark.msg-error   { color:#d65c5c; font-weight:800; }
+  .row .feat-mark.msg-warning { color:#d9a13b; font-weight:800; }
+  /* A dropped move Fusion is still computing: drawn at the drop, a spinner after the
+     name. A refusal puts the row back with the reason in red after it (featMoveErr). */
+  .row.feat-moving .name { opacity:.75; }
+  .row .feat-spin { flex:0 0 9px; width:9px; height:9px; margin-left:7px; border-radius:50%;
+                    border:1.5px solid var(--text-faint); border-top-color:var(--text-bright);
+                    animation:feat-spin .7s linear infinite; }
+  @keyframes feat-spin { to { transform:rotate(360deg); } }
+  .row .feat-err { margin-left:8px; font-size:11px; color:#d65c5c; white-space:nowrap;
+                   overflow:hidden; text-overflow:ellipsis; min-width:0; cursor:default; }
+  /* Dimmed names sit close to black: a lighter halo, or it merges with the glyphs. */
+  .row.hidden[data-type] .name, .row.groupdim .name, .row.suppressed .name { text-shadow:var(--name-halo-dim); }
+  .row.suppressed .name { color:color-mix(in hsl, var(--k) 50%, black 50%); }
+  .row.suppressed .tico { opacity:.5; }
+  /* Their icon — the vertical timeline's (fusion_timeline/index.css): our glyph in the
+     row's kind colour, or Fusion's own 16px icon; a generic mark when neither. */
+  .row .tico { width:18px; height:18px; flex:0 0 18px; margin-right:4px;
+               display:flex; align-items:center; justify-content:center;
+               color:var(--k, var(--text-bright)); }
+  .row .tico svg, .row .tico img { display:block; width:16px; height:16px; }
+  .row .tico.g-feature::before { content:""; width:9px; height:9px; border:1.5px solid var(--text-dim);
+                                 border-radius:2px; }
+  .row .tico.g-folder::before  { content:""; width:11px; height:9px; background:var(--text-dim);
+                                 clip-path:polygon(0 12%, 44% 12%, 54% 30%, 100% 30%, 100% 100%, 0 100%); }
+  .row.past .tico { opacity:.5; }
+  /* The timeline marker, rolled back: a dot in the indent of the last feature before it
+     (everything after it is .past). The text keeps its indent. */
+  .row.tl-marker { position:relative; }
+  .row .tl-dot { position:absolute; top:50%; width:5px; height:5px; margin-top:-2.5px;
+                 border-radius:50%; background:var(--k, var(--text-bright)); pointer-events:none; }
+  /* A feature group reads as a group: bold, like a folder. */
+  .row[data-type="fgroup"] .name { font-weight:700; }
+  /* Between an open body's features of different phases (independent / dependent /
+     post-dependent): a hairline over the first of the next, in the body colour. No
+     heading. It spans only the text it separates — from the rows' indent to the end of
+     the longer of the two — which layoutPhaseEdges (index.js) measures into --edge-l /
+     --edge-w after each render. */
+  .row.phase-edge { position:relative; }
+  .row.phase-edge::before { content:""; position:absolute; top:0; height:1px;
+                            left:var(--edge-l, 0); width:var(--edge-w, 0);
+                            background:var(--k-body); pointer-events:none; }
+  .row.past .name { color:color-mix(in oklab, var(--k) 45%, var(--text-faint)); }
+  .row.offview[data-type="component"] .name,
+  .row.offview[data-type="folder"] .name,
+  .row.offview[data-type="geometry"] .name,
+  .row.offview[data-type="features"] .name,
+  .row.offview[data-type="origin"] .name,
+  .row.offview[data-type="construction"] .name,
+  .row.offview[data-type="namegroup"] .name { text-decoration-thickness:1.5px; }
+  /* When a hidden row is also selected, lighten the text so it reads against --sel. */
+  .row.cursor.hidden { --text-faint: #464646; }
+  /* Extra Dark / Extra Light: hidden stays one shade, selected or not; menus go black. */
+  :root:is([data-xdark], [data-xlight]) .row.cursor.hidden { --text-faint: #999999; }
+  :root:is([data-xdark], [data-xlight]) #ctx { background: #000; }
+  #tree:focus { outline: none; }
+
+  .name-input {
+    font:inherit; font-size:13px; color:var(--text); background:var(--focus-bg);
+    border:none; border-radius:2px; outline:none; padding:1px 4px; flex:1; min-width:0;
+  }
+
+  /* Suspend mode has no visual of its own here: the glow round Fusion's window
+     (bin/fusion_glow.m) sits ABOVE this one and already covers its outer edges. A
+     second glow drawn here framed the dock on its own — its inner edge included —
+     on top of that one. body.suspended stays as the hook (see toggleSuspend). */
+
+  #ctx {
+    position:fixed; display:none; z-index:300; min-width:170px;
+    background:#141414; border:1px solid var(--border2); border-radius:var(--radius);
+    box-shadow:0 4px 14px rgba(0,0,0,.6); padding:4px 0;
+  }
+  .ctx-item { padding:5px 14px; font-size:12px; color:var(--text); cursor:pointer; white-space:nowrap; }
+  .ctx-item:hover { background:var(--accent-dim); color:#cfe2f5; }
+  /* A second, dimmer line under an item — a sketch Delete's dependants. */
+  .ctx-sub { font-size:11px; color:var(--text-faint); margin-top:2px; }
+  /* A bulleted dependant: a name that wraps stays indented past the bullet. */
+  .dep-line { padding-left:0.9em; text-indent:-0.9em; }
+  .dep-line.k-sketch { color:var(--k-sketch); }
+  .dep-line.k-param  { color:var(--k-param); }
+  /* Picked with a click; a right-click offers Go To (#dep-menu, index.js goToDep). */
+  .dep-line { cursor:default; border-radius:3px; }
+  .dep-line.sel { background:var(--accent-dim); }
+  #dep-menu {
+    position:fixed; z-index:600; min-width:110px;
+    background:#141414; border:1px solid var(--border2); border-radius:var(--radius);
+    box-shadow:0 4px 14px rgba(0,0,0,.6); padding:4px 0;
+  }
+  .ctx-item.disabled { color:var(--text-faint); cursor:default; }
+  .ctx-item.disabled:hover { background:transparent; color:var(--text-faint); }
+  /* Checkable menu row: the tick sits in a fixed gutter so labels stay aligned
+     whether or not the item is checked. */
+  .ctx-item.check { display:flex; align-items:center; gap:8px; padding-left:8px; }
+  .ctx-check { width:12px; flex:0 0 12px; text-align:center; color:var(--accent, #4a9eff); }
+  .ctx-item.check:not(.on) .ctx-check { visibility:hidden; }
+  /* Divider before the view toggles — the part of every menu that is about the TREE
+     rather than the row under the pointer (see viewCtxItems). */
+  .ctx-sep { height:1px; margin:4px 0; background:var(--border2); }
+  /* An item with a flyout (ctxFly / placeFly in index.js): arrow on the right, the
+     flyout a second #ctx-looking panel, fixed-positioned beside it by JS. */
+  .ctx-item.fly { display:flex; align-items:center; gap:16px; }
+  .ctx-item.fly > span:first-child { flex:1; }
+  .ctx-arrow { color:var(--text-faint); }
+  .ctx-fly {
+    position:fixed; display:none; z-index:301; min-width:110px;
+    background:#141414; border:1px solid var(--border2); border-radius:var(--radius);
+    box-shadow:0 4px 14px rgba(0,0,0,.6); padding:4px 0; cursor:default;
+  }
+  .ctx-fly.open { display:block; }
+  /* A long flyout (Hide Edges ▸ lists every component) scrolls inside the window. */
+  .ctx-fly { max-height:calc(100vh - 4px); overflow-y:auto; }
+  /* A component named like another, led by just enough of its parents to tell them
+     apart (compPathLeads): "Roof › Steel", one line. */
+  .ctx-name { white-space:nowrap; }
+  .ctx-path { color:var(--text-faint); }
+  .ctx-path-sep { color:var(--text-faint); margin:0 5px; }
+  /* A caption inside a menu — not clickable (not a .ctx-item). */
+  .ctx-head { padding:4px 12px 2px; font-size:11px; color:var(--text-faint); }
+  :root:is([data-xdark], [data-xlight]) .ctx-fly { background: #000; }
+
+  /* ── Settings (hotkeys) dialog ─────────────────────────────────────────────── */
+  #settings-bg { position:fixed; inset:0; z-index:400; background:rgba(0,0,0,.6);
+    display:flex; align-items:center; justify-content:center; }
+  #settings { background:var(--surface); border:1px solid var(--border2); border-radius:8px;
+    padding:18px; width:340px; max-height:80vh; overflow-y:auto; box-shadow:0 10px 40px rgba(0,0,0,.7); }
+  #settings h2 { font-size:14px; font-weight:600; margin-bottom:12px; color:var(--text); }
+  .set-sec { font-size:11px; color:var(--text-faint); margin:12px 0 4px; }
+  .set-row { display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:4px 0; border-bottom:var(--sep); }
+  .set-label { font-size:12px; color:var(--text); }
+  .set-keys { display:flex; align-items:center; gap:4px; flex-wrap:wrap; justify-content:flex-end; }
+  .key { font-size:11px; border-radius:4px; padding:1px 6px; white-space:nowrap;
+    display:inline-flex; align-items:center; gap:3px; }
+  .key.def  { background:var(--bg); color:var(--text-dim); border:1px solid var(--border2); }
+  .key.cust { background:var(--accent-dim); color:#cfe2f5; border:1px solid var(--accent); }
+  .key.adding { background:var(--bg); color:var(--accent); border:1px dashed var(--accent); }
+  .key .x { cursor:pointer; opacity:.7; font-size:12px; }
+  .key .x:hover { opacity:1; }
+  .addk { cursor:pointer; color:var(--text-dim); border:1px solid var(--border2); border-radius:4px;
+    width:16px; height:16px; line-height:14px; text-align:center; font-size:13px; }
+  .addk:hover { color:var(--text); border-color:var(--accent); }
+  .sbtn { font:inherit; font-size:12px; cursor:pointer; background:var(--group-hdr); color:var(--text);
+    border:1px solid var(--border2); border-radius:var(--radius); padding:3px 12px; }
+  .sbtn:hover { background:var(--border); }
+
+  /* ── "Not possible" (a move or rename two parameters would collide over) ──────
+     Same furniture as the settings dialog, narrower: it holds one sentence and one
+     button. It only ever appears when a gesture did NOT happen, which is exactly
+     when something has to be said out loud. */
+  #blocked-bg { position:fixed; inset:0; z-index:500; background:rgba(0,0,0,.6);
+    display:flex; align-items:center; justify-content:center; }
+  #blocked { background:var(--surface); border:1px solid var(--border2); border-radius:8px;
+    padding:18px; width:300px; box-shadow:0 10px 40px rgba(0,0,0,.7); }
+  #blocked h2 { font-size:13px; font-weight:600; margin-bottom:8px; color:var(--text-bright); }
+  #blocked p { font-size:12px; line-height:1.45; color:var(--text); }
+  #blocked p + .confirm-users, #blocked .confirm-users + p { margin-top:6px; }
+  #blocked .confirm-users { font-size:12px; line-height:1.45; color:var(--text); margin-left:10px; }
+
+  /* ── Delete with a substitute (openSubstitute) ─────────────────────────────────
+     The refusal's furniture with one field in it. Its suggestion list is the value
+     box's (#ac in fusion_value/index.css): same rows, same dot on the chosen one,
+     hung off the bottom edge of the field over whatever is below. */
+  #subst-bg { position:fixed; inset:0; z-index:500; background:rgba(0,0,0,.6);
+    display:flex; align-items:center; justify-content:center; }
+  #subst { background:var(--surface); border:1px solid var(--border2); border-radius:8px;
+    padding:18px; width:320px; max-width:calc(100% - 24px); box-shadow:0 10px 40px rgba(0,0,0,.7); }
+  #subst h2 { font-size:13px; font-weight:600; margin-bottom:8px; color:var(--text-bright); }
+  #subst p { font-size:12px; line-height:1.45; color:var(--text); margin-bottom:10px;
+    overflow-wrap:anywhere; }
+  #subst-users { font-size:12px; line-height:1.45; color:var(--text); margin:-6px 0 10px 10px;
+    overflow-wrap:anywhere; }
+  #subst-field { position:relative; }
+  #subst-in { width:100%; box-sizing:border-box; font:inherit; font-size:13px; color:var(--text);
+    background:var(--focus-bg); border:1px solid var(--border2); border-radius:var(--radius);
+    outline:none; padding:4px 6px; }
+  #subst-in:focus { border-color:var(--accent); }
+  #subst-err { font-size:11px; color:var(--err); min-height:14px; margin-top:6px; }
+  #subst-ac { position:absolute; left:0; right:0; top:calc(100% + 2px); z-index:10;
+    border-radius:var(--panel-radius); background:var(--panel-bg); border:1px solid var(--border2);
+    box-shadow:var(--panel-shadow); max-height:216px; overflow:hidden auto; }
+  #subst-ac.hide { display:none; }
+  #subst-ac .ac-row { display:flex; align-items:baseline; gap:8px; height:var(--row-h);
+    line-height:var(--row-h); padding:0 10px; border-bottom:var(--panel-sep); cursor:default;
+    font-size:12px; }
+  #subst-ac .ac-row:last-child { border-bottom:0; }
+  #subst-ac .ac-row:hover { background:var(--panel-hover); }
+  #subst-ac .ac-row.sel { background:var(--panel-sel); }
+  #subst-ac .ac-name { color:var(--text); flex-shrink:0; }
+  #subst-ac .ac-row.sel .ac-name { color:var(--text-bright); }
+  #subst-ac .ac-name b { color:var(--accent); font-weight:600; }
+  #subst-ac .ac-val { margin-left:auto; color:var(--text-faint); font-size:11px;
+    overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  #subst-ac .ac-mark { width:5px; height:5px; border-radius:50%; flex-shrink:0; align-self:center;
+    background:var(--accent); visibility:hidden; }
+  #subst-ac .ac-row.sel .ac-mark { visibility:visible; }
+
+  /* The appearances palette (index.js § appearances palette): a strip over the tree. */
+  #palette { flex:0 0 auto; padding:6px 8px 4px; border-bottom:1px solid var(--border2);
+             max-height:40vh; overflow-y:auto; }
+  #palette[hidden] { display:none; }
+  .pal-head { display:flex; align-items:center; gap:8px; margin-bottom:5px; }
+  .pal-title { font-size:12px; font-weight:600; color:var(--text-bright); }
+  .pal-find { flex:1; min-width:0; position:relative; display:flex; }
+  .pal-find svg { position:absolute; left:6px; top:50%; width:11px; height:11px;
+                  transform:translateY(-50%); fill:none; stroke:var(--text-faint);
+                  stroke-width:1.8; stroke-linecap:round; pointer-events:none; }
+  #pal-search { flex:1; min-width:0; font-size:12px; padding:1px 6px 1px 22px; color:var(--text-bright);
+                background:var(--surface); border:1px solid var(--border2);
+                border-radius:var(--radius); outline:none; }
+  #pal-grid { display:flex; flex-wrap:wrap; gap:3px; }
+  .swatch { width:22px; height:22px; border-radius:3px; background-size:cover;
+            background-position:center; box-shadow:inset 0 0 0 1px rgba(255,255,255,.14);
+            cursor:grab; position:relative; }
+  /* the Default for New Bodies swatch: a dot in its corner */
+  .swatch.default::after { content:""; position:absolute; right:2px; top:2px; width:6px; height:6px;
+                           border-radius:50%; background:var(--text-bright);
+                           box-shadow:0 0 0 1px var(--bg); }
+  .swatch:hover { box-shadow:inset 0 0 0 1px rgba(255,255,255,.6); }
+  #palette.replacing .swatch { cursor:pointer; }
+  .swatch.replacing { outline:2px solid var(--accent); outline-offset:1px; }
+  #palette.replacing #pal-name, #palette.renaming #pal-name { color:var(--text-bright); }
+  #palette.renaming #pal-search { border-color:var(--accent); padding-left:6px; }
+  #palette.renaming .pal-find svg { display:none; }
+  .pal-sep { flex:0 0 100%; font-size:11px; color:var(--text-faint); margin:4px 0 1px; }
+  .pal-empty { font-size:11px; color:var(--text-faint); }
+  #pal-name { font-size:11px; color:var(--text-faint); min-height:15px; margin-top:3px;
+              white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }

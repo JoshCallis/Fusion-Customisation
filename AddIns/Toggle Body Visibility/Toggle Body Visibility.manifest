@@ -1,0 +1,11 @@
+{
+    "autodeskProduct": "Fusion",
+    "type": "addin",
+    "id": "ToggleBodyVisibility",
+    "author": "",
+    "description": {
+        "": "Toggles the global bodies_visible state: show body folders of all visible components (narrowed to the active subtree when Isolate is on), or hide every body folder."
+    },
+    "version": "1.0.0",
+    "runOnStartup": false
+}

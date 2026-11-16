@@ -1,0 +1,13 @@
+{
+    "autodeskProduct": "Fusion360",
+    "type": "addin",
+    "id": "View State Bridge",
+    "author": "",
+    "description": {
+        "": "Writes current viewport camera type (ortho/perspective) to /tmp/fusion_view_state.txt for BTT integration."
+    },
+    "version": "1.0.0",
+    "runOnStartup": true,
+    "supportedOS": "mac",
+    "editEnabled": true
+}

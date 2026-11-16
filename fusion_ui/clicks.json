@@ -1,0 +1,57 @@
+{
+  "_comment": [
+    "WHAT A CLICK DOES IN FUSION'S VIEWPORT. Written by Control Room > Fusion > Clicks;",
+    "read by the Click Actions add-in on every gesture (mtime-cached), so a save is the",
+    "whole hand-off.",
+    "",
+    "A rule: gesture + held modifiers + what was clicked -> a Fusion command id.",
+    "  gesture  click (a stationary left click; a drag is never one)",
+    "           tap2  (two-finger tap = right-click; only fires while no command runs —",
+    "                  in suspend mode tap2/tap3 navigate with a command open too)",
+    "           tap3  (three-finger tap = BetterTouchTool's synthetic double-click)",
+    "  mods     exactly these held: space, shift, cmd, alt, ctrl. [] = none held.",
+    "           shift includes F held (Karabiner makes a held F Shift in Fusion).",
+    "  on       body (a body, or a face/edge/vertex of one), sketch (a sketch or",
+    "           anything in it), component, construction (plane/axis/point),",
+    "           empty (nothing picked), any. tap2 never picks, so it only has any.",
+    "  do       a Fusion command id, run on what the click selected; '' = just",
+    "           select (Fusion's own behaviour, and it stops an 'any' rule).",
+    "A rule naming the object beats an 'any' rule; otherwise the first one wins.",
+    "Go Down / Go to Bottom run from a click only when the pick is BELOW the active",
+    "component, and never open a sketch (that is Edit Sketch's job)."
+  ],
+  "rules": [
+    {
+      "gesture": "click",
+      "mods": [],
+      "on": "body",
+      "do": "ActivateAndIsolateCmd"
+    },
+    {
+      "gesture": "click",
+      "mods": [],
+      "on": "sketch",
+      "do": ""
+    },
+    {
+      "gesture": "click",
+      "mods": [
+        "space"
+      ],
+      "on": "any",
+      "do": "GoToBottomLevelCmd"
+    },
+    {
+      "gesture": "tap2",
+      "mods": [],
+      "on": "any",
+      "do": "GoToParentComponentCmd"
+    },
+    {
+      "gesture": "tap3",
+      "mods": [],
+      "on": "any",
+      "do": "UnisolateTopLevelCmd"
+    }
+  ]
+}

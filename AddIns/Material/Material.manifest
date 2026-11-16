@@ -1,0 +1,13 @@
+{
+    "autodeskProduct": "Fusion",
+    "type": "addin",
+    "id": "JoshMaterial",
+    "author": "Josh",
+    "description": {
+        "": "Pick Material / Apply Material: 3ds Max's Eyedropper and Apply Last Material. Pick takes what the selected (or next clicked) body wears; Apply puts the last picked or assigned appearance on the selected bodies. Silent."
+    },
+    "version": "1.0.0",
+    "runOnStartup": true,
+    "supportedOS": "mac|windows",
+    "editEnabled": true
+}

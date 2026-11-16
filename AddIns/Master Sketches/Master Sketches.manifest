@@ -1,0 +1,11 @@
+{
+    "autodeskProduct": "Fusion",
+    "type": "addin",
+    "id": "MasterSketches",
+    "author": "",
+    "description": {
+        "": "Convert sketch geometry into a shared master, projected with a live link into every sketch that uses it; Edit Original, grouped selection, and whole-projection delete."
+    },
+    "version": "1.0.0",
+    "runOnStartup": true
+}

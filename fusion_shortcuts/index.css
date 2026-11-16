@@ -1,0 +1,124 @@
+  /* Palette, typography, list metrics (--row-h, --sep, --twirl-*), the twirl arrow
+     and the scrollbar all come from /theme.css. Only Shortcuts-specific rules here.
+
+     The two overrides below are deliberate local departures from the shared theme
+     (they must not go in theme.css — Params and Browser share that file): a calmer
+     blue, and bright text pulled back so a list that is mostly bright text doesn't
+     glare. This window is read late at night. */
+  :root {
+    --accent:      #33587a;
+    --accent-dim:  #121f2c;
+    --text-bright: #b0b0b0;
+  }
+
+  html, body { display: flex; flex-direction: column; overflow: hidden; }
+
+  /* ── Header ──────────────────────────────────────────────────────────────── */
+  /* The title bar is its own 28px strip above the content view and stays fully
+     draggable; this padding is only breathing room under it. */
+  #hdr { flex: none; padding: 7px 12px 0; background: var(--bg);
+         border-bottom: 1px solid var(--border); }
+
+  #hdr-top { display: flex; align-items: center; gap: 8px; }
+
+  .field {
+    display: flex; align-items: center; gap: 7px;
+    background: var(--surface); border: 1px solid var(--border2);
+    border-radius: var(--radius); padding: 0 9px; height: 28px;
+  }
+  .field:focus-within { border-color: var(--accent); background: var(--focus-bg); }
+  .field .ic { color: var(--text-faint); font-size: 18px; flex: none; line-height: 1; }
+
+  #search { flex: 1; }
+  #search input {
+    flex: 1; min-width: 0; background: none; border: 0; outline: 0;
+    color: var(--text-bright); font: inherit; font-size: 13px;
+    -webkit-user-select: text; user-select: text;
+  }
+  #search input::placeholder { color: var(--text-faint); }
+
+  /* Reverse lookup: click it, press a combination, see what owns it. Idle it's
+     just the ⌘ glyph; it widens to show the answer once there is one. */
+  #lookup { cursor: pointer; flex: none; }
+  /* Same treatment as .field:focus-within, so arming the lookup reads identically
+     to clicking into the search box. */
+  #lookup.armed { border-color: var(--accent); background: var(--focus-bg); }
+  #lookup .lk-text { font-size: 12px; color: var(--text-bright); max-width: 340px;
+                     overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  #lookup .lk-text:empty { display: none; }
+  #lookup .lk-clear { color: var(--text-faint); font-size: 13px; padding: 0 2px; }
+  #lookup .lk-clear:hover { color: var(--text); }
+
+  /* ── Tabs row ────────────────────────────────────────────────────────────── */
+  #hdr-tabs { display: flex; align-items: center; gap: 2px; padding: 7px 0 0; height: 34px; }
+  .tab {
+    font-size: 12px; color: var(--text-dim); cursor: pointer;
+    padding: 3px 9px; border-radius: var(--radius);
+  }
+  .tab:hover { background: var(--row-hover); color: var(--text); }
+  .tab.sel { background: var(--sel); color: var(--text-bright); }
+  #status { margin-left: auto; font-size: 11px; color: var(--text-dim);
+            overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 55%; }
+  #status.err { color: var(--err); }
+  #status.ok  { color: var(--accent); }
+
+  /* ── List ────────────────────────────────────────────────────────────────── */
+  #main { flex: 1; min-height: 0; overflow-y: auto; padding-bottom: 40px; }
+
+  .grp-hdr {
+    display: flex; align-items: center; gap: 2px;
+    padding: 5px 12px 5px 4px; cursor: default;
+    background: var(--group-hdr); border-bottom: var(--sep);
+    position: sticky; top: 0; z-index: 2;
+  }
+  .grp-name { font-size: 12px; color: var(--text-dim); }
+
+  .row {
+    display: flex; align-items: center; gap: 8px;
+    height: var(--row-h); padding: 0 12px 0 32px;
+    border-bottom: var(--sep); cursor: default;
+  }
+  .row:hover { background: var(--row-hover); }
+  .row.hit   { background: var(--sel); }          /* matched by the reverse lookup */
+
+  /* Every row is the same weight, like the Params and Browser lists — reserving
+     --text-bright for "bound" lit up most of the window at once. Whether a command
+     has a shortcut is already obvious from the chip. */
+  .r-name { flex: 1; min-width: 0; font-size: 13px; color: var(--text);
+            overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  /* The whole keys cell is the hit target: clicking a shortcut — or the empty
+     space where one would go — opens Fusion's own shortcut prompt for that
+     command. No "+" button; it only existed to be clicked, and revealing it on
+     hover shoved the chips sideways. */
+  .r-keys { flex: none; display: flex; align-items: center; gap: 4px;
+            justify-content: flex-end; min-width: 150px; height: 100%;
+            cursor: pointer; }
+
+  /* Key chip. Bindings the user made are tinted; Fusion's own stay grey. Set in
+     the UI font rather than a monospace one — ⌘/⇧/⌥/⌃ are drawn properly by SF
+     and turn to mush in SF Mono at this size. */
+  .key {
+    display: inline-flex; align-items: center; gap: 3px;
+    font: 13px/1 -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    padding: 5px 7px; border-radius: 3px;
+    background: #141414; border: 1px solid var(--border2); color: var(--text);
+    white-space: nowrap;
+  }
+  .r-keys:hover .key { border-color: var(--text-faint); }
+  .key.custom { background: var(--accent-dim); border-color: #2b4a67; color: #9fbad2; }
+  :root:is([data-xdark], [data-xlight]) .key { background: #000; }
+  :root:is([data-xdark], [data-xlight]) .key.custom { background: var(--accent-dim); border-color: var(--accent); color: #d6e6f5; }
+  /* A key that several actions claim in different domains. Not a warning — it's the
+     point of the thing — so it's marked, not coloured like an error. */
+  .key.shared::after { content: '·'; margin-left: 3px; color: var(--text-faint); }
+  /* The domain an action applies in, beside its name. Dim until it is the domain
+     you are actually in, which turns it on — so the window shows, live, which of
+     the actions sharing a key would answer right now. */
+  .dom { flex: none; font-size: 11px; color: var(--text-faint); margin-left: 8px;
+         white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 46%; }
+  .dom.live { color: var(--accent); }
+  .row.capturing { background: var(--focus-bg); box-shadow: inset 2px 0 0 var(--accent); }
+
+
+  .empty { padding: 30px 12px; text-align: center; color: var(--text-faint); font-size: 12px; }

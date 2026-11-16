@@ -1,0 +1,9 @@
+{
+    "autodeskProduct": "Fusion360",
+    "type": "addin",
+    "id": "JoshCursorProbe",
+    "author": "",
+    "description": "Polls whether geometry is under the cursor; writes 1/0 to /tmp/fusion_geometry_under_cursor for BTT to read.",
+    "supportedOS": "windows|mac",
+    "lifecycle": "persistent"
+}

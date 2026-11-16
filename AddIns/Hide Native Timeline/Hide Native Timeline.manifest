@@ -1,0 +1,11 @@
+{
+    "autodeskProduct": "Fusion",
+    "type": "addin",
+    "id": "HideNativeTimeline",
+    "author": "",
+    "description": {
+        "": "One checkbox command (assign a hotkey) that hides / shows Fusion's own Design timeline bar, independently of the dock's vertical timeline. Maximize Viewport does the actual hiding."
+    },
+    "version": "1.0.0",
+    "runOnStartup": true
+}

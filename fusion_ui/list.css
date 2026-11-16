@@ -1,0 +1,199 @@
+/* fusion_ui/list.css — the list kit's look (fusion_ui/list.js; rules in UI.md).
+
+   Everything a list draws the same way on every page: a row, a group heading, the
+   cursor and the pick, the open editor and its button row, drop marks, menus, the
+   empty state. Tokens only (fusion_ui/theme.css, and a window's own redefinitions
+   of them) — a literal here is a value that cannot follow the window's palette.
+   A page's own look goes in that page's css, never here. */
+
+/* ── Rows ──────────────────────────────────────────────────────────────────── */
+.row { display: flex; align-items: center; gap: 9px; padding: 0 var(--gutter);
+       min-height: var(--row-h); cursor: pointer; border-bottom: var(--sep); }
+.row:last-child { border-bottom: 0; }
+.row:hover { background: var(--row-hover); }
+.row.open { background: var(--bg); }
+/* An open row's header still answers the pointer. :where keeps it at .row.open's
+   weight, so the cursor and the pick below still win where they land. */
+.row.open:where(:hover) { background: var(--row-hover); }
+.row.off, .group-head.off { opacity: .42; }
+/* Cut, waiting for Paste (list.js): dimmer than a plain row, and dashed so it is not
+   mistaken for Hidden. */
+.row.cut, .group-head.cut { opacity: .55; outline: 1px dashed var(--border2); outline-offset: -1px; }
+/* Drawn as it will be, while the write that makes it so is still in flight (a page's
+   `pending` class): a small spinner after the name. */
+.row.pending::after { content: ""; flex: none; width: 9px; height: 9px; margin-left: 6px;
+                      border: 1.5px solid var(--text-dim); border-right-color: transparent;
+                      border-radius: 50%; animation: rowspin .7s linear infinite; }
+@keyframes rowspin { to { transform: rotate(360deg); } }
+/* The name is the row's; a click on it is a click on the row (a double-click
+   renames — list.js). */
+.row .id { color: var(--text); font-size: var(--fs-ui); min-width: 170px; cursor: pointer; }
+.row .spacer, .row .spring { flex: 1; }
+/* An aside beside the name ("· from any app"). */
+.row .sub { color: var(--text-faint); font-size: var(--fs-meta); }
+/* The right-hand column, wherever a row has one: it takes the slack, so the name is
+   left and the value right. */
+.row .emits { color: var(--text-dim); font-size: var(--fs-small); margin-left: auto;
+              text-align: right; padding-left: 12px; }
+/* Renaming is the name itself, editable: same font, colour and place, no box, no
+   line. The row keeps its selection; the text is selected (blue) within it. */
+.row input.rename, .group-head input.rename {
+  max-width: 260px; min-width: 170px; height: auto; margin: 0; padding: 0;
+  font: inherit; line-height: inherit; color: var(--text);
+  background: transparent; border: 0; border-radius: 0; outline: none; box-shadow: none;
+  -webkit-appearance: none; appearance: none; caret-color: var(--text); }
+.row input.rename::selection, .group-head input.rename::selection { background: color-mix(in srgb, var(--accent) 55%, transparent); color: inherit; }
+.modgrid .row input.rename { min-width: 0; width: calc(100% + 8px); margin-right: -8px; }  /* room for the caret past the longest name, so the text never scrolls inside the field */
+/* A row nothing has filed — no heading of its own, so the bar says it isn't
+   sitting where it belongs yet. */
+.row.unfiled { box-shadow: inset 3px 0 0 var(--warn); }
+
+/* THE CURSOR is the keyboard's place (the nav keys move it); THE PICK is what
+   ⌘-click marked. Two things, two marks: the hover shade for the one, the accent
+   fill for the other (which wins where both land). No side bar — asked out. */
+.row.cur, .group-head.cur { background: var(--row-cur); }
+.row.open.cur { background: var(--bg); }   /* the open editor is its own mark */
+.row.picked, .group-head.picked { background: var(--accent-dim); }
+.row.picked:not(.tagged) .id, .group-head.picked:not(.tagged) h2 { color: var(--text-bright); }
+.row.picked.off, .group-head.picked.off { opacity: .7; }
+/* A colour given by hand (the menu's Color ▸): the name wears it, marked or not. */
+.row.tagged .id, .group-head.tagged h2 { color: var(--tag); }
+/* A marked row still answers the pointer: its own fill, lifted a notch (a tint
+   laid over it, so it works on whichever mark it wears). */
+.row.cur:hover, .group-head.cur:hover, .row.picked:hover, .group-head.picked:hover {
+  background-image: linear-gradient(var(--hover-lift), var(--hover-lift)); }
+
+/* ── Group headings ────────────────────────────────────────────────────────────
+   A heading is a control — it opens, renames, takes drops — and it is THE SAME
+   HEIGHT AS THE ROWS UNDER IT, tinted rather than padded, so a page of ten groups
+   reads as a list and not as ten headings with rows caught between. No twirl and no
+   count: the whole heading is the control, and a number beside a name is noise on
+   every reading after the first. Deliberately not sticky: a heading belongs to its
+   rows and should leave with them. */
+.group-head { display: flex; align-items: center; gap: 7px; cursor: pointer;
+              min-height: var(--row-h); background: var(--group-hdr);
+              padding: 0 var(--gutter) 0 calc(var(--gutter) + var(--depth, 0) * var(--nest)); }
+/* No line where the shade already divides: none under a heading or above one — only
+   between two headings (a shut one, a sub-heading), which are the same shade. */
+.group-head + .group-head { border-top: var(--sep); }
+.row:has(+ .group-head), .editor:has(+ .group-head), .group-body > .editor:last-child { border-bottom: 0; }
+.group-head h2 { font-size: var(--fs-ui); font-weight: 600; color: var(--text);
+                 letter-spacing: .02em; cursor: pointer; }
+.group-head h2:hover { color: var(--text-bright); }
+/* A heading is a control, so it takes the rows' hover too — the same shade. A
+   palette whose headings are tinted off --bg sets --group-hover to the same step
+   off that tint. :where keeps it under .group-head.cur/.picked. A sub-heading
+   is set in the same type as a heading: only its indent says it is nested. */
+.group-head:where(:hover) { background: var(--group-hover, var(--row-hover)); }
+.group-head .spring { margin-left: auto; }
+.group-body { min-height: 2px; }
+/* One step in from the heading, on the rows' CONTENT, not their box — the border
+   and the picked/open fill are the box and must run the full width of the list. */
+.group-body .row, .group-body .editor {
+  padding-left: calc(var(--gutter) + var(--depth, 0) * var(--nest)); }
+.group-floor { min-height: 34px; }
+/* A row drawn by `sequence` (rows and headings mixed, in the page's order) carries
+   its own depth — there is no group body around it to indent it. */
+.row.seq { padding-left: calc(var(--gutter) + var(--depth, 0) * var(--nest)); }
+
+/* ── Dragging ──────────────────────────────────────────────────────────────────
+   A BOX means "into"; a LINE means "before" — the only way to tell the two apart
+   mid-drag. */
+.dragging { opacity: .35; }
+.dropping { outline: 1px dashed var(--accent); outline-offset: -1px; background: var(--focus-bg); }
+.dropbefore { box-shadow: inset 0 2px 0 var(--drop-line); }
+.dropafter { box-shadow: inset 0 -2px 0 var(--drop-line); }
+
+/* ── The editor ────────────────────────────────────────────────────────────────
+   Opens under the row it belongs to rather than as a dialog: the thing being
+   changed should not be hidden by the thing changing it. */
+.editor { padding: 12px var(--gutter) 15px; background: var(--bg); border-bottom: var(--sep); }
+.fields { display: grid; grid-template-columns: 92px 1fr 92px 1fr; gap: 9px 11px;
+          align-items: center; }
+.fields label { color: var(--text); font-size: var(--fs-meta); text-align: right; }
+.fields .wide { grid-column: 2 / 5; }
+.hint { grid-column: 2 / 5; color: var(--text-faint); font-size: var(--fs-tiny); margin-top: -3px; }
+.hint.err { color: var(--err); }
+.hint button { margin-left: 8px; }
+/* A row of ticks, in an editor or a card. */
+.checkrow, .sit-checks { display: flex; align-items: center; gap: 14px; }
+/* A control and a tick on the same line (a choice, and the qualifier on it): the
+   control keeps its own width instead of filling the row and squashing the tick. */
+.checkrow select, .checkrow input[type="text"] { width: auto; min-width: 150px; }
+.sit-checks { grid-column: 2 / 5; margin-top: -3px; }
+.checkrow label, .sit-checks label, .send-row label {
+  display: flex; align-items: center; gap: 6px; text-align: left; white-space: nowrap;
+  color: var(--text); font-size: var(--fs-small); font-weight: normal; }
+input[type="checkbox"] { width: auto; height: auto; padding: 0; border: none; }
+.sit-checks input[type="number"] { width: 42px; height: var(--ctl-h-sm); padding: 0 6px; text-align: right; }
+
+/* The button row: message left, buttons right — message · extra · destructive ·
+   Cancel · primary (ListKit.actions). The thing you reach for sits where the eye
+   ends up after reading the form. */
+.actions { display: flex; gap: 8px; margin-top: 13px; align-items: center;
+           justify-content: flex-end; }
+.msg { font-size: var(--fs-meta); margin-right: auto; }
+.msg.err  { color: color-mix(in srgb, var(--err) 65%, #ff2a2a); }
+.msg.warn { color: var(--warn); }
+/* Messages with no editor to hold them (ListKit.flash, pinNotes): one stack at
+   the bottom left, newest on top, plain text — no box — each with a ✕. */
+#msgstack { position: fixed; left: var(--gutter); bottom: 14px; z-index: 9; max-width: 36vw;
+            display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+#msgstack:empty, .msgpinned:empty { display: none; }
+.msgpinned { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.msg.flash { margin: 0; display: flex; align-items: baseline; gap: 8px; white-space: pre-wrap; }
+.msgx { height: auto; padding: 0 2px; border: 0; background: none; line-height: 1;
+        color: inherit; opacity: .55; font-size: var(--fs-tiny); }
+.msgx:hover { background: none; opacity: 1; }
+
+/* ── Buttons ───────────────────────────────────────────────────────────────── */
+button { background: var(--field-bg); border: 1px solid var(--field-bd);
+         border-radius: var(--radius); color: var(--text);
+         font: inherit; font-size: var(--fs-ui); height: var(--btn-h); padding: 0 13px;
+         cursor: pointer; white-space: nowrap; }
+button:hover { background: var(--btn-hover-bg); border-color: var(--btn-hover-bd); }
+button.primary { background: var(--accent-dim); border-color: var(--accent); }
+button:disabled, button:disabled:hover { opacity: .35; cursor: default;
+         background: var(--field-bg); border-color: var(--field-bd); }
+button.danger:hover { border-color: var(--err); color: var(--err); }
+/* A small button inside a line of text or a row (Unbind, Clear, +). */
+button.small { height: 18px; padding: 0 8px; font-size: var(--fs-tiny); vertical-align: 1px; }
+.addbtn { margin: 14px var(--gutter); }
+
+/* ── Menus ─────────────────────────────────────────────────────────────────────
+   One look for every menu: the section menu, a filter's ticks, the right-click
+   menu. Border, no shadow — a panel that casts nothing. */
+.facetmenu, #navmenu { position: absolute; top: calc(100% + 4px); left: 0; z-index: 25;
+             min-width: 210px; padding: 4px 0; background: var(--bg);
+             border: 1px solid var(--border2); border-radius: var(--radius); }
+.ctxmenu { position: absolute; z-index: 40; min-width: 160px; }
+/* Under an open right-click menu: a click elsewhere only shuts it (list.js showMenu). */
+.menushield { position: fixed; inset: 0; z-index: 39; }
+.facetitem, .navitem { padding: 5px 12px; font-size: var(--fs-ui); color: var(--text);
+             cursor: pointer; display: flex; align-items: center; gap: 8px; }
+.facetitem:hover, .navitem:hover { background: var(--row-hover); color: var(--text-bright); }
+.facetitem.danger { color: var(--err); }
+.facetitem.subopen { background: var(--row-hover); color: var(--text-bright); }
+.facetitem.hassub::after { content: "\25B8"; margin-left: auto; padding-left: 14px; color: var(--text-dim); }
+.facetitem.disabled, .facetitem.disabled:hover { color: var(--text-faint); background: none; cursor: default; }
+.facetitem.info, .facetitem.info:hover { color: var(--text-dim); }
+.menusep { height: 1px; margin: 4px 0; background: var(--border2); }
+.facetitem .swatch { width: 10px; height: 10px; border-radius: 50%; flex: none;
+                     background: var(--tag); }
+.facetitem .swatch.none { background: none; box-shadow: inset 0 0 0 1px var(--text-faint); }
+/* The keyboard's place in an open menu — the same mark as the row cursor. */
+.facetitem.cur, .navitem.cur { background: var(--row-cur); color: var(--text-bright); }
+
+/* ── Cards and empty states ────────────────────────────────────────────────── */
+.card { padding: var(--gutter); color: var(--text-dim); font-size: var(--fs-ui); line-height: 1.55; }
+.card.err  { color: var(--err); }
+.card.warn { color: var(--warn); }
+.empty { padding: 26px var(--gutter); color: var(--text-faint); font-size: var(--fs-ui); }
+.filters { display: flex; align-items: center; gap: 8px; padding: 9px var(--gutter);
+           border-bottom: var(--sep); flex-wrap: wrap; }
+.findbar input { max-width: 220px; }
+
+/* A field that finds and picks (ListKit.suggestField): the matches under its row. */
+.suggestlist { max-height: 300px; overflow-y: auto; }
+.suggestlist .facetitem.bold { font-weight: 700; }
+.suggestlist .sub { margin-left: auto; padding-left: 14px; color: var(--text-faint); font-size: var(--fs-meta); }

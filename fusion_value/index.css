@@ -1,0 +1,792 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Fusion Value — the dimension value / parameter dialog.
+
+   Everything visual that is shared with the Params and Browser windows comes from
+   theme.css; only what is specific to a transient two-field dialog lives here.
+
+   The window is deliberately BIGGER than Fusion's native inline box (that being the
+   whole point) and taller than the panel needs, so the autocomplete list has room to
+   drop below without the native window resizing while you type. The page background
+   is transparent, so the unused space below the panel is invisible.
+   ──────────────────────────────────────────────────────────────────────────── */
+
+html, body { background: transparent; overflow: hidden; }
+body { padding: 0; }
+
+
+/* The panel proper. Everything about how it is PAINTED — the one translucent fill, the
+   edge, the corner, the shadow and the transparent gutter that shadow falls into — is
+   .fpanel in theme.css, shared with the other two panels here and with any dialog made
+   later. Nothing below paints a fill of its own; the lighter areas are white at a few
+   percent over that one fill, so the panel transmits at one rate. Only what is
+   particular to this panel is here. */
+
+/* ── Header ──
+   Carries no text now: the dimension id, the component/sketch label and the axis badge
+   have all been removed. It stays because it is the drag handle. Everything else on the
+   panel is either a text field or a suggestion row, all of which swallow the press, so
+   without this strip there would be almost nothing left to grab.
+   Collapses to a thin bar when empty; grows to fit the driven marker when that applies. */
+/* Empty by design — it exists only as the drag handle, since every other part of the
+   panel is a text field or a suggestion row and swallows the press. Given it up on
+   height rather than on a grip marking, so there is a comfortable target to grab. */
+/* --hdr-h (theme.css) rather than a number: a header is a DRAG HANDLE first, so it is
+   as tall as a field is, and every panel here reads it from the same place. */
+#head {
+  position: relative;
+  display: flex; align-items: center; gap: 6px;
+  min-height: var(--hdr-h);
+  padding: 0 10px;
+  background: var(--panel-hdr);
+  border-bottom: var(--panel-sep);
+  font-size: 11px; color: var(--text-dim);
+  cursor: default;
+}
+
+/* A driven dimension is computed by the sketch's constraints, so it can be read but
+   never set. Saying so in the header beats letting the commit fail at the end. */
+#driven { color: var(--err); }
+#driven.none { display: none; }
+
+/* ── Fields ── */
+.field { position: relative; border-bottom: var(--panel-sep); }
+.field:last-of-type { border-bottom: 0; }
+
+#value, #pname, #sname {
+  display: block; width: 100%;
+  background: transparent; border: 0; outline: 0;
+  /* --text, the same grey the Browser's rows use — not --text-bright, which is the
+     theme's emphasis tone and read as glaring here. */
+  color: var(--text);
+  font: inherit;
+  padding: 9px 10px;
+  resize: none;
+  user-select: text; -webkit-user-select: text;
+}
+/* No font-size of its own: `font: inherit` above takes body's 13px/1.4, the same text
+   the Browser and Params rows use. It used to be set to 16px. */
+#value {
+  min-height: 32px; max-height: 130px;
+  overflow-y: auto;
+  white-space: pre-wrap; word-break: break-word;
+}
+#pname { font-size: 13px; padding-right: 96px; }
+/* The sketch name. No padding-right: nothing shares its row — the readout it used to
+   sit beside is the row below (#fname.readout). */
+#sname { font-size: 13px; }
+#fsname.hide { display: none; }
+#value::placeholder, #pname::placeholder, #sname::placeholder { color: var(--text-faint); }
+
+/* The focused field is marked by its background alone. There used to be a blue bar down
+   the left edge as well; it was removed, so an invalid name shows as red TEXT rather
+   than as a red bar. */
+.field.on { background: var(--panel-focus); --chip-under: var(--panel-focus); }
+.field.bad #pname { color: var(--err); }
+
+/* Live evaluation of what's typed. Sits at the bottom right, on the NAME row: it began
+   over the value box, where a long expression ran underneath and through it, and the name
+   is short enough that the two never fight for the same space. #pname reserves room for
+   it so a long name is clipped by its own padding rather than running under the number. */
+#preview {
+  position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+  font-size: 11px; color: var(--text-faint);   /* as dim as the "Name" placeholder */
+  pointer-events: none;
+  max-width: 45%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+
+/* The plane box has no name field, so its second row is given over to saying what the
+   line resolved to: the expression on the left, its evaluated value on the right. That
+   is the only confirmation that "Width" picked the face you meant. */
+#sinfo {
+  position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+  font-size: 11px; color: var(--text-faint);
+  pointer-events: none;
+  max-width: 50%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+#sinfo:empty { display: none; }
+/* Nothing but the two readouts lives in this row, so it collapses to their height. */
+.field.readout { min-height: 24px; }
+
+/* ── The name stepper ──
+   #fsteps takes the Name row's place: a title naming the step, the crumb echoing the
+   name being built, and the choices below it, each labelled with the key that takes
+   it — press the key, the step advances, no Enter needed. #pname is shown in the
+   choices' place only while a Space choice is being typed. Same panel styling as #ac so
+   the two read as one family of "a list under a field", not two UI languages. */
+#fsteps.hide, #fname.hide, #stepchoices.hide { display: none; }
+/* Which part of the name the menu below is choosing ("Parent", "Parameter groups" …),
+   with the value's evaluated readout (#preview, moved in by placeNameField) on the right. */
+#steptitle {
+  position: relative; min-height: 18px;
+  padding: 8px 10px 0; font-size: 11px; font-weight: 600; color: var(--text-dim);
+}
+/* #pname inside the stepper: seen only while a "type your own" choice is being typed.
+   Otherwise collapsed rather than display:none — it keeps the keyboard, so every key
+   the menu takes still arrives through the field's own handler. */
+#fsteps #pname { padding-right: 10px; }
+#steptitle #preview { font-weight: normal; }
+/* A step Enter couldn't finish (a required anchor/axis/type with nothing chosen) says
+   so here, on the SAME line as the step's own title — not a separate panel row, since
+   nothing else about the stepper's layout should move when this appears or fades. */
+#steperr { margin-left: 8px; font-weight: normal; color: var(--err); }
+#steperr:empty { display: none; }
+#pname.stepfield-hidden {
+  position: absolute; width: 1px; height: 1px; padding: 0; opacity: 0;
+  pointer-events: none;
+}
+#stepcrumb {
+  display: flex; flex-wrap: wrap; gap: 5px;
+  padding: 6px 10px 0; font-size: 11px; color: var(--text-faint);
+}
+#stepcrumb:empty { display: none; }
+/* The crumb as chips (index.js, "The crumb as chips"): the value box's chip look, one
+   colour per kind of segment — parent the parameter's own white, groups lilac, the type
+   the function blue, the anchor/axis the number green. Padding in place of the value
+   box's box-shadow spread: these sit in a flex row, not over text. */
+.stepchip {
+  border-radius: 4px; padding: 1px 5px; font-size: 12px; line-height: 16px;
+  cursor: default;
+}
+.stepchip.seg-parent { color: var(--chip-param); background: var(--chipfill-param); }
+.stepchip.seg-level  { color: var(--chip-const); background: var(--chipfill-const); }
+/* The last level before the type is the parameter's own NAME, not a group
+   (ParamNaming.nameWord): its own colour, so the crumb says which word the Browser's
+   row will read and which ones it will file under. */
+.stepchip.seg-level.seg-name { color: var(--chip-name); background: var(--chipfill-name); }
+.stepchip.seg-type   { color: var(--chip-fn);    background: var(--chipfill-fn); }
+.stepchip.seg-dir    { color: var(--chip-num);   background: var(--chipfill-num); }
+/* A name outside the convention, whole: warm, so it never reads as one of the above. */
+.stepchip.seg-legacy { color: var(--chip-op);    background: var(--chipfill-op); }
+.stepchip:hover      { filter: brightness(1.2); }
+/* The segment being chosen: the held ring, as on a held chip in the value box. */
+.stepchip.cur { outline: var(--chip-ring-w) solid var(--chip-ring); outline-offset: 1px; }
+/* Groups set aside while an earlier one is changed — a different pick drops them. */
+.stepchip.aside { opacity: .45; }
+/* A part the Browser's row won't say (hidden with ⌘E, or left off by default — a
+   direction with no twin, a grouped type): the chip stays, its text struck through. */
+.stepchip.unsaid { text-decoration: line-through; text-decoration-thickness: 1.5px; }
+#stepchoices:empty { display: block; padding: 0 0 6px; }   /* just the bottom inset */
+#stepchoices {
+  display: flex; flex-wrap: wrap; gap: 6px; padding: 8px 10px 10px;
+}
+.stepopt {
+  display: flex; align-items: center; gap: 5px;
+  height: var(--row-h); padding: 0 9px;
+  border-radius: var(--panel-radius); border: 1px solid var(--border2);
+  background: var(--panel-bg); color: var(--text); font-size: 12px;
+  cursor: default;
+}
+.stepopt:hover { background: var(--panel-hover); }
+.stepopt .key {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 15px; height: 15px; border-radius: 3px;
+  background: var(--panel-sel); color: var(--text-bright);
+  font-size: 10px; font-weight: 600; text-transform: uppercase;
+}
+.stepopt .key.wide { width: auto; padding: 0 4px; }   /* the Space key, drawn (SPACE_KEY) */
+/* The way back, last in the list — quieter than the choices, because it is the one
+   option that is not an answer to the question being asked. */
+/* An unlikely answer on a step whose likely one is all but certain (stepScores):
+   still keyed, still clickable, just out of the way. */
+.stepopt.dim { opacity: 0.4; }
+.stepopt.dim:hover { opacity: 1; }
+.stepopt.back { color: var(--text-dim); }
+.stepopt.back:hover { color: var(--text); }
+/* The Space entries — Find component, New group, Finish, Skip: not answers but ways of
+   making one, so a step quieter than the choices. Same solid border as every other. */
+.stepopt.new { color: var(--text-dim); }
+/* A direction already chosen on a step that takes several ("X and Y both work").
+   The chip ring, because it is the same statement a held chip makes — this one is
+   IN — and pressing its key again takes it back out. */
+.stepopt.on {
+  outline: var(--chip-ring-w) solid var(--chip-ring);
+  outline-offset: -1px;
+  color: var(--text-bright);
+}
+/* "Make as group" (type step only): a SETTING, not a candidate, so it reads quiet like
+   Skip/Finish when off — the same .on ring above says it is set once it is. */
+.stepopt.toggle { color: var(--text-dim); }
+.stepopt.toggle.on { color: var(--text-bright); }
+
+/* Flexible: a toggle and two limit fields. Quiet when off — the limits mean nothing. */
+#fflex.hide { display: none; }
+#fflex { display: flex; align-items: center; gap: 6px; padding: 3px 8px; font-size: 11px; }
+#fflex input {
+  flex: 1; min-width: 0; background: transparent; border: 0; outline: 0;
+  color: var(--text); font: inherit; padding: 5px 4px;
+  user-select: text; -webkit-user-select: text;
+}
+#fflex input::placeholder { color: var(--text-faint); }
+#fflex.off input { opacity: .35; pointer-events: none; }
+/* The Extrude panel's own: same row, shown only for a distance that is one parameter. */
+#xflex.hide { display: none; }
+#xflex { display: flex; align-items: center; gap: 6px; padding: 3px 8px; font-size: 11px; }
+#xflex input {
+  flex: 1; min-width: 0; background: transparent; border: 0; outline: 0;
+  color: var(--text); font: inherit; padding: 5px 4px;
+  user-select: text; -webkit-user-select: text;
+}
+#xflex input::placeholder { color: var(--text-faint); }
+#xflex.off input { opacity: .35; pointer-events: none; }
+
+/* The angle row of the plane box. Hidden outside sketch mode; the chips sit on the
+   right of the field the way the readout sits on the name row. */
+#fangle.hide { display: none; }
+#angle {
+  display: block; width: 100%;
+  background: transparent; border: 0; outline: 0;
+  color: var(--text); font: inherit; padding: 9px 10px; padding-right: 215px;
+  user-select: text; -webkit-user-select: text;
+}
+#angle::placeholder { color: var(--text-faint); }
+#angleopts {
+  position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
+  display: flex; gap: 4px; font-size: 11px;
+  /* #angle picks up .chipped (theme.css) once chips.js attaches to it, which gives it
+     position:relative + z-index:1 — above this row unless it also has a z-index. */
+  z-index: 2;
+}
+.aopt {
+  padding: 2px 7px; border-radius: var(--radius);
+  color: var(--text-dim); cursor: default; user-select: none;
+}
+.aopt:hover { color: var(--text); background: var(--panel-hover); }
+.aopt.on { color: var(--text-bright); background: var(--panel-sel);
+           box-shadow: inset 0 0 0 1px var(--panel-edge); }
+.aopt:empty { display: none; }
+
+#err {
+  padding: 6px 10px; font-size: 11px; color: var(--err);
+  border-top: var(--panel-sep); background: var(--panel-hdr);
+}
+#err:empty { display: none; }
+
+/* ── The width grip ──
+   The right edge of the panel, draggable. The window is borderless — there is no frame
+   to take hold of — so the edge itself is the handle, six points of it, marked only by
+   the cursor changing. No visible bar: the panel is a floating translucent thing and a
+   grab handle drawn on it would be the loudest object in the dialog.
+
+   Inside the panel rather than in the window's transparent gutter, because the gutter
+   is where the shadow falls and a handle out there would be a hit target over nothing. */
+.grip {
+  position: absolute; top: 0; right: 0; bottom: 0; width: 6px;
+  cursor: col-resize; z-index: 20;
+}
+.grip:hover { background: linear-gradient(to right, transparent, rgba(255,255,255,.06)); }
+
+/* Off-screen twin of the value box, for measuring how wide a line actually is. A
+   textarea wraps, so it can never say it is too narrow — its scrollWidth is its width
+   whatever is in it. The only way to ask is to lay the same text out unwrapped. */
+#ruler {
+  position: absolute; visibility: hidden; pointer-events: none;
+  top: -9999px; left: -9999px; white-space: pre;
+}
+
+/* ── Chips ──
+   The look of an item lives in theme.css, shared. What has to be here is only the
+   part that fights an ID: #value sets its own colour, which outranks any class the
+   chip editor can add, so the two lines that make the field's own text invisible are
+   repeated at a specificity that wins. The glyphs you read are the layer's; the field
+   keeps the caret. */
+#value.chipped, .crow > input[type="text"].chipped {
+  color: transparent;
+  caret-color: var(--text-bright);
+}
+/* …and the caret hidden again where chips.js draws its own, off a chip's edge. */
+#value.chipped.owncaret, .crow > input[type="text"].chipped.owncaret {
+  caret-color: transparent;
+}
+
+/* ── Copy ──
+   The expression as TEXT, for pasting into another dimension. What goes on the clipboard
+   is what Fusion would be given — the line composed and tidied (exprText), not the
+   characters that happen to be in the box — so a plane line copies the offset it means
+   rather than its datum word.
+
+   Parked on the right of the value field, over its own inset so a long expression scrolls
+   under it rather than out from behind it. Quiet until you are near it: it is a thing you
+   go looking for, not part of reading the value. */
+/* NOTHING HERE IS SET IN CAPS. These little labels used to be uppercased-and-tracked,
+   which is a way of making a word quiet by shouting it; quiet is what --text-faint is
+   for. Same for #mkparam and #same below. */
+#copy {
+  position: absolute; top: 0; right: 0;
+  display: flex; align-items: center;
+  height: 100%; padding: 0 8px;
+  font-size: 11px;
+  color: var(--text-faint); cursor: default; user-select: none;
+  /* No fill of its own. The panel transmits at one rate (see the header), and a second
+     layer of --panel-bg over it reads as a black slab stuck to the end of the row. The
+     field's padding-right is what keeps the expression from ever running under this. */
+  /* #value picks up .chipped (theme.css) once chips.js attaches to it, which gives it
+     position:relative + z-index:1 — above this unless it also has a z-index. */
+  z-index: 2;
+}
+#copy:hover  { color: var(--text-bright); }
+#copy.done   { color: var(--chip-num); }
+#copy.bad    { color: var(--err); }
+#value { padding-right: 46px; }
+
+/* ── Make a parameter ──
+   #copy's neighbour, same quiet look, but there only while the value box holds
+   something it could make one from (#fvalue.canmake — two or more ⇧/⌘-clicked chips,
+   or a held bubble; see index.js, "Make a parameter"). The field's inset widens with
+   it so the expression still never runs under either. */
+/* GREY, like Copy beside it. It was the accent blue, which made it the loudest thing on
+   the panel — and a thing that only ever appears when it applies does not also need a
+   colour to say so. */
+#mkparam {
+  position: absolute; top: 0; right: 46px;      /* clear of #copy's own width */
+  display: none; align-items: center;
+  height: 100%; padding: 0 6px;
+  font-size: 11px;
+  color: var(--text-dim); cursor: default; user-select: none;
+  z-index: 2;
+}
+#mkparam:hover { color: var(--text-bright); }
+.canmake > #mkparam { display: flex; }
+#fvalue.canmake #value { padding-right: 152px; }
+/* It goes to whichever expression field holds the selection (index.js,
+   updateMakeButton): a panel row has no Copy to clear, the angle row has its chips. */
+.crow > #mkparam { right: 0; }
+.crow.canmake > input[type="text"] { padding-right: 110px; }
+#fangle > #mkparam { right: 215px; }
+#fangle.canmake #angle { padding-right: 320px; }
+
+#mhead {
+  display: flex; align-items: center;
+  min-height: var(--hdr-h); padding: 0 10px;
+  background: var(--panel-hdr);
+  border-bottom: var(--panel-sep);
+  font-size: 11px; color: var(--text-dim);
+  cursor: default;
+}
+#mexpr {
+  padding: 9px 10px; color: var(--text-dim);
+  white-space: pre-wrap; word-break: break-word;
+  user-select: none;
+}
+#mname {
+  display: block; width: 100%;
+  background: transparent; border: 0; outline: 0;
+  color: var(--text); font: inherit;
+  padding: 9px 10px;
+}
+#fmname.bad #mname { color: var(--err); }
+/* The name stepper borrowed in its place (index.js, "The make panel's name"). */
+#fmname.hide { display: none; }
+#merr {
+  padding: 6px 10px; font-size: 11px; color: var(--err);
+  border-top: var(--panel-sep); background: var(--panel-hdr);
+}
+#merr:empty { display: none; }
+
+/* ── A panel's buttons ──
+   Back and Save on the make-a-parameter panel. The keys (Esc, Enter) still do the same
+   two things — this row is the same two answers said where they can be clicked, for a
+   panel that arrives in the middle of something else and has to say how to get out of
+   it. Shared class names so the next panel that needs a pair uses these. */
+.foot {
+  display: flex; justify-content: flex-end; align-items: center; gap: 6px;
+  padding: 7px 8px;
+  border-top: var(--panel-sep); background: var(--panel-hdr);
+}
+.fbtn {
+  padding: 4px 12px; border-radius: var(--radius);
+  font-size: var(--fs-small); color: var(--text);
+  background: var(--panel-hover);
+  cursor: default; user-select: none;
+}
+.fbtn:hover { background: var(--panel-focus); color: var(--text-bright); }
+.fbtn.primary { background: var(--panel-accent); color: var(--text-bright); }
+.fbtn.primary:hover { background: var(--panel-sel); }
+
+/* ── Same plane as ──
+   The plane-box readout row's counterpart to #copy: same corner, same quiet-until-
+   hovered treatment. Hidden except when the session found at least one other
+   plane-box sketch in this component (#fname.hassame, set in openSketchSession). */
+#same {
+  position: absolute; top: 0; right: 0;
+  display: none; align-items: center;
+  height: 100%; padding: 0 10px;
+  font-size: 11px;
+  color: var(--text-faint); cursor: default; user-select: none;
+  z-index: 2;
+}
+#fname.readout.hassame #same { display: flex; }
+#same:hover { color: var(--text-bright); }
+
+/* ── Picked from the viewport ──
+   Between the two readouts: the expression on the left gives up some width while it
+   is up (#fname.picking), the evaluated value keeps the right. */
+#pickcycle {
+  position: absolute; top: 0; left: 40%;
+  display: flex; align-items: center; gap: 4px;
+  height: 100%; padding: 0 6px;
+  font-size: 11px; white-space: nowrap;
+  color: var(--text-faint); cursor: default; user-select: none;
+  z-index: 2;
+}
+#pickcycle.hide { display: none; }
+#fname.picking #sinfo { max-width: calc(40% - 14px); }
+#pickcycle .pc-arrow { padding: 0 3px; }
+#pickcycle .pc-arrow:hover { color: var(--text-bright); }
+#pickcycle .pc-note { margin-left: 4px; }
+
+#pick.hide { display: none; }
+.pick-sep {
+  padding: 4px 10px; font-size: 11px;
+  color: var(--text-faint);
+  border-top: var(--panel-sep); border-bottom: var(--panel-sep);
+}
+
+/* ── Autocomplete ──
+   Absolutely positioned so it hangs straight off the bottom edge of the VALUE field,
+   overlaying the name field below it. As a sibling in flow it sat under the whole
+   panel, which put the name field and a margin between the text and its own
+   suggestions. `top` is set from the live value-field rect (see placeAC).
+
+   #pick — the "Same as..." picker (see #same above) — is the same object hanging off
+   a different field (the readout row, via placePick): same inset, same fill and
+   border, same scrolling list. */
+#ac, #pick {
+  /* Inset by the gutter, so it lines up with the panel's edges rather than with the
+     window's — the window is wider than the panel by exactly that much on each side.
+     `top` is set from the live value-field rect, which already counts the gutter. */
+  /* ABOVE THE PANEL'S OWN OUTLINE. A dropdown is a little dialog hanging off a field,
+     and what is under it does not get to draw on top of it — but .fpanel's edge is a
+     ::after at z-index 9999 (theme.css), so at any ordinary z-index the panel's own
+     border was painted straight across the list's top edge and you read two borders
+     where there is one box. Each layer sits one step above the last: the picker, then
+     the suggestion list that can open over it, then the chip menu over both. */
+  position: absolute; left: var(--panel-gutter); right: var(--panel-gutter);
+  z-index: 10000;
+  border-radius: var(--panel-radius);
+  background: var(--panel-bg);
+  border: 1px solid var(--border2);
+  box-shadow: var(--panel-shadow);
+  max-height: 216px; overflow: hidden auto;
+}
+
+/* The suggestion list can open OVER the picker (type a parameter into a field while
+   "Same as…" is up), so it takes the next step up rather than winning on document
+   order alone. */
+#ac { z-index: 10010; }
+
+#ac:empty, #ac.hide { display: none; }
+.ac-row {
+  display: flex; align-items: baseline; gap: 8px;
+  height: var(--row-h); padding: 0 10px;
+  border-bottom: var(--panel-sep); cursor: default;
+}
+.ac-row:last-child { border-bottom: 0; }
+.ac-row:hover { background: var(--panel-hover); }
+/* The row Enter will take — and ONLY once you have arrowed into the list. A list that
+   opens with its first row already lit is answering a question nobody asked yet; the
+   vocabulary is there to be read before it is there to be taken. Enter still takes the
+   top row before then (acIndex is 0 either way, see renderAC) — it simply isn't marked.
+   .sel is not on any row until acTouched. */
+.ac-row.sel { background: var(--panel-sel); }
+/* THE MARK IS ON THE RIGHT, and it is a dot. It used to be an accent bar down the left
+   edge, which read as a margin rule on the whole list rather than as a mark on one row,
+   and put the loudest thing on the row furthest from what you are reading. A dot at the
+   far end is the end of the sentence.
+
+   Drawn on EVERY row and made visible on the selected one, rather than added to that
+   row alone: a mark that appears takes width, and the value column beside it would
+   twitch left by its width as you arrowed down the list. */
+.ac-mark {
+  width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0;
+  align-self: center; margin-left: 8px;
+  background: var(--accent); visibility: hidden;
+}
+.ac-row.sel .ac-mark { visibility: visible; }
+.ac-name { color: var(--text); flex-shrink: 0; }
+.ac-row.sel .ac-name { color: var(--text-bright); }
+.ac-name b { color: var(--accent); font-weight: 600; }
+/* The real parameter name a family stem resolved to, shown between the stem and its
+   value so the row says what will actually be written into the box. Quiet, because it
+   is confirmation rather than the thing you are reading. */
+.ac-res { margin-left: 8px; color: var(--text-faint); font-size: 11px;
+          overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ac-row.sel .ac-res { color: var(--text); }
+.ac-val { margin-left: auto; color: var(--text-faint); font-size: 11px;
+          overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* The axis tags, on the highlighted row only. A parameter's name usually says which
+   axis it is for and the engine reads it off; these are for the ones whose names do
+   not — Steel, Clearance, Thickness — where the only way the list can know is to be
+   told. Shown on one row at a time because three letters on every row is a column of
+   noise, and the row you are about to take is the one you would tag.
+
+   Fusion's own axis colours: red X, green Y, blue Z. */
+.ac-tags { display: flex; gap: 3px; margin-left: 8px; flex-shrink: 0; }
+.ac-tag {
+  width: 14px; height: 14px; line-height: 14px; text-align: center;
+  border-radius: 3px; font-size: 9px; cursor: default;
+  color: var(--text-faint); background: rgba(255,255,255,.05);
+}
+.ac-tag:hover { color: var(--text); background: var(--panel-hover); }
+.ac-tag.on { color: #fff; }
+.ac-tag.on[data-ax="X"] { background: rgba(214,96,96,.85); }
+.ac-tag.on[data-ax="Y"] { background: rgba(122,181,106,.85); }
+.ac-tag.on[data-ax="Z"] { background: rgba(91,151,207,.9); }
+/* The key that toggles it, said once on the row rather than three times. */
+.ac-tags::before { content: "\2318"; color: var(--text-faint); font-size: 10px;
+                   margin-right: 1px; align-self: center; }
+
+/* ── The chip menu ──
+   The value box's own right-click menu (chips.js refuses WebKit's — see its header).
+   A floating list in the same language as #ac: same fill, same edge, same row height,
+   because it hangs off the same field and is read the same way. Positioned in script,
+   at the pointer. */
+#chipmenu {
+  /* Over everything, panel outline included — see #ac/#pick above. */
+  position: absolute; z-index: 10020; min-width: 150px;
+  border-radius: var(--panel-radius);
+  background: var(--panel-bg);
+  border: 1px solid var(--border2);
+  box-shadow: var(--panel-shadow);
+  padding: 4px 0; overflow: hidden;
+}
+#chipmenu.hide { display: none; }
+.cm-row {
+  display: flex; align-items: center; gap: 10px;
+  height: 26px; padding: 0 12px;
+  font-size: var(--fs-small); color: var(--text);
+  cursor: default; user-select: none; white-space: nowrap;
+}
+.cm-row:hover { background: var(--panel-hover); color: var(--text-bright); }
+/* A toggle row: a tick column, empty when off, so on/off rows line up. */
+.cm-check { width: 10px; margin-right: -2px; text-align: center; color: var(--text-bright); }
+/* The key that does the same thing, said on the row — this menu is a reminder of the
+   keyboard, not a replacement for it. */
+.cm-key { margin-left: auto; color: var(--text-faint); font-size: var(--fs-tiny); }
+
+/* ── The New Component panel ───────────────────────────────────────────────
+   The same object as #panel and the same field language: a header to drag by, rows
+   separated by --sep rather than boxed, and the label carried by the PLACEHOLDER so it
+   is faint until you type and the value reads in --text afterwards. Labels in their own
+   column read as a form; these read as the value box, which is the point. */
+
+#chead {
+  display: flex; align-items: center; gap: 6px;
+  min-height: var(--hdr-h); padding: 0 10px;
+  background: var(--panel-hdr);
+  border-bottom: var(--panel-sep);
+  font-size: 11px; color: var(--text-dim);
+  cursor: default;
+}
+
+.crow { position: relative; border-bottom: var(--panel-sep); }
+.crow:last-child { border-bottom: 0; }
+.crow > input[type="text"] {
+  display: block; width: 100%;
+  background: transparent; border: 0; outline: 0;
+  color: var(--text);
+  font: inherit;
+  padding: 9px 10px;
+}
+.crow > input[type="text"]::placeholder { color: var(--text-faint); }
+/* Two fields on one row — Extrude's distance and its far side's, so a two-sided
+   extrude does not make the panel taller. Each half is an ordinary .crow. */
+.crowpair { display: flex; border-bottom: var(--panel-sep); }
+.crowpair > .crow { flex: 1 1 0; min-width: 0; border-bottom: 0; }
+.crowpair > .crow + .crow { border-left: var(--panel-sep); }
+.crow.on { background: var(--panel-focus); --chip-under: var(--panel-focus); }
+
+/* A row of checkboxes reads as one setting with several switches, so the word appears
+   once and the axes are its options. */
+.crow.check { display: flex; align-items: center; gap: 10px;
+              padding: 8px 10px; font-size: 12px; color: var(--text-dim); }
+.crow.check > .clabel { color: var(--text-dim); }
+.crow.check label { display: inline-flex; align-items: center; gap: 4px;
+                    color: var(--text); cursor: default; }
+/* Drawn, not native: the system box is white and blue on a panel that is neither. The
+   same furniture as a chosen .xopt — an edge, and a fill that says "on" — plus a tick. */
+.crow.check input[type="checkbox"] {
+  -webkit-appearance: none; appearance: none;
+  width: 12px; height: 12px; margin: 0; flex-shrink: 0;
+  border-radius: 3px;
+  background: var(--panel-hover) no-repeat center / 10px 10px;
+  box-shadow: inset 0 0 0 1px var(--panel-edge);
+}
+.crow.check input[type="checkbox"]:checked {
+  background-color: var(--panel-sel);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M2 5.2l2 2L8 3' fill='none' stroke='%23d8d8d8' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+.crow.check input[type="checkbox"]:disabled,
+.crow.check input[type="checkbox"]:disabled + span { opacity: .45; }
+
+/* A face a symmetric axis does not take — its mirror of the primary (applySymmetry). */
+.crow.off { opacity: .35; }
+.crow.off > input[type="text"] { cursor: default; }
+
+/* The sheet metal rule picker — the one row in this panel with more options than a
+   checkbox row can hold, so it gets a native select instead. Same row metrics, and
+   flattened to look like part of the row rather than a system control. */
+.crow.check select {
+  flex: 1; min-width: 0;
+  background: var(--panel-hover); color: var(--text);
+  border: 0; border-radius: var(--radius);
+  font: inherit; font-size: 12px;
+  padding: 3px 6px;
+  outline: 0;
+}
+
+#cerr { padding: 0 10px; color: var(--bad, #e06c6c); font-size: 11px;
+        background: var(--panel-hdr); }
+#cerr:empty { display: none; }
+
+/* ── The Extrude panel ─────────────────────────────────────────────────────
+   The third panel, and the same object again: rows separated by --sep, labels carried
+   by the placeholder, one header to drag by. What is new is that some of its rows are
+   CHOICES rather than values, and a choice reads badly as a text field — so those are
+   segmented words, which is the least furniture that still says "one of these". */
+
+#xhead, #rhead, #ohead {
+  display: flex; align-items: center; gap: 6px;
+  min-height: var(--hdr-h); padding: 0 10px;
+  background: var(--panel-hdr);
+  border-bottom: var(--panel-sep);
+  font-size: 11px; color: var(--text-dim);
+  cursor: default;
+}
+/* The header's title — which dialog this is. Every header is already 11px/--text-dim
+   and just a drag handle, so this rides on that; the rule exists for the class alone. */
+.dtitle { color: var(--text-dim); user-select: none; }
+/* A choice row: the word, then its options. Same metrics as .crow.check so the two
+   kinds of row line up down the panel. */
+.xseg { display: flex; align-items: center; gap: 10px;
+        padding: 8px 10px; font-size: 12px; color: var(--text-dim);
+        border-bottom: var(--panel-sep); }
+.xseg > .xlabel { width: 62px; flex-shrink: 0; }
+.xseg .xopts { display: flex; gap: 4px; flex-wrap: wrap; }
+.xseg .xopt {
+  padding: 2px 7px; border-radius: var(--radius);
+  color: var(--text-dim); cursor: default; user-select: none;
+}
+/* A chip is INSIDE a row that already paints, so it cannot have a fill of its own
+   without doubling the alpha over that patch — see .fpanel-row. It is an outline and a
+   brighter word instead, which is the same amount of furniture from a distance and, at
+   this size, easier to read than a filled pill. inset box-shadow rather than a border,
+   so a chip does not change size when it becomes the chosen one. */
+.xseg .xopt:hover { color: var(--text); background: var(--panel-hover); }
+.xseg .xopt.on { color: var(--text-bright); background: var(--panel-sel);
+                 box-shadow: inset 0 0 0 1px var(--panel-edge); }
+/* The operation Fusion's rules landed on, while the choice is still "auto". The accent,
+   so that "this is what will happen" and "you chose this" never look the same. */
+.xseg .xopt.auto { color: var(--accent); background: var(--panel-accent);
+                   box-shadow: inset 0 0 0 1px var(--accent); }
+/* The operation that will happen, in its own colour (theme.css --op-*; opMark). Only
+   that one cell — the rest of the row stays grey. */
+.xseg .xopt.opsel { color: var(--op); background: color-mix(in srgb, var(--op) 20%, transparent);
+                    box-shadow: inset 0 0 0 1px var(--op); }
+.xseg .xopt.opsel[data-op="cut"]       { --op: var(--op-cut); }
+.xseg .xopt.opsel[data-op="intersect"] { --op: var(--op-intersect); }
+.xseg .xopt.opsel[data-op="join"]      { --op: var(--op-join); }
+.xseg .xopt.opsel[data-op="newbody"]   { --op: var(--op-newbody); }
+
+/* The selection row. Same metrics as a choice row, but the middle is a READOUT rather
+   than a set of options: how many things are being extruded, and one word to drop them.
+   What they are is not said — you picked them, you are looking at them, and the only
+   thing the panel can add is the count. */
+.xseg .xcount { color: var(--text-bright); }
+.xseg.empty .xcount { color: var(--text-dim); }
+/* Pushed to the far end, away from the count, so it can never be clicked by aiming at
+   the number. Hidden outright when there is nothing to clear — a dead button is worse
+   than no button. */
+.xseg .xclear { margin-left: auto; }
+.xseg.empty .xclear { display: none; }
+
+/* The bodies row: one chip per body, and a component can have a hundred. Capped at about
+   four lines of chips and scrolled past that, so it can never push the rows under it
+   (Advanced, the error line) off the bottom of the window. */
+.xseg.xbodies { align-items: flex-start; }
+.xseg.xbodies > .xlabel { padding-top: 2px; }
+.xseg.xbodies .xopts { max-height: 92px; overflow-y: auto; }
+
+/* Advanced. Shut by default and worth being shut: type, start and taper are the three
+   things that are almost never not their default. */
+#xadvhead, #radvhead, #oadvhead { display: flex; align-items: center; gap: 2px;
+            padding: 6px 10px 6px 4px; font-size: 11px; color: var(--text-dim);
+            border-bottom: var(--panel-sep); cursor: default; user-select: none; }
+#xadvhead:hover, #radvhead:hover, #oadvhead:hover { color: var(--text); }
+#xadv.hide, #radv.hide, #oadv.hide { display: none; }
+/* The feature panel's Advanced head is only there when one of its rows is. */
+#oadvhead.none { display: none; }
+/* A slot waiting for its click reads in the accent, like a resolved Auto. */
+.xseg .xcount.auto { color: var(--accent); }
+
+#xerr, #rerr, #oerr { padding: 4px 10px; color: var(--err); font-size: 11px;
+        background: var(--panel-hdr); }
+#xerr:empty, #rerr:empty, #oerr:empty { display: none; }
+
+/* ── The command-search palette ────────────────────────────────────────────
+   One field, then a plain in-flow list — not the floating #ac overlay, since here the
+   list IS the panel rather than a suggestion hanging off a field. Rows reuse .ac-row /
+   .ac-name (above) so a command reads exactly like a parameter suggestion does — just
+   the name and its key (.ac-chord, search.css); no group label or "ours" badge (right-click a row for
+   those, see #ssheet below) — except .ac-envdot below, which a same-named SOLID /
+   SHEET METAL / SURFACE trio needs since nothing else on the row tells them apart. */
+/* SOLID / SHEET METAL / SURFACE each have their own same-named command (three
+   "Extrude"s, etc. — see searchRank's dedup in index.js); this dot is the only thing
+   distinguishing them, so it only renders when a row's name collides with another
+   listed row's. Ordered solid, sheet metal, surface wherever they tie in rank. */
+.ac-envdot {
+  width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+  background: var(--text-faint);
+}
+.ac-row.ac-env-solid .ac-envdot      { background: var(--env-solid); }
+.ac-row.ac-env-sheetmetal .ac-envdot { background: var(--env-sheetmetal); }
+.ac-row.ac-env-surface .ac-envdot    { background: var(--env-surface); }
+/* The rest of the palette — #squery, #sresults, the right-click sheet — is the shared
+   fusion_ui/search.css (loaded by index.html). */
+
+/* ── The versions panel ─────────────────────────────────────────────────────
+   AddIns/Versions. Two short lists under one header — the open documents, then the
+   active one's versions — in .ac-row's language, each list scrolling on its own so the
+   documents never scroll out of sight under twenty versions. A question (`confirm`)
+   sits above both, or alone when Save asks "save as latest?". */
+#vhead {
+  display: flex; align-items: center; gap: 6px;
+  min-height: var(--hdr-h); padding: 0 10px;
+  background: var(--panel-hdr);
+  border-bottom: var(--panel-sep);
+  font-size: 11px; color: var(--text-dim);
+  cursor: default;
+}
+.vsec { padding: 6px 10px 3px; font-size: 10px; letter-spacing: .06em;
+        text-transform: uppercase; color: var(--text-faint); user-select: none; }
+#vdocs { max-height: calc(var(--row-h) * 4); overflow-y: auto; }
+#vlist { max-height: calc(var(--row-h) * 7); overflow-y: auto; }
+.vrow .ac-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex-shrink: 1; }
+.vrow .vnum { color: var(--text-dim); font-variant-numeric: tabular-nums; flex-shrink: 0;
+              width: 34px; }
+.vrow.cur .vnum, .vrow.cur .ac-name { color: var(--accent); }
+.vrow.cur { cursor: default; }
+.vrow .vmod { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; align-self: center;
+              background: var(--text-faint); visibility: hidden; }
+.vrow.mod .vmod { visibility: visible; }
+.vrow .vx { margin-left: auto; flex-shrink: 0; align-self: center; width: 18px; height: 18px;
+            line-height: 18px; text-align: center; border-radius: 3px;
+            color: var(--text-faint); cursor: pointer; }
+.vrow .vx:hover { background: var(--panel-hover); color: var(--err); }
+.vrow .ac-val { flex-shrink: 0; }
+.vempty { padding: 7px 10px; color: var(--text-faint); font-size: 12px; }
+#vconfirm.hide { display: none; }
+#vconfirm { padding: 10px; border-bottom: var(--panel-sep); }
+#vconfirm .vq { color: var(--text-bright); font-size: 13px; margin-bottom: 4px; }
+#vconfirm .vqsub { color: var(--text-dim); font-size: 11px; margin-bottom: 10px; }
+#vconfirm .vbtns { display: flex; justify-content: flex-end; gap: 6px; }
+#vconfirm button {
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+  border-radius: 3px; color: var(--text); font: inherit; font-size: 12px;
+  padding: 4px 12px; cursor: pointer;
+}
+#vconfirm button:hover { background: var(--panel-hover); }
+#vconfirm button.def { border-color: var(--accent); }
+#vconfirm button .vkey { color: var(--text-faint); font-size: 10px; margin-left: 6px; }
+#verr { color: var(--err); font-size: 11px; padding: 0 10px 8px; }
+#verr:empty { display: none; }

@@ -1,0 +1,13 @@
+{
+	"autodeskProduct":	"Fusion",
+	"type":	"addin",
+	"id":	"JoshSnapView",
+	"author":	"Josh",
+	"description":	{
+		"":	"Snap View: turn the camera to the nearest of the six world directions (front/back/left/right/top/bottom), staying in perspective — same target, same distance."
+	},
+	"version":	"1.0.0",
+	"runOnStartup":	true,
+	"supportedOS":	"mac|windows",
+	"editEnabled":	true
+}

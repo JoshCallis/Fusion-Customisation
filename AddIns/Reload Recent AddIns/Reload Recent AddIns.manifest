@@ -1,0 +1,11 @@
+{
+    "autodeskProduct": "Fusion",
+    "type": "addin",
+    "id": "ReloadRecentAddIns",
+    "author": "",
+    "description": {
+        "": "Reloads the add-in whose source was edited most recently, plus any others edited within five minutes of that newest edit. Editing a shared root module (e.g. the visibility engine) reloads every add-in that uses it."
+    },
+    "version": "1.0.0",
+    "runOnStartup": true
+}

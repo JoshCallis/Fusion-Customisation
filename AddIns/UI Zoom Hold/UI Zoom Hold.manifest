@@ -1,0 +1,11 @@
+{
+    "autodeskProduct": "Fusion360",
+    "type": "addin",
+    "id": "JoshUIZoomHold",
+    "author": "",
+    "description": "UI Zoom grows the interfaces, not the model: re-sets the camera when the window is re-fitted for a zoom change (Scripts/ui_zoom.sh).",
+    "version": "1.0.0",
+    "runOnStartup": true,
+    "supportedOS": "mac",
+    "editEnabled": true
+}

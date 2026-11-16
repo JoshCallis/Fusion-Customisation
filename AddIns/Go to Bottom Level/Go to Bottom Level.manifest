@@ -1,0 +1,11 @@
+{
+    "autodeskProduct": "Fusion",
+    "type": "addin",
+    "id": "GoToBottomLevel",
+    "author": "",
+    "description": {
+        "": "Activates all the way down to the parent component of the selected geometry (keeping the selection); enters sketch edit at the bottom when a sketch is selected. Equivalent to holding Go Down a Level."
+    },
+    "version": "1.0.0",
+    "runOnStartup": true
+}

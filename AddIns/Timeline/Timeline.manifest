@@ -1,0 +1,11 @@
+{
+    "autodeskProduct": "Fusion",
+    "type": "addin",
+    "id": "FusionTimeline",
+    "author": "",
+    "description": {
+        "": "Vertical timeline for the left dock (FusionDock.app): serves the timeline rows to fusion_timeline/server.py (port 8736), applies rename / edit / suppress, and owns the dock's Browser/Timeline mode and its component lock."
+    },
+    "version": "1.0.0",
+    "runOnStartup": true
+}

@@ -1,0 +1,14 @@
+{
+	"autodeskProduct":	"Fusion",
+	"type":	"addin",
+	"id":	"JoshMinimalUI",
+	"author":	"Josh",
+	"description":	{
+		"":	"Toggle a distraction-free workspace: hide the ribbon, QAT, navigation bar, browser and timeline."
+	},
+	"version":	"1.0.0",
+	"runOnStartup":	true,
+	"supportedOS":	"mac|windows",
+	"editEnabled":	true,
+	"iconFilename":	"AddInIcon.svg"
+}

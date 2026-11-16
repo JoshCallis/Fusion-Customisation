@@ -1,0 +1,11 @@
+{
+    "autodeskProduct": "Fusion",
+    "type": "addin",
+    "id": "ToggleIsolation",
+    "author": "",
+    "description": {
+        "": "Temporarily un-isolates the active component (shows siblings/ancestors that isolation hid, minus anything the user hid); reverts to isolated the moment the active component changes."
+    },
+    "version": "1.0.0",
+    "runOnStartup": true
+}

@@ -1,0 +1,13 @@
+{
+	"autodeskProduct":	"Fusion",
+	"type":	"addin",
+	"author":	"",
+	"description":	{
+		"":	"Opens the graphical scroll-curve editor (velocity + proximity overlay curves) in your browser."
+	},
+	"version":	"",
+	"runOnStartup":	false,
+	"supportedOS":	"mac",
+	"editEnabled":	true,
+	"iconFilename":	"AddInIcon.svg"
+}

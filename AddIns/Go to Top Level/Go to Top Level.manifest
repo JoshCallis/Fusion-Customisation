@@ -1,0 +1,9 @@
+{
+    "autodeskProduct": "Fusion360",
+    "type": "addin",
+    "id": "FinishSketchOrGoToTopLevel",
+    "author": "Josh",
+    "description": "Finish Sketch or Go to Top Level",
+    "version": "1.0.0",
+    "runOnStartup": true
+}

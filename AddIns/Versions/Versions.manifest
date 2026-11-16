@@ -1,0 +1,12 @@
+{
+	"autodeskProduct":	"Fusion",
+	"type":	"addin",
+	"author":	"",
+	"description":	{
+		"":	"Quick Save (no description dialog; asks 'save as latest?' on an old version) and a Versions panel in the value window: open documents (close with a save prompt) and the active document's last 20 versions (open one — saves and closes the current)."
+	},
+	"version":	"",
+	"runOnStartup":	true,
+	"supportedOS":	"mac",
+	"editEnabled":	true
+}

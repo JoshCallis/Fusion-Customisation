@@ -1,0 +1,11 @@
+{
+    "autodeskProduct": "Fusion360",
+    "type": "addin",
+    "id": "josh-refresh-edges",
+    "author": "Josh",
+    "description": { "": "Force a full timeline rebuild to regenerate edge display (un-stick wrongly-hidden edges)." },
+    "version": "1.0.0",
+    "runOnStartup": true,
+    "supportedOS": "mac",
+    "editEnabled": true
+}

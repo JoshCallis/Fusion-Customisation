@@ -1,0 +1,13 @@
+{
+	"autodeskProduct": "Fusion",
+	"type": "addin",
+	"author": "",
+	"name": "Explode",
+	"description": {
+		"": "Dissolves the selected component occurrence into its parent, preserving world-space positions of all bodies and sub-components."
+	},
+	"version": "1.0.0",
+	"runOnStartup": false,
+	"supportedOS": "windows|mac",
+	"editEnabled": true
+}

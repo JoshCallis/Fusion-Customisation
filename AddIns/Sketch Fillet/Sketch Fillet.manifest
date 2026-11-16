@@ -1,0 +1,12 @@
+{
+	"autodeskProduct":	"Fusion",
+	"type":	"addin",
+	"author":	"Josh",
+	"description":	{
+		"":	"Sketch Fillet, with the value window as its dialog: select a corner point or two lines, type a radius — a tangent arc, trimmed, with a radius dimension whose typed value becomes a number parameter."
+	},
+	"version":	"1.0.0",
+	"runOnStartup":	true,
+	"supportedOS":	"mac",
+	"editEnabled":	true
+}

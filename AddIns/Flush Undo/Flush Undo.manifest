@@ -1,0 +1,11 @@
+{
+    "autodeskProduct": "Fusion",
+    "type": "addin",
+    "id": "FlushUndo",
+    "author": "",
+    "description": {
+        "": "Drops the active document's undo/redo transaction log by closing and reopening the document in place, restoring camera, workspace, active component and isolation. Reclaims the memory that navigating/hiding accumulates, without restarting Fusion."
+    },
+    "version": "1.0.0",
+    "runOnStartup": true
+}

@@ -1,0 +1,12 @@
+{
+	"autodeskProduct":	"Fusion",
+	"type":	"addin",
+	"author":	"",
+	"description":	{
+		"":	"Mirror, with the value window as its dialog: the plane is the X, Y or Z origin plane of the component the mirrored bodies are in (X by default), and the feature is made in that component."
+	},
+	"version":	"",
+	"runOnStartup":	true,
+	"supportedOS":	"mac",
+	"editEnabled":	true
+}

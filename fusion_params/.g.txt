@@ -1,0 +1,3 @@
+514:function closeWindow() {
+845:function onDeleteGroup(e) {
+850:  if (!confirm('Delete group "' + node.name + '"?\nIts contents move up a level.')) return;

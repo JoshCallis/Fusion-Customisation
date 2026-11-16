@@ -1,0 +1,11 @@
+{
+    "autodeskProduct": "Fusion",
+    "type": "addin",
+    "id": "AutoProjectOrigin",
+    "author": "",
+    "description": {
+        "": "Projects the top-level component's origin point into every newly created sketch, automatically. Origin point only - no axes or planes."
+    },
+    "version": "1.0.0",
+    "runOnStartup": true
+}

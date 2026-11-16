@@ -1,0 +1,13 @@
+{
+	"autodeskProduct":	"Fusion",
+	"type":	"addin",
+	"id":	"JoshMaximizeViewport",
+	"author":	"Josh",
+	"description":	{
+		"":	"Hide the title bar, document tabs and timeline and stretch the canvas edge-to-edge; re-applies on window/workspace changes."
+	},
+	"version":	"1.0.0",
+	"runOnStartup":	true,
+	"supportedOS":	"mac",
+	"editEnabled":	true
+}

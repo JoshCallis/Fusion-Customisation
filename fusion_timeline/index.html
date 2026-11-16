@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Timeline</title>
+<link rel="stylesheet" href="/theme.css">
+<script src="/appearance.js"></script>
+<script src="/fit_popups.js"></script>
+<script src="/browser_sel.js"></script>
+<link rel="stylesheet" href="/list.css">
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  <div id="list" class="fscroll" tabindex="-1"><div id="waiting">waiting for Fusion…</div></div>
+
+<!-- Every word starts with a capital — shared house rule, see fusion_ui. -->
+<script src="/capitalise.js"></script>
+<!-- The list kit: rows, groups, cursor, pick, rename, menus (fusion_ui/UI.md). -->
+<script src="/menu_aim.js"></script>
+<script src="/list.js"></script>
+<!-- Chord spelling and the ⌘, Hotkeys panel, shared with the Browser. -->
+<script src="/keys.js"></script>
+<!-- What a timeline item is called on screen (fusion_ui/tl_names.js). -->
+<script src="/tl_names.js"></script>
+<!-- The glyph a timeline item draws (fusion_ui/tl_icons.js). -->
+<script src="/tl_icons.js"></script>
+<!-- The window-only timeline groups, shared (fusion_ui/tl_groups.js). -->
+<script src="/tl_groups.js"></script>
+
+<script src="/index.js"></script>
+<!-- Claude asks: what the pointer is over (ask/ask.js, served by the bridge) -->
+<script src="http://127.0.0.1:8760/ask.js" async></script>
+</body>
+</html>

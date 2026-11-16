@@ -1,0 +1,11 @@
+{
+    "autodeskProduct": "Fusion",
+    "type": "addin",
+    "id": "DimOutsideActive",
+    "author": "",
+    "description": {
+        "": "Bodies outside the active component (all bodies while editing a sketch) draw halfway to black, via darkened copies of their own appearances. Restored before every save."
+    },
+    "version": "1.0.0",
+    "runOnStartup": true
+}

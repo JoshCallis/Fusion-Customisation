@@ -1,0 +1,9 @@
+{
+    "autodeskProduct": "Fusion360",
+    "type": "addin",
+    "id": "GoToParentComponent",
+    "author": "Josh",
+    "description": "Activate and isolate the parent of the active component",
+    "version": "1.0.0",
+    "runOnStartup": true
+}

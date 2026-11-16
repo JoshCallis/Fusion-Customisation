@@ -1,0 +1,11 @@
+{
+    "autodeskProduct": "Fusion",
+    "type": "addin",
+    "id": "ToggleSketchVisibility",
+    "author": "",
+    "description": {
+        "": "Temporarily shows/hides the active component's own sketches; reverts to the depth-based default when the active component changes."
+    },
+    "version": "1.0.0",
+    "runOnStartup": true
+}

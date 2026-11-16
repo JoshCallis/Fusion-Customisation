@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shortcuts</title>
+<link rel="stylesheet" href="/theme.css">
+<script src="/appearance.js"></script>
+<script src="/fit_popups.js"></script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+
+<div id="hdr">
+  <div id="hdr-top">
+    <label id="search" class="field">
+      <span class="ic">⌕</span>
+      <input id="q" type="text" placeholder="Commands"
+             autocomplete="off" spellcheck="false">
+    </label>
+    <div id="lookup" class="field" onclick="armLookup()">
+      <span class="ic">⌕</span>
+      <span class="ic">⌘</span>
+      <span class="lk-text" id="lk-text"></span>
+      <span class="lk-clear" id="lk-clear" style="display:none"
+            onclick="event.stopPropagation(); clearLookup()">✕</span>
+    </div>
+  </div>
+
+  <div id="hdr-tabs">
+    <span class="tab" data-tab="all"      onclick="setTab('all')">All commands</span>
+    <span class="tab" data-tab="assigned" onclick="setTab('assigned')">Assigned</span>
+    <span class="tab" data-tab="recent"   onclick="setTab('recent')">Recent</span>
+    <span id="status"></span>
+  </div>
+</div>
+
+<div id="main" class="fscroll"><div id="list"></div></div>
+
+<script src="/index.js"></script>
+<!-- Claude asks: what the pointer is over (ask/ask.js, served by the bridge) -->
+<script src="http://127.0.0.1:8760/ask.js" async></script>
+</body>
+</html>

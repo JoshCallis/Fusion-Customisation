@@ -1,0 +1,11 @@
+{
+    "autodeskProduct": "Fusion",
+    "type": "addin",
+    "id": "ActiveComponentPolicy",
+    "author": "",
+    "description": {
+        "": "Always-on watcher. Re-applies the body/sketch/origin folder-visibility policy whenever the active component changes (navigation add-ins, manual browser activation, or new-component creation)."
+    },
+    "version": "1.0.0",
+    "runOnStartup": true
+}

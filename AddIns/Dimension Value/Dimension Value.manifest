@@ -1,0 +1,11 @@
+{
+    "autodeskProduct": "Fusion",
+    "type": "addin",
+    "id": "DimensionValue",
+    "author": "",
+    "description": {
+        "": "Bigger, multi-line value box for the selected sketch dimension, with parameter-aware autocomplete and one-gesture creation of a named user parameter. Serves a WKWebView window (FusionValue.app) on port 8734."
+    },
+    "version": "1.0.0",
+    "runOnStartup": true
+}

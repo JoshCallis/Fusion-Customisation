@@ -1,0 +1,13 @@
+{
+	"autodeskProduct":	"Fusion",
+	"type":	"addin",
+	"id":	"JoshSketchLookAt",
+	"author":	"Josh",
+	"description":	{
+		"":	"Our own Auto Look At Sketch: turns the camera square onto a sketch when you open it, in perspective, framed with a margin — and puts it back when you leave, unless you orbited. Toggle from the ADD-INS panel."
+	},
+	"version":	"1.0.0",
+	"runOnStartup":	true,
+	"supportedOS":	"mac|windows",
+	"editEnabled":	true
+}

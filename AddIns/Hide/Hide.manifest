@@ -1,0 +1,12 @@
+{
+  "autodeskProduct": "Fusion360",
+  "type": "addin",
+  "id": "HideAndDeselect",
+  "author": "You",
+  "description": {
+    "": "Hide selected items and clear selection"
+  },
+  "version": "1.0.0",
+  "runOnStartup": false,
+  "supportedOS": "mac|windows"
+}

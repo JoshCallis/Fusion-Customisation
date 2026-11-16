@@ -1,0 +1,152 @@
+{
+  "_comment": [
+    "GENERAL CHORDS, a.k.a. MASTER SHORTCUTS — one chord per action, shared by",
+    "everything Control Room reaches.",
+    "",
+    "Rename is one thing whether it happens in Fusion, in the Browser window, in",
+    "the Parameters window or in Control Room itself, so its chord is written here",
+    "ONCE. Setting it propagates to everything LINKED to it: the Fusion command",
+    "ids under `fusion` (through fusion_ui/bindings.json, the same /bind path the",
+    "Fusion Shortcuts page uses), the Chrome menu items under `chrome` (through",
+    "NSUserKeyEquivalents). A remapd binding or a Control Room command links back",
+    "the other way — `\"master\": \"<id>\"` on the binding (remap/bindings.json) or",
+    "on the command (remap/controlroom_keys.json) — so the link survives renaming",
+    "this action and disappears cleanly when the binding or command stops using",
+    "it. Every window we build reads its chord from here (GET /general on each",
+    "server) rather than hardcoding one — the rule is: an action that exists in",
+    "this file is never spelled as a key anywhere else.",
+    "",
+    "  id       the action, as the windows name it in their ACTIONS tables",
+    "  label    what the Control Room page calls it",
+    "  chord    remapd's spelling: cmd+r, shift+m. The only thing stored.",
+    "           A chord may be pressed with Space HELD: 'space+d' (Space leads, as",
+    "           fusion_ui/keys.js spells it). Fanned out to Fusion as the held-Space",
+    "           variant; Chrome and Remap ▸ Keys can't hold it and are left alone.",
+    "  fusion   Fusion command ids this chord is bound to (the add-in's registry)",
+    "  chrome   Chrome menu item titles, exactly as the menu spells them",
+    "",
+    "  kind     absent (a chord), or 'modifier': the 'chord' is then a single held",
+    "           modifier (alt, ctrl, cmd, shift) with nothing fanned out - our windows",
+    "           read it themselves.",
+    "",
+    "Some windows have HARDWIRED links, not stored here: Fusion Browser reads",
+    "`rename` and `ungroup` directly; Parameters reads `rename`, `delete` and",
+    "`ungroup`; Timeline reads `ungroup`; the Value dialog reads `close-dialog`. Control",
+    "Room ▸ Master shows these as locked chips — an action any of them reads",
+    "can't be deleted."
+  ],
+  "actions": [
+    {
+      "id": "rename",
+      "label": "Rename",
+      "chord": "cmd+r",
+      "fusion": [],
+      "chrome": []
+    },
+    {
+      "id": "delete",
+      "label": "Delete",
+      "chord": "cmd+d",
+      "fusion": [],
+      "chrome": []
+    },
+    {
+      "id": "find",
+      "label": "Find",
+      "chord": "cmd+shift+f",
+      "fusion": [],
+      "chrome": []
+    },
+    {
+      "id": "close",
+      "label": "Close",
+      "chord": "cmd+e",
+      "fusion": [],
+      "chrome": []
+    },
+    {
+      "id": "nav-down",
+      "label": "Move selection down",
+      "chord": "c",
+      "fusion": [],
+      "chrome": []
+    },
+    {
+      "id": "nav-up",
+      "label": "Move selection up",
+      "chord": "r",
+      "fusion": [],
+      "chrome": []
+    },
+    {
+      "id": "nav-bottom",
+      "label": "Jump to section bottom",
+      "chord": "space+c",
+      "fusion": [],
+      "chrome": []
+    },
+    {
+      "id": "nav-top",
+      "label": "Jump to section top",
+      "chord": "space+r",
+      "fusion": [],
+      "chrome": []
+    },
+    {
+      "id": "nav-in",
+      "label": "Go in / expand",
+      "chord": "f",
+      "fusion": [],
+      "chrome": []
+    },
+    {
+      "id": "nav-out",
+      "label": "Go out / collapse",
+      "chord": "d",
+      "fusion": [],
+      "chrome": []
+    },
+    {
+      "id": "nav-in-deep",
+      "label": "Go in deep",
+      "chord": "space+f",
+      "fusion": [],
+      "chrome": []
+    },
+    {
+      "id": "nav-out-top",
+      "label": "Go out to top",
+      "chord": "space+d",
+      "fusion": [],
+      "chrome": []
+    },
+    {
+      "id": "deselect",
+      "label": "Deselect",
+      "chord": "a",
+      "fusion": [],
+      "chrome": []
+    },
+    {
+      "id": "new-group",
+      "label": "New Group",
+      "chord": "g",
+      "fusion": [],
+      "chrome": []
+    },
+    {
+      "id": "ungroup",
+      "label": "Ungroup",
+      "chord": "space+g",
+      "fusion": [],
+      "chrome": []
+    },
+    {
+      "id": "close-dialog",
+      "label": "Close Whole Dialog",
+      "chord": "space+caps_lock",
+      "fusion": [],
+      "chrome": []
+    }
+  ]
+}

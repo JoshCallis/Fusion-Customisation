@@ -1,0 +1,11 @@
+{
+    "autodeskProduct": "Fusion",
+    "type": "addin",
+    "id": "FusionBrowser",
+    "author": "",
+    "description": {
+        "": "Custom component browser. Serves a hierarchy snapshot to a WKWebView window (FusionBrowser.app) and applies navigation / visibility / rename actions back to Fusion on the main thread."
+    },
+    "version": "1.0.0",
+    "runOnStartup": true
+}

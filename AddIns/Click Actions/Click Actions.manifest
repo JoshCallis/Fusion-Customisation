@@ -1,0 +1,13 @@
+{
+    "autodeskProduct": "Fusion",
+    "type": "addin",
+    "id": "ClickActions",
+    "author": "",
+    "description": {
+        "": "Runs the Fusion command bound to each viewport click gesture (click / two-finger tap / three-finger tap, held modifiers, what was clicked) in ~/Code/Scripts/fusion_ui/clicks.json — set on Control Room > Fusion > Clicks. Log: /tmp/click_actions.log."
+    },
+    "version": "1.0.0",
+    "runOnStartup": true,
+    "supportedOS": "windows|mac",
+    "editEnabled": true
+}

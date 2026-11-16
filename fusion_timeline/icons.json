@@ -1,0 +1,69 @@
+{
+  "comment": [
+    "Entity objectType -> a directory under Fusion's UI Resources (the live bundle, see",
+    "server.py resources_root). `prefer` is the file to take from that directory, first",
+    "one present wins. A type missing here draws the page's generic glyph."
+  ],
+  "prefer": ["16x16-light_gray.svg", "16x16-dark.png", "16x16.png"],
+  "types": {
+    "adsk::fusion::Sketch":                    "sketch/sketch_create",
+    "adsk::fusion::Canvas":                    "sketch/canvas_place",
+    "adsk::fusion::Occurrence":                "NewComponent",
+
+    "adsk::fusion::ExtrudeFeature":            "solid/extrude",
+    "adsk::fusion::RevolveFeature":            "solid/revolve",
+    "adsk::fusion::SweepFeature":              "solid/sweep",
+    "adsk::fusion::LoftFeature":               "solid/loft",
+    "adsk::fusion::RibFeature":                "solid/rib",
+    "adsk::fusion::WebFeature":                "solid/web",
+    "adsk::fusion::HoleFeature":               "solid/hole",
+    "adsk::fusion::ThreadFeature":             "solid/thread",
+    "adsk::fusion::FilletFeature":             "solid/fillet",
+    "adsk::fusion::ChamferFeature":            "solid/chamfer",
+    "adsk::fusion::ShellFeature":              "solid/shell",
+    "adsk::fusion::DraftFeature":              "solid/draft",
+    "adsk::fusion::ThickenFeature":            "solid/thicken",
+    "adsk::fusion::BoxFeature":                "solid/primitive_box",
+    "adsk::fusion::CylinderFeature":           "solid/primitive_cylinder",
+    "adsk::fusion::SphereFeature":             "solid/primitive_sphere",
+    "adsk::fusion::TorusFeature":              "solid/primitive_torus",
+    "adsk::fusion::PipeFeature":               "solid/primitive_pipe",
+    "adsk::fusion::CoilFeature":               "solid/Coil",
+
+    "adsk::fusion::RectangularPatternFeature": "pattern/pattern_rectangular",
+    "adsk::fusion::CircularPatternFeature":    "pattern/pattern_circular",
+    "adsk::fusion::PathPatternFeature":        "pattern/pattern_path",
+    "adsk::fusion::MirrorFeature":             "pattern/pattern_mirror",
+
+    "adsk::fusion::CombineFeature":            "modify/combine",
+    "adsk::fusion::SplitBodyFeature":          "modify/split",
+    "adsk::fusion::SplitFaceFeature":          "modify/split_face",
+    "adsk::fusion::SilhouetteSplitFeature":    "modify/silhouette_split",
+    "adsk::fusion::MoveFeature":               "modify/move",
+    "adsk::fusion::ScaleFeature":              "modify/scale",
+    "adsk::fusion::RemoveFeature":             "modify/delete",
+    "adsk::fusion::DeleteFaceFeature":         "modify/delete",
+    "adsk::fusion::ReplaceFaceFeature":        "modify/replace_face",
+    "adsk::fusion::OffsetFacesFeature":        "modify/presspull",
+
+    "adsk::fusion::PatchFeature":              "surface/patch",
+    "adsk::fusion::StitchFeature":             "surface/stitch",
+    "adsk::fusion::UnstitchFeature":           "surface/unstitch",
+    "adsk::fusion::TrimFeature":               "surface/trim",
+    "adsk::fusion::UntrimFeature":             "surface/untrim",
+    "adsk::fusion::OffsetFeature":             "surface/offset",
+    "adsk::fusion::ExtendFeature":             "surface/extend",
+    "adsk::fusion::RuledSurfaceFeature":       "surface/ruled",
+
+    "adsk::fusion::ConstructionPlane":         "construction/plane_offset",
+    "adsk::fusion::ConstructionAxis":          "construction/axis_line",
+    "adsk::fusion::ConstructionPoint":         "construction/point_vertex",
+
+    "adsk::fusion::Joint":                     "Assembly/joint",
+    "adsk::fusion::AsBuiltJoint":              "Assembly/AsBuiltPositions",
+    "adsk::fusion::JointOrigin":               "Assembly/JointOrigin",
+    "adsk::fusion::RigidGroup":                "Assembly/RigidGroup",
+    "adsk::fusion::Snapshot":                  "Assembly/Snapshot",
+    "adsk::fusion::MotionLink":                "Assembly/MotionLink"
+  }
+}

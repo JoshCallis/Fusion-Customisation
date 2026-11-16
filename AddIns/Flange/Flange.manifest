@@ -1,0 +1,12 @@
+{
+	"autodeskProduct":	"Fusion",
+	"type":	"addin",
+	"author":	"",
+	"description":	{
+		"":	"Flange: runs Sketch Directions' Unify on the chains through the selected sketch curves, so they all run one way, then starts Fusion's own sheet-metal Flange on them — one continuous flange instead of segments facing different ways."
+	},
+	"version":	"",
+	"runOnStartup":	true,
+	"supportedOS":	"mac",
+	"editEnabled":	true
+}

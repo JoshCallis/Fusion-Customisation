@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parameters</title>
+<link rel="stylesheet" href="/theme.css">
+<script src="/appearance.js"></script>
+<script src="/fit_popups.js"></script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+
+<div id="main" class="fscroll" onclick="onMainClick(event)">
+  <div id="offline">
+    Waiting…<br>
+    <small>Make sure the add-in is loaded.<br>
+    Server: <code>http://localhost:8731</code></small>
+  </div>
+  <!-- The nested edit stack's trail: hidden while editStack is empty. Double-click a
+       parameter NAME inside another one's expression to drill into it (see
+       tryEnterNested); each crumb here jumps straight back to that level, and Escape
+       steps back one at a time. See index.js, "Nested edit stack". -->
+  <div id="edit-breadcrumb" class="hide"></div>
+  <div id="col-divider"></div>
+  <div id="groups-root"
+       ondragover="onListDragOver(event)" ondrop="onListDrop(event)">
+    <div id="drop-line"></div>
+  </div>
+</div>
+
+<!-- The structured feature/type/anchor naming convention — used only to derive a
+     parsed parameter's place in the group tree (see index.js, "Derived groups").
+     Missing or unreachable just means nothing gets auto-grouped; every ParamNaming
+     call is behind paramNamingReady. -->
+<script src="/param_naming.js"></script>
+<!-- Chord spelling and the ⌘, Hotkeys panel, shared with the Browser window. -->
+<script src="/keys.js"></script>
+<script src="/index.js"></script>
+<!-- Claude asks: what the pointer is over (ask/ask.js, served by the bridge) -->
+<script src="http://127.0.0.1:8760/ask.js" async></script>
+</body>
+</html>
